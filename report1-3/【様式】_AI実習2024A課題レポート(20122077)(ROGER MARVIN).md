@@ -145,6 +145,9 @@
 
 技術な的なことは、Protegeで作ったOWLを参考として、RDFを作りました。作ったRDFは災害の時にのRDFです。
 また、自分のゲーム開発のために、簡単なゲームRDFを作りました。まだ未完成ですが、ある程度見たら、自分以外の開発者が理解できました。
+![Example Image](images/RDF01.jpg)
+
+![Example Image](images/RDF02.jpg)
 
 ---
 
