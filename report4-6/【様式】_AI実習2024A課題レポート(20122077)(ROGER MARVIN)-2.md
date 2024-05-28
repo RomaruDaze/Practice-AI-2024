@@ -139,6 +139,115 @@
 ---
 
 ### [自己成長、成果、上位成績に向けて]　個人成果の報告　
+XMLを初めて書いて、しかし書き方はHTMLと似ているので、学びとかそんなに難しくなっかたです。ゲームのXMLを作成際、自分がこのXMLの価値や拡張性に関して意識します。自分が作ったXML（Final Fantasy）のXMLは簡単なXMLですが、しかし、ゲーム以外のものに使えば、価値が出ると思いあます。
+XMLは以下通りです。
+｀｀｀
+<?xml-stylesheet type="text/xsl" href="./html_table.xslt"?>
+<!DOCTYPE FF7 [
+    <!ELEMENT FF7 (Character*)>
+    <!ELEMENT Character (Name, Job, Level, Health, Mana, Strength, Defense, Magic, LimitBreaks)>
+    <!ATTLIST Character id CDATA #REQUIRED>
+    <!ELEMENT Name (#PCDATA)>
+    <!ELEMENT Job (#PCDATA)>
+    <!ELEMENT Level (#PCDATA)>
+    <!ELEMENT Health (#PCDATA)>
+    <!ELEMENT Mana (#PCDATA)>
+    <!ELEMENT Strength (#PCDATA)>
+    <!ELEMENT Defense (#PCDATA)>
+    <!ELEMENT Magic (#PCDATA)>
+    <!ELEMENT LimitBreaks (LimitBreak+)>
+    <!ELEMENT LimitBreak (#PCDATA)>
+]>
+<FF7>
+    <Character id="0001">
+        <Name>Cloud Strife</Name>
+        <Job>SOLDIER</Job>
+        <Level>50</Level>
+        <Health>9999</Health>
+        <Mana>999</Mana>
+        <Strength>150</Strength>
+        <Defense>120</Defense>
+        <Magic>130</Magic>
+        <LimitBreaks>
+            <LimitBreak>Omni Slash</LimitBreak>
+            <LimitBreak>Climhazzard</LimitBreak>
+            <LimitBreak>Brave</LimitBreak>
+            <LimitBreak>Cross-Slash</LimitBreak>
+            <LimitBreak>Blade Beam</LimitBreak>
+            <LimitBreak>Meteorain</LimitBreak>
+            <LimitBreak>Finishing Touch</LimitBreak>
+        </LimitBreaks>
+    </Character>
+    <Character id="0002">
+        <Name>Tifa Lockhart</Name>
+        <Job>Monk</Job>
+        <Level>48</Level>
+        <Health>9500</Health>
+        <Mana>800</Mana>
+        <Strength>140</Strength>
+        <Defense>110</Defense>
+        <Magic>120</Magic>
+        <LimitBreaks>
+            <LimitBreak>Dolphin Blow</LimitBreak>
+            <LimitBreak>Final Heaven</LimitBreak>
+            <LimitBreak>Beat Rush</LimitBreak>
+            <LimitBreak>Somersault</LimitBreak>
+            <LimitBreak>Meteodrive</LimitBreak>
+            <LimitBreak>Meteor Strike</LimitBreak>
+        </LimitBreaks>
+    </Character>
+    <Character id="0003">
+        <Name>Aerith Gainsborough</Name>
+        <Job>Flower Girl</Job>
+        <Level>45</Level>
+        <Health>9000</Health>
+        <Mana>1100</Mana>
+        <Strength>120</Strength>
+        <Defense>100</Defense>
+        <Magic>150</Magic>
+        <LimitBreaks>
+            <LimitBreak>Healing Wind</LimitBreak>
+            <LimitBreak>Seal Evil</LimitBreak>
+            <LimitBreak>Breath of the Earth</LimitBreak>
+            <LimitBreak>Fury Brand</LimitBreak>
+            <LimitBreak>Planet Protector</LimitBreak>
+            <LimitBreak>Pulse of Life</LimitBreak>
+            <LimitBreak>Great Gospel</LimitBreak>
+        </LimitBreaks>
+    </Character>
+    <Character id="0004">
+        <Name>Sephiroth</Name>
+        <Job>SOLDIER First Class</Job>
+        <Level>50</Level>
+        <Health>100000</Health>
+        <Mana>5000</Mana>
+        <Strength>240</Strength>
+        <Defense>200</Defense>
+        <Magic>200</Magic>
+        <LimitBreaks>
+            <LimitBreak>Supernova</LimitBreak>
+        </LimitBreaks>
+    </Character>
+    <Character id="0005">
+        <Name>Zack Fair</Name>
+        <Job>SOLDIER</Job>
+        <Level>50</Level>
+        <Health>9999</Health>
+        <Mana>999</Mana>
+        <Strength>150</Strength>
+        <Defense>120</Defense>
+        <Magic>130</Magic>
+        <LimitBreaks>
+            <LimitBreak>Omni Slash</LimitBreak>
+            <LimitBreak>Rush Assault</LimitBreak>
+        </LimitBreaks>
+    </Character>
+</FF7>
+｀｀｀
+
+また、オントロジーの話があります。2年生のときでも自分でつくったMarvelの映画のオントロジーがあります。それの理解を基づいて、第6回の講義で映画ではないですが、ゲーム開発のオンとロジーを発表しました。もちろん、今回発表したゲームオントロジーは2年生と比べたら、レベルも高まったし、結構よかっただともいます。成長が感じました。もういかいProtegeを利用して、2年生で経験と学んだもの全部思い出しました。
+以下そのスクリーンショットです。
+
 
 
 
