@@ -141,7 +141,8 @@
 ### [自己成長、成果、上位成績に向けて]　個人成果の報告　
 XMLを初めて書いて、しかし書き方はHTMLと似ているので、学びとかそんなに難しくなっかたです。ゲームのXMLを作成際、自分がこのXMLの価値や拡張性に関して意識します。自分が作ったXML（Final Fantasy）のXMLは簡単なXMLですが、しかし、ゲーム以外のものに使えば、価値が出ると思いあます。
 XMLは以下通りです。
-｀｀｀
+
+```
 <?xml-stylesheet type="text/xsl" href="./html_table.xslt"?>
 <!DOCTYPE FF7 [
     <!ELEMENT FF7 (Character*)>
@@ -157,7 +158,7 @@ XMLは以下通りです。
     <!ELEMENT Magic (#PCDATA)>
     <!ELEMENT LimitBreaks (LimitBreak+)>
     <!ELEMENT LimitBreak (#PCDATA)>
-]>
+    ]>
 <FF7>
     <Character id="0001">
         <Name>Cloud Strife</Name>
@@ -243,7 +244,7 @@ XMLは以下通りです。
         </LimitBreaks>
     </Character>
 </FF7>
-｀｀｀
+```
 
 また、オントロジーの話があります。2年生のときでも自分でつくったMarvelの映画のオントロジーがあります。それの理解を基づいて、第6回の講義で映画ではないですが、ゲーム開発のオンとロジーを発表しました。もちろん、今回発表したゲームオントロジーは2年生と比べたら、レベルも高まったし、結構よかっただともいます。成長が感じました。もういかいProtegeを利用して、2年生で経験と学んだもの全部思い出しました。
 以下そのスクリーンショットです。
