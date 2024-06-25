@@ -142,15 +142,25 @@
 
 
 ---
-Protegeでのオントロジーのグラフ
+## Stellar Bladeのゲームのオントロジーグラフ
 ![Stellar-Blade Overall Ontology](./onto_stellar1.png)
+
+## OracleというCharacter x Monster(Alpha Naytibas)のMannというSide-characterとの関係
 ![Stellar-Blade Oracle Relation 1](./onto_stellar2.png)
 ![Stellar-Blade Oracle Relation 2](./onto_stellar3.png)
+
+## OutーgameのBGMs関係
 ![Stellar-Blade BGMs Outgame](./onto_stellar4.png)
 
 ---
-ゲーム開発の全体的のグラフ・フローチャート
-![FLowchart](./onto2.png)
+## 科目の全体的のオントロジー
+![Study Overall](./study1.png)
+
+## 波という物理のの科目の関係
+![Study waves](./study2.png)
+
+##　距離(M)というユニット
+![Study distance](./study3.png)
 
 ---
 ゲーム開発のAchievementの詳細
