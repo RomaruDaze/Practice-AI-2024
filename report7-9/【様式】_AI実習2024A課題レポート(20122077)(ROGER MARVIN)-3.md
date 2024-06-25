@@ -159,12 +159,15 @@
 ## 波という物理のの科目の関係
 ![Study waves](./study2.png)
 
-##　距離(M)というユニット
+## 距離(M)というユニット
 ![Study distance](./study3.png)
 
 ---
-ゲーム開発のAchievementの詳細
-![achievement](./onto3.png)
+## アニマルのインスタンスのSKOS,FOAF,DCの使い
+![Animal Class Ontology](./skos1.png)
+## MammalsとCatのSKOS ,FOAF,DCの使い
+![Mammals](./skos2.png)
+![Example of Mammals](./skos3.png)
 
 ---
 
