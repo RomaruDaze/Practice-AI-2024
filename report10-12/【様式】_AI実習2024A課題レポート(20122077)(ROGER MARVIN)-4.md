@@ -129,16 +129,527 @@
 
 | 回数  | グループ名    | 発表者 | 発表内容 | 発表への質疑・コメント |
 | :--: | :--------: |  :-- | :-- | :-- |
-|  12   | **順風満帆** | 平栗颯萌、倉石大暉 |  |  |
-|  12   | **臥薪嘗胆** | 阿部一成、長橋弘幸 |  |  |
-|  12   | **不撓不屈** | 大竹啓之 |  |  |
-|  12   | **雪中松柏** | 臼田誠 |  |  |
-|  12   | **積水成淵** | 加藤颯士、八幡真也 |  |  |
-|  12   | **日進月歩** | 山崎秀晃 |  |  |
+|  12   | **順風満帆** | 平栗颯萌、倉石大暉 | 平栗くんスプラトゥーンに関するオントロジーで、シューターのダメージが30以上かつメガトンレーザーが使用可能な武器を検索しています。これにより、戦略的なゲームプレイの支援を目指しています。一方、倉石くんはSPARQLのエンドポイントをエディターで表示し、ローカルホストでサーバーを立ち上げてリクエストに応答するシステムを構築しています。これにより、効率的なデータの管理と処理が可能となります。 | 前回の引き続きで結構分かりやすいで、しかし前回より難しいで、結構わかりにくいですね。もちろん、よく見たら分かりますが、やはり倉石くんのレベルは高いです。すごいです。 |
+|  12   | **臥薪嘗胆** | 阿部一成、長橋弘幸 | 阿部くんはジャパンサーチを使用して検索を行いましたが、"織田信長"と入力すると作者ではなく関連する作品が表示されました。Pythonでも同様に関連した作品が表示されていることが確認されました。一方、長橋くんはアンデットアンラックのオントロジーで、前回表示できなかった"否定者"という能力を持ったキャラクターを検索できるように改善しました。しかし、組織との関係性の表示には課題があるそうです。 | 阿部一成さんは、検索結果が意図したものと異なっており、絞り込むクエリの改善が必要です。一方、長橋弘幸さんは、オントロジーの検索精度向上に取り組んでいますが、組織との関係性の表示についてはさらなる改善が求められています。 |
+|  12   | **不撓不屈** | 大竹啓之 | 大竹くんは星座のオントロジーにおいて、星座の名前を検索すると「星の名前」と「明るさ」を同時に検索できるように改善しました。これにより、以前は星座の検索で星の名前しか表示されなかった問題を解決し、星の名前からでも星座を効率的に検索できるようになりました。 | 前回の引き続きで、結構レベルアップしました。しかし、今回の説明は結構分かりにくいです。 |
+|  12   | **雪中松柏** | 臼田誠 | 誠くんが前回チームで作ったコンビニオンとロージーと作ったSPARQLクエリでサブクエリを発表しました。また、今回講義で紹介してもらったVirtuosoでSPARQLを起動して、発表で報告しました。| 第10回の発表から引き続いて発表内容はわかりやすいし、オンとロージー自体は簡単なもので、見たらすぐにわかるものです。発表の説明も分かりやすいで、実際Virtuosoでクエリを実行できました。 |
+|  12   | **積水成淵** | 加藤颯士、八幡真也 | 加藤くんは三段階進化するポケモンを検索するためのシステムを開発しています。進化前と進化後のオブジェクトを両方持つポケモンから、三段階進化を見つけ出すことが可能です。八幡さんは作者の別名義を表示させるためのクエリを構築しています。また、配偶者が死別した場合の俳優を特定するために、"死別"という言葉を含む情報を検索しています。 | 前回の引き続きで結構分かりやすいで、前回より面白かったです。 |
+|  12   | **日進月歩** | 山崎秀晃 | 山崎くんは諸説とその著者を検索するクエリを開発しています。現在、このサービスはウィキペディアで運用されており、アニメ作品に関する情報の検索に課題があります。 | 使ったオンとロージーは普通ですが、オンとロージーとSPARQLのサブクエリの説明は結構分かりやういです。 |
 
 ---
 
 ### [自己成長、成果、上位成績に向けて]　個人成果の報告　
+
+第10回から第12回までの講義は今まで作ったオンとロージーをSPARQLクエリで実行したら、オンとロージーの情報やデータをゲットできると分かりました。自分のチームは今回一緒に取り組んで、復習なオンとロージーを作りました。自分が頑張ったものは二つあります。まず、結構前の時でFF7のXMLをオンとロージー化し変化して、SPARQLを実行しました。コートと結果は以下の通りです。
+```owl
+<!DOCTYPE rdf:RDF [
+    <!ENTITY xsd "entity-value">
+]>
+<rdf:RDF xmlns="http://www.example.org/ff7#"
+    xml:base="http://www.example.org/ff7"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.example.org/ff7" />
+
+    <!-- Classes -->
+    <owl:Class rdf:about="#Character" />
+    <owl:Class rdf:about="#LimitBreak" />
+
+    <!-- Properties -->
+    <owl:DatatypeProperty rdf:about="#hasName">
+        <rdfs:domain rdf:resource="#Character" />
+        <rdfs:range />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="#hasJob">
+        <rdfs:domain rdf:resource="#Character" />
+        <rdfs:range />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="#hasLevel">
+        <rdfs:domain rdf:resource="#Character" />
+        <rdfs:range />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="#hasHealth">
+        <rdfs:domain rdf:resource="#Character" />
+        <rdfs:range />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="#hasMana">
+        <rdfs:domain rdf:resource="#Character" />
+        <rdfs:range />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="#hasStrength">
+        <rdfs:domain rdf:resource="#Character" />
+        <rdfs:range />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="#hasDefense">
+        <rdfs:domain rdf:resource="#Character" />
+        <rdfs:range />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="#hasMagic">
+        <rdfs:domain rdf:resource="#Character" />
+        <rdfs:range />
+    </owl:DatatypeProperty>
+    <owl:ObjectProperty rdf:about="#hasLimitBreak">
+        <rdfs:domain rdf:resource="#Character" />
+        <rdfs:range />
+    </owl:ObjectProperty>
+
+    <!-- Individuals -->
+    <owl:NamedIndividual rdf:about="#Cloud_Strife">
+        <rdf:type rdf:resource="#Character" />
+        <hasName>Cloud Strife</hasName>
+        <hasJob>SOLDIER</hasJob>
+        <hasLevel>50</hasLevel>
+        <hasHealth>9999</hasHealth>
+        <hasMana>999</hasMana>
+        <hasStrength>150</hasStrength>
+        <hasDefense>120</hasDefense>
+        <hasMagic>130</hasMagic>
+        <hasLimitBreak rdf:resource="#Omni_Slash" />
+        <hasLimitBreak rdf:resource="#Climhazzard" />
+        <hasLimitBreak rdf:resource="#Brave" />
+        <hasLimitBreak rdf:resource="#Cross_Slash" />
+        <hasLimitBreak rdf:resource="#Blade_Beam" />
+        <hasLimitBreak rdf:resource="#Meteorain" />
+        <hasLimitBreak rdf:resource="#Finishing_Touch" />
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Tifa_Lockhart">
+        <rdf:type rdf:resource="#Character" />
+        <hasName>Tifa Lockhart</hasName>
+        <hasJob>Martial Artist</hasJob>
+        <hasLevel>50</hasLevel>
+        <hasHealth>9000</hasHealth>
+        <hasMana>800</hasMana>
+        <hasStrength>140</hasStrength>
+        <hasDefense>110</hasDefense>
+        <hasMagic>120</hasMagic>
+        <hasLimitBreak rdf:resource="#Final_Heaven" />
+        <hasLimitBreak rdf:resource="#Beat_Rush" />
+        <hasLimitBreak rdf:resource="#Somersault" />
+        <hasLimitBreak rdf:resource="#Waterkick" />
+        <hasLimitBreak rdf:resource="#Meteodrive" />
+        <hasLimitBreak rdf:resource="#Dolphin_Blow" />
+        <hasLimitBreak rdf:resource="#Meteor_Strike" />
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Red_XIII">
+        <rdf:type rdf:resource="#Character" />
+        <hasName>Red XIII</hasName>
+        <hasJob>Beast</hasJob>
+        <hasLevel>50</hasLevel>
+        <hasHealth>9500</hasHealth>
+        <hasMana>850</hasMana>
+        <hasStrength>130</hasStrength>
+        <hasDefense>115</hasDefense>
+        <hasMagic>125</hasMagic>
+        <hasLimitBreak rdf:resource="#Cosmo_Memory" />
+        <hasLimitBreak rdf:resource="#Sled_Fang" />
+        <hasLimitBreak rdf:resource="#Lunatic_High" />
+        <hasLimitBreak rdf:resource="#Blood_Fang" />
+        <hasLimitBreak rdf:resource="#Stardust_Ray" />
+        <hasLimitBreak rdf:resource="#Howling_Moon" />
+        <hasLimitBreak rdf:resource="#Earth_Rave" />
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Aerith_Gainsborough">
+        <rdf:type rdf:resource="#Character" />
+        <hasName>Aerith Gainsborough</hasName>
+        <hasJob>Flower Girl</hasJob>
+        <hasLevel>50</hasLevel>
+        <hasHealth>8000</hasHealth>
+        <hasMana>1000</hasMana>
+        <hasStrength>100</hasStrength>
+        <hasDefense>100</hasDefense>
+        <hasMagic>150</hasMagic>
+        <hasLimitBreak rdf:resource="#Great_Gospel" />
+        <hasLimitBreak rdf:resource="#Healing_Wind" />
+        <hasLimitBreak rdf:resource="#Seal_Evil" />
+        <hasLimitBreak rdf:resource="#Breath_of_the_Earth" />
+        <hasLimitBreak rdf:resource="#Fury_Brand" />
+        <hasLimitBreak rdf:resource="#Planet_Protector" />
+        <hasLimitBreak rdf:resource="#Pulse_of_Life" />
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Barret_Wallace">
+        <rdf:type rdf:resource="#Character" />
+        <hasName>Barret Wallace</hasName>
+        <hasJob>Leader of AVALANCHE</hasJob>
+        <hasLevel>50</hasLevel>
+        <hasHealth>9800</hasHealth>
+        <hasMana>700</hasMana>
+        <hasStrength>160</hasStrength>
+        <hasDefense>130</hasDefense>
+        <hasMagic>110</hasMagic>
+        <hasLimitBreak rdf:resource="#Catastrophe" />
+        <hasLimitBreak rdf:resource="#Big_Shot" />
+        <hasLimitBreak rdf:resource="#Mindblow" />
+        <hasLimitBreak rdf:resource="#Grenade_Bomb" />
+        <hasLimitBreak rdf:resource="#Hammerblow" />
+        <hasLimitBreak rdf:resource="#Satellite_Beam" />
+        <hasLimitBreak rdf:resource="#Ungarmax" />
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Zack_Fair">
+        <rdf:type rdf:resource="#Character" />
+        <hasName>Zack Fair</hasName>
+        <hasJob>SOLDIER</hasJob>
+        <hasLevel>50</hasLevel>
+        <hasHealth>9500</hasHealth>
+        <hasMana>900</hasMana>
+        <hasStrength>150</hasStrength>
+        <hasDefense>120</hasDefense>
+        <hasMagic>130</hasMagic>
+        <hasLimitBreak rdf:resource="#Rush_Assault" />
+        <hasLimitBreak rdf:resource="#Chain_Slash" />
+        <hasLimitBreak rdf:resource="#Meteor_Shower" />
+        <hasLimitBreak rdf:resource="#Octaslash" />
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Sephiroth">
+        <rdf:type rdf:resource="#Character" />
+        <hasName>Sephiroth</hasName>
+        <hasJob>SOLDIER</hasJob>
+        <hasLevel>99</hasLevel>
+        <hasHealth>9999</hasHealth>
+        <hasMana>999</hasMana>
+        <hasStrength>200</hasStrength>
+        <hasDefense>150</hasDefense>
+        <hasMagic>180</hasMagic>
+        <hasLimitBreak rdf:resource="#Supernova" />
+        <hasLimitBreak rdf:resource="#Hell's_Gate" />
+        <hasLimitBreak rdf:resource="#Shadow_Flare" />
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Yuffie_Kisaragi">
+        <rdf:type rdf:resource="#Character" />
+        <hasName>Yuffie Kisaragi</hasName>
+        <hasJob>Ninja</hasJob>
+        <hasLevel>50</hasLevel>
+        <hasHealth>8500</hasHealth>
+        <hasMana>900</hasMana>
+        <hasStrength>130</hasStrength>
+        <hasDefense>110</hasDefense>
+        <hasMagic>120</hasMagic>
+        <hasLimitBreak rdf:resource="#All_Creation" />
+        <hasLimitBreak rdf:resource="#Greased_Lightning" />
+        <hasLimitBreak rdf:resource="#Clear_Tranquil" />
+        <hasLimitBreak rdf:resource="#Landscaper" />
+        <hasLimitBreak rdf:resource="#Bloodfest" />
+        <hasLimitBreak rdf:resource="#Gauntlet" />
+        <hasLimitBreak rdf:resource="#Doom_of_the_Living" />
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Cait_Sith">
+        <rdf:type rdf:resource="#Character" />
+        <hasName>Cait Sith</hasName>
+        <hasJob>Toy</hasJob>
+        <hasLevel>50</hasLevel>
+        <hasHealth>8000</hasHealth>
+        <hasMana>850</hasMana>
+        <hasMana>1000</hasMana>
+        <hasStrength>100</hasStrength>
+        <hasDefense>100</hasDefense>
+        <hasMagic>150</hasMagic>
+        <hasLimitBreak rdf:resource="#Mog_Riot" />
+        <hasLimitBreak rdf:resource="#Dice" />
+        <hasLimitBreak rdf:resource="#Slots" />
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Vincent_Valentine">
+        <rdf:type rdf:resource="#Character" />
+        <hasName>Vincent Valentine</hasName>
+        <hasJob>Gunslinger</hasJob>
+        <hasLevel>50</hasLevel>
+        <hasHealth>9000</hasHealth>
+        <hasMana>800</hasMana>
+        <hasStrength>140</hasStrength>
+        <hasDefense>110</hasDefense>
+        <hasMagic>120</hasMagic>
+        <hasLimitBreak rdf:resource="#Galian_Beast" />
+        <hasLimitBreak rdf:resource="#Death_Gigas" />
+        <hasLimitBreak rdf:resource="#Hellmasker" />
+        <hasLimitBreak rdf:resource="#Chaos" />
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Cid_Highwind">
+        <rdf:type rdf:resource="#Character" />
+        <hasName>Cid Highwind</hasName>
+        <hasJob>Pilot</hasJob>
+        <hasLevel>50</hasLevel>
+        <hasHealth>8500</hasHealth>
+        <hasMana>900</hasMana>
+        <hasStrength>130</hasStrength>
+        <hasDefense>110</hasDefense>
+        <hasMagic>120</hasMagic>
+        <hasLimitBreak rdf:resource="#Highwind" />
+        <hasLimitBreak rdf:resource="#Boost_Jump" />
+        <hasLimitBreak rdf:resource="#Dynamite" />
+        <hasLimitBreak rdf:resource="#Hyper_Jump" />
+        <hasLimitBreak rdf:resource="#Dragon" />
+        <hasLimitBreak rdf:resource="#Dragon_Dive" />
+        <hasLimitBreak rdf:resource="#Big_Brawl" />
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="#Omni_Slash">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Climhazzard">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Brave">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Cross_Slash">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Blade_Beam">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Meteorain">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Finishing_Touch">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Final_Heaven">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Cosmo_Memory">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Great_Gospel">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Catastrophe">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Rush_Assault">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Supernova">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#All_Creation">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Mog_Riot">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Galian_Beast">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Highwind">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Beat_Rush">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Somersault">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Waterkick">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Meteodrive">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Dolphin_Blow">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Meteor_Strike">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Sled_Fang">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Lunatic_High">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Blood_Fang">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Stardust_Ray">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Howling_Moon">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Earth_Rave">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Healing_Wind">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Seal_Evil">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Breath_of_the_Earth">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Fury_Brand">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Planet_Protector">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Pulse_of_Life">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Big_Shot">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Mindblow">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Grenade_Bomb">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Hammerblow">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Satellite_Beam">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Ungarmax">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Chain_Slash">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Meteor_Shower">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Octaslash">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Hell's_Gate">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Shadow_Flare">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Greased_Lightning">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Clear_Tranquil">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Landscaper">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Bloodfest">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Gauntlet">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Doom_of_the_Living">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Dice">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Slots">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Death_Gigas">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Hellmasker">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Chaos">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Boost_Jump">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Dynamite">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Hyper_Jump">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Dragon">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Dragon_Dive">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Big_Brawl">
+        <rdf:type rdf:resource="#LimitBreak" />
+    </owl:NamedIndividual>
+
+</rdf:RDF>
+```
+### SPARQL QUERY
+```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ff7: <http://www.example.org/ff7#>
+
+SELECT ?character ?name ?limitBreak
+WHERE {
+  ?character rdf:type ff7:Character .
+  ?character ff7:hasName ?name .
+  ?character ff7:hasLimitBreak ?limitBreak .
+  FILTER(REGEX(STR(?name), "Cloud", "i"))
+}
+ORDER BY ?name 
+
+```
+![SPARQL QUERY](./ff7query.png)
+### SUB-QUERY
+```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ff7: <http://www.example.org/ff7#>
+SELECT ?character ?name ?limitBreak
+WHERE {
+  {
+    SELECT ?character ?name
+    WHERE {
+      ?character rdf:type ff7:Character .
+      ?character ff7:hasName ?name .
+      FILTER(REGEX(STR(?name), "Cloud", "i"))
+    }
+  }
+  ?character ff7:hasLimitBreak ?limitBreak .
+}
+ORDER BY ?name 
+```
+![SUB-QUERY 1](./ff7subquery1.png)
+
+```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ff7: <http://www.example.org/ff7#>
+
+SELECT ?character ?name ?job ?level ?health ?mana ?strength ?defense ?magic
+WHERE {
+  {
+    SELECT ?character ?name ?job ?level ?health ?mana ?strength ?defense ?magic
+    WHERE {
+      ?character rdf:type ff7:Character .
+      ?character ff7:hasName ?name .
+      ?character ff7:hasJob ?job .
+      ?character ff7:hasLevel ?level .
+      ?character ff7:hasHealth ?health .
+      ?character ff7:hasMana ?mana .
+      ?character ff7:hasStrength ?strength .
+      ?character ff7:hasDefense ?defense .
+      ?character ff7:hasMagic ?magic .
+    }
+  }
+}
+ORDER BY ?name
+```
+![SUB-QUERY 2](./ff7subquery2.png)
 
 
 ---
