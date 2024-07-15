@@ -141,6 +141,8 @@
 ### [自己成長、成果、上位成績に向けて]　個人成果の報告　
 
 第10回から第12回までの講義は今まで作ったオンとロージーをSPARQLクエリで実行したら、オンとロージーの情報やデータをゲットできると分かりました。自分のチームは今回一緒に取り組んで、復習なオンとロージーを作りました。自分が頑張ったものは二つあります。まず、結構前の時でFF7のXMLをオンとロージー化し変化して、SPARQLを実行しました。コートと結果は以下の通りです。
+
+## Final Fantasy 7 オンとロージー
 ```owl
 <!DOCTYPE rdf:RDF [
     <!ENTITY xsd "entity-value">
@@ -601,6 +603,8 @@ WHERE {
 ORDER BY ?name 
 
 ```
+> FILTER(REGEX(STR(?name), "Cloud", "i"))は検索する時に使ったフィルターです。例えば「CLoud」や「cLoUd」をクエリに入力しても、「Cloud Strife」というキャラのデータがゲットできるフィルターです。
+
 ![SPARQL QUERY](./ff7query.png)
 ### SUB-QUERY
 ```sparql
@@ -624,7 +628,7 @@ ORDER BY ?name
 ```
 ![SUB-QUERY 1](./ff7subquery1.png)
 
-```
+```sparql
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -652,19 +656,241 @@ ORDER BY ?name
 ![SUB-QUERY 2](./ff7subquery2.png)
 
 
----
-Protegeでのオントロジーのグラフ
-![OWLViz](./onto1.png)
+## コンビニ オンとロージー
+```owl
+<!DOCTYPE rdf:RDF [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]><!-- File: japan_convenience_store_food.owl -->
+<rdf:RDF xmlns="http://www.example.org/japan_convenience_store_food#"
+    xml:base="http://www.example.org/japan_convenience_store_food"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+    <owl:Ontology rdf:about="http://www.example.org/japan_convenience_store_food" />
 
----
-ゲーム開発の全体的のグラフ・フローチャート
-![FLowchart](./onto2.png)
+    <!-- Classes -->
+    <owl:Class rdf:about="#Food" />
+    <owl:Class rdf:about="#Bento">
+        <rdfs:subClassOf rdf:resource="#Food" />
+    </owl:Class>
+    <owl:Class rdf:about="#Onigiri">
+        <rdfs:subClassOf rdf:resource="#Food" />
+    </owl:Class>
+    <owl:Class rdf:about="#Sandwich">
+        <rdfs:subClassOf rdf:resource="#Food" />
+    </owl:Class>
+    <owl:Class rdf:about="#Drink">
+        <rdfs:subClassOf rdf:resource="#Food" />
+    </owl:Class>
+    <owl:Class rdf:about="#Snack">
+        <rdfs:subClassOf rdf:resource="#Food" />
+    </owl:Class>
+    <owl:Class rdf:about="#Dessert">
+        <rdfs:subClassOf rdf:resource="#Food" />
+    </owl:Class>
+    <owl:Class rdf:about="#InstantNoodle">
+        <rdfs:subClassOf rdf:resource="#Food" />
+    </owl:Class>
+    <owl:Class rdf:about="#Salad">
+        <rdfs:subClassOf rdf:resource="#Food" />
+    </owl:Class>
+    <owl:Class rdf:about="#Soup">
+        <rdfs:subClassOf rdf:resource="#Food" />
+    </owl:Class>
+    <owl:Class rdf:about="#Fruit">
+        <rdfs:subClassOf rdf:resource="#Food" />
+    </owl:Class>
+    <owl:Class rdf:about="#Bakery">
+        <rdfs:subClassOf rdf:resource="#Food" />
+    </owl:Class>
+    <owl:Class rdf:about="#Dairy">
+        <rdfs:subClassOf rdf:resource="#Food" />
+    </owl:Class>
 
----
-ゲーム開発のAchievementの詳細
-![achievement](./onto3.png)
+    <!-- Properties -->
+    <owl:DatatypeProperty rdf:about="#hasPrice">
+        <rdfs:domain rdf:resource="#Food" />
+        <rdfs:range rdf:resource="&xsd;float" />
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="#hasCalories">
+        <rdfs:domain rdf:resource="#Food" />
+        <rdfs:range rdf:resource="&xsd;float" />
+    </owl:DatatypeProperty>
 
----
+    <!-- Individuals -->
+    <owl:NamedIndividual rdf:about="#ChickenBento">
+        <rdf:type rdf:resource="#Bento" />
+        <hasPrice>¥500.0</hasPrice>
+        <hasCalories>700.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#TunaOnigiri">
+        <rdf:type rdf:resource="#Onigiri" />
+        <hasPrice>¥150.0</hasPrice>
+        <hasCalories>200.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#EggSandwich">
+        <rdf:type rdf:resource="#Sandwich" />
+        <hasPrice>¥250.0</hasPrice>
+        <hasCalories>300.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#GreenTea">
+        <rdf:type rdf:resource="#Drink" />
+        <hasPrice>¥100.0</hasPrice>
+        <hasCalories>0.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#PotatoChips">
+        <rdf:type rdf:resource="#Snack" />
+        <hasPrice>¥120.0</hasPrice>
+        <hasCalories>550.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#ChocolateBar">
+        <rdf:type rdf:resource="#Snack" />
+        <hasPrice>¥100.0</hasPrice>
+        <hasCalories>250.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Mochi">
+        <rdf:type rdf:resource="#Dessert" />
+        <hasPrice>¥200.0</hasPrice>
+        <hasCalories>300.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#CupNoodles">
+        <rdf:type rdf:resource="#InstantNoodle" />
+        <hasPrice>¥150.0</hasPrice>
+        <hasCalories>400.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#CaesarSalad">
+        <rdf:type rdf:resource="#Salad" />
+        <hasPrice>¥350.0</hasPrice>
+        <hasCalories>150.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#FruitSalad">
+        <rdf:type rdf:resource="#Salad" />
+        <hasPrice>¥300.0</hasPrice>
+        <hasCalories>120.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#SpicyChickenBento">
+        <rdf:type rdf:resource="#Bento" />
+        <hasPrice>¥550.0</hasPrice>
+        <hasCalories>750.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#SalmonOnigiri">
+        <rdf:type rdf:resource="#Onigiri" />
+        <hasPrice>¥180.0</hasPrice>
+        <hasCalories>220.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#HamSandwich">
+        <rdf:type rdf:resource="#Sandwich" />
+        <hasPrice>¥270.0</hasPrice>
+        <hasCalories>320.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#OolongTea">
+        <rdf:type rdf:resource="#Drink" />
+        <hasPrice>¥120.0</hasPrice>
+        <hasCalories>0.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Pretzels">
+        <rdf:type rdf:resource="#Snack" />
+        <hasPrice>¥130.0</hasPrice>
+        <hasCalories>500.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Pudding">
+        <rdf:type rdf:resource="#Dessert" />
+        <hasPrice>¥220.0</hasPrice>
+        <hasCalories>350.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#SpicyCupNoodles">
+        <rdf:type rdf:resource="#InstantNoodle" />
+        <hasPrice>¥170.0</hasPrice>
+        <hasCalories>450.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#MisoSoup">
+        <rdf:type rdf:resource="#Soup" />
+        <hasPrice>¥200.0</hasPrice>
+        <hasCalories>50.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#TomatoSoup">
+        <rdf:type rdf:resource="#Soup" />
+        <hasPrice>¥250.0</hasPrice>
+        <hasCalories>80.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Apple">
+        <rdf:type rdf:resource="#Fruit" />
+        <hasPrice>¥100.0</hasPrice>
+        <hasCalories>52.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Banana">
+        <rdf:type rdf:resource="#Fruit" />
+        <hasPrice>¥120.0</hasPrice>
+        <hasCalories>89.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Croissant">
+        <rdf:type rdf:resource="#Bakery" />
+        <hasPrice>¥150.0</hasPrice>
+        <hasCalories>200.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Bagel">
+        <rdf:type rdf:resource="#Bakery" />
+        <hasPrice>¥180.0</hasPrice>
+        <hasCalories>250.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Milk">
+        <rdf:type rdf:resource="#Dairy" />
+        <hasPrice>¥120.0</hasPrice>
+        <hasCalories>42.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Yogurt">
+        <rdf:type rdf:resource="#Dairy" />
+        <hasPrice>¥150.0</hasPrice>
+        <hasCalories>59.0cal</hasCalories>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="#Cheese">
+        <rdf:type rdf:resource="#Dairy" />
+        <hasPrice>¥200.0</hasPrice>
+        <hasCalories>402.0cal</hasCalories>
+    </owl:NamedIndividual>
+</rdf:RDF>
+```
+### SPARQL QUERY
+```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://www.example.org/japan_convenience_store_food#>
+
+SELECT ?individual ?price ?calories
+WHERE {
+    ?individual rdf:type ?type .
+    ?individual ns:hasPrice ?price .
+    ?individual ns:hasCalories ?calories .
+}
+GROUP BY ?individual ?price ?calories
+```
+![KONBINI-QUERY](./konbiniquery.png)
+
+### SPARQL SUB-QUERY
+```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ns: <http://www.example.org/japan_convenience_store_food#>
+
+SELECT ?individual ?price ?calories
+WHERE {
+  {
+    SELECT ?individual ?price
+    WHERE {
+      ?individual rdf:type ?type .
+      ?individual ns:hasPrice ?price .
+    }
+  }
+  ?individual ns:hasCalories ?calories .
+}
+GROUP BY ?individual ?price ?calories
+```
+![KONBINI SUB-QUERY](./konbinisubquery.png)
 
 ## 注意事項
 
