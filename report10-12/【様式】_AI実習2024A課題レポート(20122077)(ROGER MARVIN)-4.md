@@ -892,6 +892,11 @@ GROUP BY ?individual ?price ?calories
 ```
 ![KONBINI SUB-QUERY](./konbinisubquery.png)
 
+## VIRTUOSO
+### VIRTUOSOでFF7のSPARQL
+![VIRTUOSO FF7](./virtuosoff7.png)
+### VIRTUOSOでKONBINIのSPARQL
+![VIRTUOSO KONBINI](./virtuosokonbini.png)
 ## 注意事項
 
 - 直近 3 回分の個人演習と毎回のグループ課題の実施結果について、
