@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>【様式】_AI実習2024A課題レポート(20122077)(ROGER MARVIN)-3.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="ai-%E5%AE%9F%E7%BF%92-2024-%E8%AA%B2%E9%A1%8C%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88">AI 実習 2024 　課題レポート</h1>
+<h2 id="%E7%AC%AC-7-%E5%9B%9E%E7%AC%AC-9-%E5%9B%9E">[第 7 回～第 9 回]</h2>
+<ul>
+<li><strong>課題期間</strong>︓ 2024/5/30,6/6,6/20(木)</li>
+<li><strong>課題提出期限</strong>︓ 2024/5/20(木) 19:00</li>
+</ul>
+<!-- 要 記述 -->
+<table>
+<thead>
+<tr>
+<th style="text-align:center">クラス</th>
+<th style="text-align:center">学籍番号</th>
+<th style="text-align:center">氏 名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">20122077</td>
+<td style="text-align:center">Roger Marvin</td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E3%81%AE%E4%BD%9C%E6%88%90%E6%89%8B%E9%A0%86-%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3%E8%A8%98%E6%B3%95">レポートの作成手順 (マークダウン記法)</h2>
+<ul>
+<li>マークダウン記法[^1][^2][^3][^4]でレポートを作成する</li>
+<li>テキストエディタ＋機能拡張をインストール：</li>
+<li>VSCode https://code.visualstudio.com/download#</li>
+<li>機能拡張(Markdown PDF, Markdown Preview Enhanced ) セットアップ</li>
+<li>ファイル名は、<code>AI実習2024A課題レポート(学籍番号)(学生氏名).md </code></li>
+<li>作成したら PDF ファイル、HTML ファイルを変換生成する</li>
+</ul>
+<h4 id="%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3%E8%A8%98%E6%B3%95%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%82%8F%E3%81%8B%E3%82%8A%E3%82%84%E3%81%99%E3%81%84%E8%AA%AC%E6%98%8Eweb-%E6%83%85%E5%A0%B1">マークダウン記法についてわかりやすい説明、Web 情報</h4>
+<p><a href="https://www.bing.com/videos/riverview/relatedvideo?q=%e3%83%9e%e3%83%bc%e3%82%af%e3%83%80%e3%82%a6%e3%83%b3%e8%a8%98%e6%b3%95&amp;mid=4EE93F5EF42F9CAD0CCC4EE93F5EF42F9CAD0CCC&amp;FORM=VIRE">マークダウン記法とは？</a>
+<a href="https://qiita.com/miriwo/items/28d80f46c857de49f34b">Markdown 記法～基礎編～</a>
+<a href="https://qiita.com/miriwo/items/28d80f46c857de49f34b">マークダウン記法一覧</a>
+<a href="https://backlog.com/ja/blog/how-to-write-markdown/">マークダウンの書き方</a></p>
+<p>[^2]: (https://qiita.com/miriwo/items/28d80f46c857de49f34b) Markdown 記法～基礎編～
+[^3]: (https://www.sejuku.net/blog/77398)マークダウン記法一覧
+[^4]: (https://backlog.com/ja/blog/how-to-write-markdown/)マークダウンの書き方</p>
+<h3 id="%E5%A4%96%E9%83%A8%E3%83%84%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E3%81%AE%E5%9B%B3%E5%BC%8F%E5%BC%95%E7%94%A8">外部ツール画面の図式引用</h3>
+<ul>
+<li>本様式をひな型とする</li>
+<li>様式中に、マークダウンのコメントとして
+　　<code>&lt;!-- 要 記述　回答 --&gt;</code> と記されている箇所は忘れずに適切な記述を加筆する</li>
+<li>図やスクリーンショットを引用する場合、フォルダにまとめておく</li>
+<li>1 つのレポートにつき、1 つのフォルダを用意する</li>
+<li>そのフォルダに、md, pdf,html,および, 引用で使用した jpg,png 等ファイルをまとめて配置する</li>
+<li>$MR^3$で作成した RDF は、スクリーンショット画像として本文に取り込む</li>
+<li>$Protege$で作成したオントロジは、<code>OWL/XML Syntax</code> 形式で、<code>file名.owl</code>　として保存する</li>
+<li>$Protege$で作成した LOD は、<code>RDF/XML Syntax</code> 形式で、<code>file名.owl</code>　と保存する</li>
+<li>$Sparql$のソースコードは、マークダウン形式に、引用によって記述する</li>
+</ul>
+<pre class="hljs"><code><div>  　Sparqlのクエリコードを　```sql  と ```　で囲み、クエリの実行結果も　``` ``` で囲む
+</div></code></pre>
+<h3 id="%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E6%8F%90%E5%87%BA%E6%96%B9%E6%B3%95-github-%E3%81%AE%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%AD%E3%83%BC%E3%83%89">レポート提出方法 Github のプライベートリポジトリにアップロード</h3>
+<ul>
+<li>
+<p>2 学年 4 学期の<strong>API 実習と同じ方法</strong></p>
+</li>
+<li>
+<p>Github のアカウントを作成し、<strong>Practice-AI-2024</strong> という名称でプライベートリポジトリを作成</p>
+</li>
+<li>
+<p>そのプライベートリポジトリに、指導員の Github アカウント= <strong>keythrive</strong>を招待する</p>
+</li>
+<li>
+<p>Github のプライベートリポジトリに次の名前で、6 つフォルダを用意する：</p>
+<ul>
+<li><strong>report1-3</strong></li>
+<li><strong>report4-6</strong></li>
+<li><strong>report7-9</strong></li>
+<li><strong>report10-12</strong></li>
+<li><strong>report13-15</strong></li>
+<li><strong>report-Final</strong></li>
+</ul>
+</li>
+<li>
+<p>Github のアカウント名、プライベートリポジトリ作成、6 つのフォルダをつくったか？招待を完了したか？について、FORMS アンケートするので必ず回答すること。</p>
+</li>
+<li>
+<p>FORMS アンケートはこちら：</p>
+<ul>
+<li>https://forms.office.com/r/6iMLLYjw1t</li>
+</ul>
+</li>
+<li>
+<p>FORMS アンケートに未回答の場合、レポートを取得する方法が確立しないので、必ず回答のうえレポート提出可能な状態にすること</p>
+</li>
+<li>
+<p>それぞれの提出期限までに、必要なファイル一式を当該フォルダにアップロードしておく</p>
+</li>
+<li>
+<p>〆切時刻を過ぎた時点で自動的に, 全員の Github プライベートリポジトリから、<code>git clone</code>などでファイルを一括ダウンロードする</p>
+</li>
+<li>
+<p>提出が遅れるとダウンロードできず、未提出と判断される</p>
+</li>
+<li>
+<p>真に止むを得ない事由で、提出期限が遅れる場合、事前にメールにて連絡・相談すること:</p>
+</li>
+<li>
+<p>mailto: <strong>horikawa.keitaro@kaishi-pu.ac.jp</strong></p>
+</li>
+<li>
+<p>事前連絡なしに、期限を過ぎた場合、その課題レポートは未提出として採点しない</p>
+</li>
+<li>
+<p>Github のアカウント登録、プライベートリポジトリ、ファイルアップロードが不明な場合は、必ず事前に確認・相談するか、すでに出来ている友達から教えてもらうこと</p>
+</li>
+</ul>
+<hr>
+<h2 id="%E8%AA%B2%E9%A1%8C%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E3%81%AE%E3%81%BE%E3%81%A8%E3%82%81%E6%96%B9">課題レポートのまとめ方</h2>
+<ul>
+<li>直近のグループ実習 3 回分をまとめて 1 つのレポートを作成する</li>
+<li>毎回休まずに出席して、グループ討論に積極的に参画する</li>
+<li>グループを代表して発表し、質疑応答、議論、メモを確実にとる作業が大切</li>
+<li>自グループと他グループの発表をしっかり聴いて、議論模様を簡潔にまとめて報告する</li>
+<li>それぞれの回の全てのグループ発表、および、</li>
+<li>学生と教員からの質疑コメントを要約する</li>
+<li>ここまではグループメンバ間の協力作業で、差異化要素はほとんどないことが予想される</li>
+<li>自作の成果（RDF,オントロジ等）には極力 &quot;FOAF,SKOS,DC&quot;など共通語彙を適用する</li>
+<li><strong>個人の努力を差異化要素</strong>として、さらに踏み込んだ検討・実習の成果を 3 回分の<strong>個人演習</strong>について報告してよい</li>
+<li>3 回で取り組んだ内容、理解を深めたことを独自レポートとして加筆可能</li>
+<li>例えば、<strong>作成した RDF,オントロジ,使用した LOD, 作成した Sparql クエリ,その他の AI 手法やプログラムとの連携技、それらの分析・考察・所感</strong>　など</li>
+</ul>
+<h3 id="%E6%9C%AC%E5%AE%9F%E7%BF%92%E3%83%BB%E8%AA%B2%E9%A1%8C%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E3%81%AB%E5%8F%96%E3%82%8A%E7%B5%84%E3%82%80%E6%84%8F%E7%BE%A9">本実習・課題レポートに取り組む意義</h3>
+<ul>
+<li>半年後、本実習を「適当にやり過ごした学生群」と、「真剣に打ち込んで突き詰めた学生群」に明確に分かれることが予想される</li>
+<li>前者と後者とで、成長の差は著しく広がり、臨地実務実習 II の実習成果および企業担当者から評価が如実に変わる</li>
+<li>1 年後の今頃、就職活動の内々定数（場合によっては、転職ファストパスの数）が大きく変わることが見込まれる</li>
+</ul>
+<hr>
+<h3 id="%E7%AC%AC-7-%E5%9B%9E%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E8%AA%B2%E9%A1%8C%E3%81%AE%E8%A6%81%E7%B4%84%E3%83%BB%E6%95%B4%E7%90%86">第 7 回グループ課題の要約・整理</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">回数</th>
+<th style="text-align:center">グループ名</th>
+<th style="text-align:center">発表者</th>
+<th style="text-align:left">発表内容</th>
+<th style="text-align:left">発表への質疑・コメント</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center"><strong>明鏡止水</strong></td>
+<td style="text-align:center">Roger Marvin</td>
+<td style="text-align:left">発表はゲームのオントロジーを作り出しました。オントロジーでは二つにわかえれて、InーGameとOut-Gameのクラスに分かれています。In-gameの中ではCharacter,Weapon,Items,Location,Monster,Skills。一方、Out-GameではAchievement, BGMs, Platforms, Playersがあります。In-gameはゲームの中でストリー的なものまたは、キャラの視点からのものです。一方、Out-Gameはプレイヤー視点からのものです。</td>
+<td style="text-align:left">質問いくつあります。まず、In-gameとOut-gameの区別です。それにtしての答えは、視点です。In-gameはキャラの視点からのものとOut-gameはプレイヤーからの視点です。次は「なぜBGMsはin-gameじゃないですか。そのとき、私の答えは「In-gameかもしれません」ですが、よく考えると、やはり、BGMはプレイヤーが感じたもので、キャラの視点と関係ないし、BGMsを聞こえるはプレイヤーだけです。そのために、BGMsはOut-Gameに入ります。</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center"><strong>四海同胞</strong></td>
+<td style="text-align:center">大竹 啓之</td>
+<td style="text-align:left">動画編集に関してのオントロジーを作りました。ThumbnailやTitleやGenreにはアニメやVlogというクラスに入っています。編集のクラスではZoom-In、ZoomーOut、とColorーAdjustmentがあります。</td>
+<td style="text-align:left">このオントロジーは動画編集の要素をシステマティックに整理していてすごいですね！ThumbnailやTitle、Genreという要素をアニメやVlogという具体的なクラスに分類するアイデアは、分類と可視化を容易にします。また、編集のクラスにZoom-InやZoom-Out、Color-Adjustmentという具体的な操作を含めることで、編集の技法やスタイルをより具体的に捉えることができるでしょう。これにより、動画制作のプロセスを理解しやすくし、効果的な編集を行うための指針を提供できると思います。</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center"><strong>百折不撓</strong></td>
+<td style="text-align:center">平栗 颯萌,小林 相太</td>
+<td style="text-align:left">スプラトゥーンのシューターに関して、これまでサブとメインのウェポンの関係性のみを分析していましたが、今後はインクの消費量や射程距離も追加して考察を進めたいと思います。あまた、サッカーのポジションやフォーメーション、戦術に基づいて、フォーメーションと戦術の関係性についても詳しく書いていきたいです。具体的には、攻撃的戦術と防御的戦術の両面について発表しています。</td>
+<td style="text-align:left">よかったです！新たにインクの消費量や射程距離を考慮に入れることで、より詳細な分析が可能になりますね。特にSplatoonではウェポンの特性が戦術やプレイスタイルに大きな影響を与えるため、これらの要素を加えることでより深い洞察が得られるでしょう。一方、サッカーのフォーメーションと戦術についての考察も興味深いですね。攻撃的戦術と防御的戦術の両面をバランス良く取り上げることで、どのようにフォーメーションが戦術の遂行に影響するのかを深く理解できるでしょう。</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center"><strong>猪突猛進</strong></td>
+<td style="text-align:center">山崎 秀晃</td>
+<td style="text-align:left">このチームは艦隊コレクションについてのオントロジーを発表しています。キャラ名、船の型、ステージの海域名、装備、任務についてクラスがあります。例えば、三日月というキャラについては、艦隊が持っているステータス、ボイス、小話などを含めます。ステージに関しては、そのステージで手に入るキャラやおすすめの編成、すごろくにおける方向の確率なども考慮すると説明しました。</td>
+<td style="text-align:left">このオントロジーは艦隊コレクションの理解に役立ちそうですね。キャラ名、船の型、ステージの海域名、装備、任務など、それぞれが独自のクラスとして整理されている点が特に素晴らしいです。ステージに関しても、そのステージで手に入るキャラクターやおすすめの編成、すごろくにおける方向の確率などが考慮されているとのことで、プレイヤーは戦略を練る際に役立つ情報を得ることができるでしょう。このような詳細なオントロジーがあれば、ゲームの新たな視点や戦術を発見することができ、ゲームコミュニティ全体にとっても有益な資源になると思います！</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center"><strong>和気藹藹</strong></td>
+<td style="text-align:center">加藤 颯士,齋藤 杏祐</td>
+<td style="text-align:left">このチームは２つのオントロジーを作りました。それはバズリズムとテラリアというゲームです。バズリズムの出演者についてのクラスを作成する際、開催年ごとに分類します。クラスには主催者や開催場所の情報を含め、オブジェクトとして2dayや3dayのイベントを扱います。さらに、各アーティストがどの年のどの日に出演したかを関連付けます。一方、テラリアというゲームにおいては、武器に焦点を当ててクラスを作成します。武器の種類をクラスにまとめ、それぞれのインスタンスには固有の武器名と振る速度を含めます。</td>
+<td style="text-align:left">このチームの取り組みはとても面白いです。バズリズムとテラリアという異なるゲームに対してそれぞれオントロジーを作成するアプローチが素晴らしいです。バズリズムの場合、出演者に焦点を当てたクラスを作成し、その出演者を開催年ごとに分類するのは、イベントの歴史や出演者の情報を整理するのに役立つでしょう。また、2dayや3dayのイベントというオブジェクトを扱うことで、イベントの形式や期間に応じた情報を効果的に管理できる点も大変良いですね。一方、テラリアでは武器に焦点を当ててクラスを作成するアプローチを取っていますね。武器の種類をクラスにまとめ、それぞれのインスタンスには武器名と振る速度といった特性を含めることで、プレイヤーがゲーム内の武器に関する情報を効率的に参照できるようになります。</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center"><strong>自由闊達</strong></td>
+<td style="text-align:center">倉石 大暉</td>
+<td style="text-align:left">倉石くんはプログラミング言語のオントロジーについて発表しました。プログラミング言語のオントロジーを作成する際、言語やオブジェクトをクラスとして定義すると説明しました。例えば、Pythonの言語はそのインスタンスの一例となります。また、異なる言語間の互換性についても考慮して作成します。</td>
+<td style="text-align:left">倉石くんのプログラミング言語のオントロジーに関する発表は良いです。プログラミング言語をクラスとして定義し、その中に各言語をインスタンスとして位置付けるアプローチは、言語の特性や使い方を体系化するのにとてもに便利です。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="%E7%AC%AC-8-%E5%9B%9E%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E8%AA%B2%E9%A1%8C%E3%81%AE%E8%A6%81%E7%B4%84%E3%83%BB%E6%95%B4%E7%90%86">第 8 回グループ課題の要約・整理</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">回数</th>
+<th style="text-align:center">グループ名</th>
+<th style="text-align:center">発表者</th>
+<th style="text-align:left">発表内容</th>
+<th style="text-align:left">発表への質疑・コメント</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center"><strong>明鏡止水</strong></td>
+<td style="text-align:center">Roger Marvin</td>
+<td style="text-align:left">私は教育に関する科目のオントロジーを作りました。教育に関する数学、物理、化学を単位でつなげることを考えると、メートル（M）という共通の単位を使うことで関連づけることができますが、具体的な事例はそれほど多くないかもしれません。しかし、微分を用いることでそれぞれの分野のつながりを作り出すことができると思います。</td>
+<td style="text-align:left">教育科目のオントロジー作成は素晴らしいアイデアです。数学、物理、化学などをメートル（m）という共通の単位で結びつけ、微分を使って各分野のつながりを明確に示します。こうすることで、異なる科目間の関係を視覚化し、学問の統合と理解を深めることができます</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center"><strong>四海同胞</strong></td>
+<td style="text-align:center">大竹 啓之,阿部 一成</td>
+<td style="text-align:left">このチームは水族館のオンとロジーを作りました。水族館にアクアマリンは生息地に基づいて展示を作成していいます。二つの水族館を利用してそれはサンシャインとマリンピア。サンシャインは生息地・種類・行動分類に基づいて展示を行っています。一方、マリンピアは展示ゾーンを作成し、その中でマイワシに注目しています。それぞれの水族館で分類方法や展示ゾーンが異なりますが、これらを1つに統合することで、同じマイワシが展示されていることがわかるようにすることができると説明されました。</td>
+<td style="text-align:left">このチームのアプローチはいいですね。水族館のオントロジーを作成することで、異なる水族館での展示方法や分類基準を明確にし、訪問者が展示されている生物の情報を簡単に理解できるようにしていますね。このようなアプローチで、水族館の管理や展示企画においても非常に役立ちます。訪問者にとって分かりやすく、また教育的な体験を提供するために重要な役割を果たしていますね。</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center"><strong>百折不撓</strong></td>
+<td style="text-align:center">安達 萌衣,小林 相太</td>
+<td style="text-align:left">このチームは動物園のオントロジーを作りました。発表した動物園では、動物の種類を共通の分類基準で分けていますが、ゾーンごとに分ける方法も採用しています。この分類方法を活用すると、日本シカがどの動物園にいるのかがわかるようになります。また、科ごとに分類している例もあり、たとえばフクロウがいる場合、旭山動物園の鳥類ゾーンにまとめることができるとわかります。</td>
+<td style="text-align:left">このチームの動物園のオントロジー作成はとてもいいです。動物の種類を共通の分類基準で分けるだけでなく、ゾーンごとにも分類する方法を採用している点が特に注目されます。これにより、訪問者はどの動物園にどの動物がいるのかを簡単に把握できるようになると思います。動物園の管理や訪問者の体験を向上させるだけでなく、教育的な観点からも価値があります。</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center"><strong>猪突猛進</strong></td>
+<td style="text-align:center">山崎 秀晃,山口 翔太,相場 陸</td>
+<td style="text-align:left">このチームはファストフードについてのオントロジーを作りました。ファストフード店のハンバーガー店、バーガーキング、マクドナルド、モスバーガーのサイドメニューを統合しました。これにより、各店舗のサイドメニューを比較して好みのものを選びやすくなります。統合オントロジーとして活用することで、類似した商品を関連づけ、他の店舗でも注文する際の参考にすることができます。</td>
+<td style="text-align:left">このチームのファストフードに関するオントロジーは、人にとってとても便利で役立つものです。ハンバーガー店、バーガーキング、マクドナルド、モスバーガーのサイドメニューを統合することで、各店舗のメニューを比較しやすくし、好みに合った選択がしやすくなります。人の利便性向上だけでなく、市場調査や競争分析にも役立つでしょう。各ファストフードチェーンのメニューの違いや類似点を明確に示すことで、業界内での位置づけや戦略立案にも貢献します。</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center"><strong>和気藹藹</strong></td>
+<td style="text-align:center">溝口 将太,加藤 颯士</td>
+<td style="text-align:left">このチームはコンビニのオントロジーを作りました。ローソン、セブンイレブン、ファミリーマートの3つのコンビニの各オリジナル製品をピックアップしました。これを使うことで、コンビニが好きな人がオリジナル商品を食べたいときに「お菓子」と検索すると、その店にオリジナル商品があるかどうかが分かるようになります。これからは、値段で調べるとオリジナル商品が出てくるようにしたいと考えている。</td>
+<td style="text-align:left">このチームのコンビニのオントロジーがあれば、とても便利です。ローソン、セブンイレブン、ファミリーマートの各コンビニのオリジナル製品をピックアップし、カテゴリーごとに整理することで、例えば「お菓子」といったカテゴリーで検索すると、それぞれの店舗がどのようなオリジナル商品を提供しているかがすぐにわかるようになります。特に、価格で検索するとオリジナル商品が表示されるようにするという提案はめちゃいいと思います。予算内で好みのオリジナル商品を容易に見つけることができます。</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center"><strong>自由闊達</strong></td>
+<td style="text-align:center">駒木根 通元,倉石 大暉</td>
+<td style="text-align:left">このチームはコーヒーショップのオントロジーを作りました。コーヒーショップの情報を作成し、スターバックス、ドトール、タリーズに分けました。現在はまだ統合しただけで、横のつながりができていません。これから横のつながりを作っていきたいと考えている。</td>
+<td style="text-align:left">このチームのコーヒーショップのオントロジーはいいです。スターバックス、ドトール、タリーズなどの各コーヒーショップの情報をまとめ、現在はそれぞれを個別に統合した状態ですが、次はこれらの間の関連性や比較ができるように横のつながりを強化していきたいとのことですね。コーヒーショップの運営やマーケティング戦略を最適化するための重要なツールとして活用できると期待されます。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="%E7%AC%AC-9-%E5%9B%9E%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E8%AA%B2%E9%A1%8C%E3%81%AE%E8%A6%81%E7%B4%84%E3%83%BB%E6%95%B4%E7%90%86">第 9 回グループ課題の要約・整理</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">回数</th>
+<th style="text-align:center">グループ名</th>
+<th style="text-align:center">発表者</th>
+<th style="text-align:left">発表内容</th>
+<th style="text-align:left">発表への質疑・コメント</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center"><strong>明鏡止水</strong></td>
+<td style="text-align:center">Roger Marvin</td>
+<td style="text-align:left">今回ではSkos、Foaf、DCを利用して、動物分類のオントロジーを作りました。動物の分類では、鳥類と哺乳類を作成し、それぞれの動物の名前を書きました。クラスとしては「猫」や「犬」といった具体的な動物名と、「アニマル」といった概念を設定しました。鳥類については「鷲」と「鳥」というふうに分けて考え、その関係を表すプロパティを班で共有して参考にしました。</td>
+<td style="text-align:left">簡単に説明できて、よかったです。また、質問したものに対して、チームと調べ上で、簡単や理解やすいに説明できました。</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center"><strong>四海同胞</strong></td>
+<td style="text-align:center">竹田 勇斗,阿部 一成</td>
+<td style="text-align:left">このチームは『スターレイル』というゲームのキャラのオントロジーを作りました。『スターレイル』の主人公について、3つの属性があります。オブジェクトプロパティとして、各属性を持つことや使用できる武器を示しています。データプロパティでは属性ごとに関連づけられており、炎、物理、虚数の属性から主人公であることがわかります。また、『アーマードコア』というゲームでは、キャラクターやクラスにコメントを付け、AC（機体）というクラスは形状別に分類しています。</td>
+<td style="text-align:left">『スターレイル』というゲームのキャラクターのオントロジーを作成したチームですね。属性に関連づけられたデータプロパティを使うことで、主人公が炎、物理、虚数の属性を持つことが分かるようになっているとのことですね。これにより、ゲーム内での役割や特性が明確になり、プレイヤーにとっても理解しやすくなるでしょう。また、『アーマードコア』というゲームでは、キャラクターやクラスにコメントを付け、AC（機体）というクラスを形状別に分類しているそうですね。これにより、ゲーム内での機体の特性や適性が把握しやすくなり、戦略の立てやすさが増えます。</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center"><strong>百折不撓</strong></td>
+<td style="text-align:center">安達 萌衣</td>
+<td style="text-align:left">このチームはK-popのオントロジーを作成しました。アーティストにはグループとメンバーが含まれ、楽器と曲のクラスも作成しています。メンバーのクラスには性別も含まれており、すべてのメンバーは同じグループに関連付けられています。また、一部のメンバーは曲を作成しているため、そのメンバーは別途分類しました。</td>
+<td style="text-align:left">このチームはK-popのオントロジーを作成したんですね。アーティストにはグループとメンバーが含まれており、さらに楽器や曲といったクラスも設けられているとのことですね。メンバーのクラスには性別も含まれており、それぞれのメンバーが同じグループに関連付けられているということですね。また、曲の作成に携わる一部のメンバーは別途分類されているそうですね。このオントロジーはK-popのグループやメンバーの関係性を明確に捉え、さらに各メンバーの特性や役割、楽曲制作における貢献度を記述するのに役立ちます。</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center"><strong>猪突猛進</strong></td>
+<td style="text-align:center">山崎 秀晃,山口 翔太</td>
+<td style="text-align:left">このチームは今回バーガーキングとスプラトゥーンというゲームに関してのオントロジーを作りました。バーガーキングの名称を入力し、それぞれにコメントで説明を追加しました。しかし、データプロパティとして名称を追加する時間が足りず、主語と述語が書けていません。同様に、スプラトゥーンに関する情報も作成し、武器や射程を記述しましたが、関係についてはまだ記述できていません。</td>
+<td style="text-align:left">このチームはバーガーキングとSplatoonに関するオントロジーを作成したようですね。バーガーキングに関しては名称を入力し、それぞれにコメントで説明を追加したとのことですが、データプロパティとして名称を追加する時間が足りず、主語と述語が書けていないということです。Splatoonに関しては、武器や射程についての情報を記述したとのことですが、関係についての記述がまだ完了していないようですね。</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center"><strong>和気藹藹</strong></td>
+<td style="text-align:center">臼田 誠,加藤 颯士</td>
+<td style="text-align:left">このチームは小説のオントロジーを作成しました。クラスにはジャンルと作者名が含まれます。例えば、ホラー小説はミステリーのジャンルに含まれます。オブジェクトプロパティには著者、出版社、出版言語などが含まれます。データプロパティでは使用言語や著者の出版歴などを記述します。コメントには作品のあらすじを記載し、少年ジャンプに連載された作品に関するオントロジも作成します。このオントロジでは、他の小説や似たようなジャンルや作者に関する情報も探索できます。</td>
+<td style="text-align:left">作品のあらすじをコメントに記載することで、各小説の内容が理解しやすくなり、読者や研究者にとって役立つ情報となるでしょう。特に少年ジャンプなどの連載作品に関しては、それぞれの特性やストーリー展開について詳細なオントロジーが作成されることで、ファンや研究者が作品の探索や比較を行いやすくなりますね。異なる小説やジャンル、そして著者に関する情報を組織化し、関連付けることで、文学の理解と探求を深める手助けなると思います。</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center"><strong>自由闊達</strong></td>
+<td style="text-align:center">駒木根 通元</td>
+<td style="text-align:left">このチームはApex Legendというゲームのオントロジーを作りました。Apex Legendsのキャラクターの関係性について、性別と経歴を含むクラスを作成しました。各キャラクターは個別の名前を持ち、オブジェクトプロパティにはジェンダーや好み（好きか嫌いか）も記述します。さらに、フレンドという関係も追加し、家族関係なども考慮しています。データプロパティには年齢や名前（名、姓）、敵対関係を表すenemyなどが含まれています。</td>
+<td style="text-align:left">Apex Legendsのような多人数参加型ゲームでは、キャラクター間の関係性や背景が重要な要素となります。このようなオントロジーは、プレイヤーにとって楽しさや戦略の深さを加えるとともに、ゲーム開発者やストーリーテラーにとってもキャラクターの設計と物語の構築を支援する貴重なツールとなると思います。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="%E8%87%AA%E5%B7%B1%E6%88%90%E9%95%B7%E6%88%90%E6%9E%9C%E4%B8%8A%E4%BD%8D%E6%88%90%E7%B8%BE%E3%81%AB%E5%90%91%E3%81%91%E3%81%A6-%E5%80%8B%E4%BA%BA%E6%88%90%E6%9E%9C%E3%81%AE%E5%A0%B1%E5%91%8A">[自己成長、成果、上位成績に向けて]　個人成果の報告</h3>
+<hr>
+<h2 id="stellar-blade%E3%81%AE%E3%82%B2%E3%83%BC%E3%83%A0%E3%81%AE%E3%82%AA%E3%83%B3%E3%83%88%E3%83%AD%E3%82%B8%E3%83%BC%E3%82%B0%E3%83%A9%E3%83%95">Stellar Bladeのゲームのオントロジーグラフ</h2>
+<p><img src="./onto_stellar1.png" alt="Stellar-Blade Overall Ontology"></p>
+<h2 id="oracle%E3%81%A8%E3%81%84%E3%81%86character-x-monsteralpha-naytibas%E3%81%AEmann%E3%81%A8%E3%81%84%E3%81%86side-character%E3%81%A8%E3%81%AE%E9%96%A2%E4%BF%82">OracleというCharacter x Monster(Alpha Naytibas)のMannというSide-characterとの関係</h2>
+<p><img src="./onto_stellar2.png" alt="Stellar-Blade Oracle Relation 1">
+<img src="./onto_stellar3.png" alt="Stellar-Blade Oracle Relation 2"></p>
+<h2 id="out%E3%83%BCgame%E3%81%AEbgms%E9%96%A2%E4%BF%82">OutーgameのBGMs関係</h2>
+<p><img src="./onto_stellar4.png" alt="Stellar-Blade BGMs Outgame"></p>
+<hr>
+<h2 id="%E7%A7%91%E7%9B%AE%E3%81%AE%E5%85%A8%E4%BD%93%E7%9A%84%E3%81%AE%E3%82%AA%E3%83%B3%E3%83%88%E3%83%AD%E3%82%B8%E3%83%BC">科目の全体的のオントロジー</h2>
+<p><img src="./study1.png" alt="Study Overall"></p>
+<h2 id="%E6%B3%A2%E3%81%A8%E3%81%84%E3%81%86%E7%89%A9%E7%90%86%E3%81%AE%E3%81%AE%E7%A7%91%E7%9B%AE%E3%81%AE%E9%96%A2%E4%BF%82">波という物理のの科目の関係</h2>
+<p><img src="./study2.png" alt="Study waves"></p>
+<h2 id="%E8%B7%9D%E9%9B%A2m%E3%81%A8%E3%81%84%E3%81%86%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88">距離(M)というユニット</h2>
+<p><img src="./study3.png" alt="Study distance"></p>
+<hr>
+<h2 id="%E3%82%A2%E3%83%8B%E3%83%9E%E3%83%AB%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%81%AEskosfoafdc%E3%81%AE%E4%BD%BF%E3%81%84">アニマルのインスタンスのSKOS,FOAF,DCの使い</h2>
+<p><img src="./skos1.png" alt="Animal Class Ontology"></p>
+<h2 id="mammals%E3%81%A8cat%E3%81%AEskos-foafdc%E3%81%AE%E4%BD%BF%E3%81%84">MammalsとCatのSKOS ,FOAF,DCの使い</h2>
+<p><img src="./skos2.png" alt="Mammals">
+<img src="./skos3.png" alt="Example of Mammals"></p>
+<hr>
+<h2 id="%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85">注意事項</h2>
+<ul>
+<li>直近 3 回分の個人演習と毎回のグループ課題の実施結果について、</li>
+<li>学生ごとの個人のレポートとする</li>
+<li>他の学生のレポートをコピー＆ペーストしたことが発覚した場合、<strong>不正行為とみなし 、規程に基づく懲罰適用の可能性があるので絶対にやってはいけない</strong></li>
+</ul>
+<h3 id="%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AEurl">参考文献、URL</h3>
+
+</body>
+</html>

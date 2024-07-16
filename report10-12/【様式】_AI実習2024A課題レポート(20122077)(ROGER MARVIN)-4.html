@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>【様式】_AI実習2024A課題レポート(20122077)(ROGER MARVIN)-4.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="ai-%E5%AE%9F%E7%BF%92-2024-%E8%AA%B2%E9%A1%8C%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88">AI 実習 2024 　課題レポート</h1>
+<h2 id="%E7%AC%AC-10-%E5%9B%9E%E7%AC%AC-12-%E5%9B%9E">[第 10 回～第 12 回]</h2>
+<ul>
+<li><strong>課題期間</strong>︓ 2024/5/27,7/4,7/11(木)</li>
+<li><strong>課題提出期限</strong>︓ 2024/7/18(木) 19:00</li>
+</ul>
+<!-- 要 記述 -->
+<table>
+<thead>
+<tr>
+<th style="text-align:center">クラス</th>
+<th style="text-align:center">学籍番号</th>
+<th style="text-align:center">氏 名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">20122077</td>
+<td style="text-align:center">Roger Marvin</td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E3%81%AE%E4%BD%9C%E6%88%90%E6%89%8B%E9%A0%86-%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3%E8%A8%98%E6%B3%95">レポートの作成手順 (マークダウン記法)</h2>
+<ul>
+<li>マークダウン記法[^1][^2][^3][^4]でレポートを作成する</li>
+<li>テキストエディタ＋機能拡張をインストール：</li>
+<li>VSCode https://code.visualstudio.com/download#</li>
+<li>機能拡張(Markdown PDF, Markdown Preview Enhanced ) セットアップ</li>
+<li>ファイル名は、<code>AI実習2024A課題レポート(学籍番号)(学生氏名).md </code></li>
+<li>作成したら PDF ファイル、HTML ファイルを変換生成する</li>
+</ul>
+<h4 id="%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3%E8%A8%98%E6%B3%95%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%82%8F%E3%81%8B%E3%82%8A%E3%82%84%E3%81%99%E3%81%84%E8%AA%AC%E6%98%8Eweb-%E6%83%85%E5%A0%B1">マークダウン記法についてわかりやすい説明、Web 情報</h4>
+<p><a href="https://www.bing.com/videos/riverview/relatedvideo?q=%e3%83%9e%e3%83%bc%e3%82%af%e3%83%80%e3%82%a6%e3%83%b3%e8%a8%98%e6%b3%95&amp;mid=4EE93F5EF42F9CAD0CCC4EE93F5EF42F9CAD0CCC&amp;FORM=VIRE">マークダウン記法とは？</a>
+<a href="https://qiita.com/miriwo/items/28d80f46c857de49f34b">Markdown 記法～基礎編～</a>
+<a href="https://qiita.com/miriwo/items/28d80f46c857de49f34b">マークダウン記法一覧</a>
+<a href="https://backlog.com/ja/blog/how-to-write-markdown/">マークダウンの書き方</a></p>
+<p>[^2]: (https://qiita.com/miriwo/items/28d80f46c857de49f34b) Markdown 記法～基礎編～
+[^3]: (https://www.sejuku.net/blog/77398)マークダウン記法一覧
+[^4]: (https://backlog.com/ja/blog/how-to-write-markdown/)マークダウンの書き方</p>
+<h3 id="%E5%A4%96%E9%83%A8%E3%83%84%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E3%81%AE%E5%9B%B3%E5%BC%8F%E5%BC%95%E7%94%A8">外部ツール画面の図式引用</h3>
+<ul>
+<li>本様式をひな型とする</li>
+<li>様式中に、マークダウンのコメントとして
+　　<code>&lt;!-- 要 記述　回答 --&gt;</code> と記されている箇所は忘れずに適切な記述を加筆する</li>
+<li>図やスクリーンショットを引用する場合、フォルダにまとめておく</li>
+<li>1 つのレポートにつき、1 つのフォルダを用意する</li>
+<li>そのフォルダに、md, pdf,html,および, 引用で使用した jpg,png 等ファイルをまとめて配置する</li>
+<li>$MR^3$で作成した RDF は、スクリーンショット画像として本文に取り込む</li>
+<li>$Protege$で作成したオントロジは、<code>OWL/XML Syntax</code> 形式で、<code>file名.owl</code>　として保存する</li>
+<li>$Protege$で作成した LOD は、<code>RDF/XML Syntax</code> 形式で、<code>file名.owl</code>　と保存する</li>
+<li>$Sparql$のソースコードは、マークダウン形式に、引用によって記述する</li>
+</ul>
+<pre class="hljs"><code><div>  　Sparqlのクエリコードを　```sql  と ```　で囲み、クエリの実行結果も　``` ``` で囲む
+</div></code></pre>
+<h3 id="%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E6%8F%90%E5%87%BA%E6%96%B9%E6%B3%95-github-%E3%81%AE%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%AD%E3%83%BC%E3%83%89">レポート提出方法 Github のプライベートリポジトリにアップロード</h3>
+<ul>
+<li>
+<p>2 学年 4 学期の<strong>API 実習と同じ方法</strong></p>
+</li>
+<li>
+<p>Github のアカウントを作成し、<strong>Practice-AI-2024</strong> という名称でプライベートリポジトリを作成</p>
+</li>
+<li>
+<p>そのプライベートリポジトリに、指導員の Github アカウント= <strong>keythrive</strong>を招待する</p>
+</li>
+<li>
+<p>Github のプライベートリポジトリに次の名前で、6 つフォルダを用意する：</p>
+<ul>
+<li><strong>report1-3</strong></li>
+<li><strong>report4-6</strong></li>
+<li><strong>report7-9</strong></li>
+<li><strong>report10-12</strong></li>
+<li><strong>report13-15</strong></li>
+<li><strong>report-Final</strong></li>
+</ul>
+</li>
+<li>
+<p>Github のアカウント名、プライベートリポジトリ作成、6 つのフォルダをつくったか？招待を完了したか？について、FORMS アンケートするので必ず回答すること。</p>
+</li>
+<li>
+<p>FORMS アンケートはこちら：</p>
+<ul>
+<li>https://forms.office.com/r/6iMLLYjw1t</li>
+</ul>
+</li>
+<li>
+<p>FORMS アンケートに未回答の場合、レポートを取得する方法が確立しないので、必ず回答のうえレポート提出可能な状態にすること</p>
+</li>
+<li>
+<p>それぞれの提出期限までに、必要なファイル一式を当該フォルダにアップロードしておく</p>
+</li>
+<li>
+<p>〆切時刻を過ぎた時点で自動的に, 全員の Github プライベートリポジトリから、<code>git clone</code>などでファイルを一括ダウンロードする</p>
+</li>
+<li>
+<p>提出が遅れるとダウンロードできず、未提出と判断される</p>
+</li>
+<li>
+<p>真に止むを得ない事由で、提出期限が遅れる場合、事前にメールにて連絡・相談すること:</p>
+</li>
+<li>
+<p>mailto: <strong>horikawa.keitaro@kaishi-pu.ac.jp</strong></p>
+</li>
+<li>
+<p>事前連絡なしに、期限を過ぎた場合、その課題レポートは未提出として採点しない</p>
+</li>
+<li>
+<p>Github のアカウント登録、プライベートリポジトリ、ファイルアップロードが不明な場合は、必ず事前に確認・相談するか、すでに出来ている友達から教えてもらうこと</p>
+</li>
+</ul>
+<hr>
+<h2 id="%E8%AA%B2%E9%A1%8C%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E3%81%AE%E3%81%BE%E3%81%A8%E3%82%81%E6%96%B9">課題レポートのまとめ方</h2>
+<ul>
+<li>直近のグループ実習 3 回分をまとめて 1 つのレポートを作成する</li>
+<li>毎回休まずに出席して、グループ討論に積極的に参画する</li>
+<li>グループを代表して発表し、質疑応答、議論、メモを確実にとる作業が大切</li>
+<li>自グループと他グループの発表をしっかり聴いて、議論模様を簡潔にまとめて報告する</li>
+<li>それぞれの回の全てのグループ発表、および、</li>
+<li>学生と教員からの質疑コメントを要約する</li>
+<li>ここまではグループメンバ間の協力作業で、差異化要素はほとんどないことが予想される</li>
+<li>自作の成果（RDF,オントロジ等）には極力 &quot;FOAF,SKOS,DC&quot;など共通語彙を適用する</li>
+<li><strong>個人の努力を差異化要素</strong>として、さらに踏み込んだ検討・実習の成果を 3 回分の<strong>個人演習</strong>について報告してよい</li>
+<li>3 回で取り組んだ内容、理解を深めたことを独自レポートとして加筆可能</li>
+<li>例えば、<strong>作成した RDF,オントロジ,使用した LOD, 作成した Sparql クエリ,その他の AI 手法やプログラムとの連携技、それらの分析・考察・所感</strong>　など</li>
+</ul>
+<h3 id="%E6%9C%AC%E5%AE%9F%E7%BF%92%E3%83%BB%E8%AA%B2%E9%A1%8C%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E3%81%AB%E5%8F%96%E3%82%8A%E7%B5%84%E3%82%80%E6%84%8F%E7%BE%A9">本実習・課題レポートに取り組む意義</h3>
+<ul>
+<li>半年後、本実習を「適当にやり過ごした学生群」と、「真剣に打ち込んで突き詰めた学生群」に明確に分かれることが予想される</li>
+<li>前者と後者とで、成長の差は著しく広がり、臨地実務実習 II の実習成果および企業担当者から評価が如実に変わる</li>
+<li>1 年後の今頃、就職活動の内々定数（場合によっては、転職ファストパスの数）が大きく変わることが見込まれる</li>
+</ul>
+<hr>
+<h3 id="%E7%AC%AC-10-%E5%9B%9E%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E8%AA%B2%E9%A1%8C%E3%81%AE%E8%A6%81%E7%B4%84%E3%83%BB%E6%95%B4%E7%90%86">第 10 回グループ課題の要約・整理</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">回数</th>
+<th style="text-align:center">グループ名</th>
+<th style="text-align:left">発表者</th>
+<th style="text-align:left">発表内容</th>
+<th style="text-align:left">発表への質疑・コメント</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center"><strong>順風満帆</strong></td>
+<td style="text-align:left">倉石大暉</td>
+<td style="text-align:left">プログラミング言語について、TypeScriptがJavaScriptに変換されるように、C言語に変換される言語があるかを考えることができます。さらに、論理プログラミングを使えば、「AならばB、BならばC」という関係をもっと具体的に調べることができます。</td>
+<td style="text-align:left">発表の方は説明がわかりやすいです。また、プログラミング言語の概念でオンとロージーとSPARQLで表示して、面白かったです。質問されたものもちゃんと答えできて、わかりやすい説明しました。かなり興味深いの発表です。</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center"><strong>臥薪嘗胆</strong></td>
+<td style="text-align:left">阿部一成、小林相太、溝口将太</td>
+<td style="text-align:left">このチームは3人が発表しました。まず、阿部さんがスターレイルに登場するキャラクター、タイプ、属性の関係について説明しました。主人公が持っている装備や属性を推測することができるだけでなく、キャラクターのスキルも詳しく解説しました。次に、相太くんがラーメンのスープについて話しました。現段階では事実を並べただけですが、トッピングやラーメンの種類を検索すると、その素材についても情報を提供できます。最後に、溝口くんがバレーボールのプレイヤーに関する情報を説明しました。二つのチームごとのポジションやスコアを入力しており、チームのメンバーやポジションごとの名前を入力すると検索できるようにしています。</td>
+<td style="text-align:left">3人ともそれぞれの専門分野について詳しく説明しており、非常に興味深い発表でした。阿部さんのスターレイルの解説はゲームファンにとって魅力的ですし、相太くんのラーメンのスープに関する情報は実用的です。溝口くんのバレーボールのプレイヤー情報もスポーツ愛好者にとって有益です。それぞれの発表が異なるテーマをカバーしており、全体としてバランスの取れた内容でした。</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center"><strong>不撓不屈</strong></td>
+<td style="text-align:left">山崎、駒木根</td>
+<td style="text-align:left">山崎と通元は、12星座について発表しました。各星座の誕生日月の期間やラテン語での意味、構成されている星の定義について詳しく説明しました。一つの星座から複数の情報を得ることができ、それをもとに推理することができます。さらに、今後は他の星座についても情報を増やしていきたいと考えていると言います。</td>
+<td style="text-align:left">山崎さんと駒木根さんの発表は、12星座に関する情報を非常に詳しく説明していて興味深かったです。星座に関する多角的な情報を提供し、今後の拡充も期待できます。</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center"><strong>雪中松柏</strong></td>
+<td style="text-align:left">ROGER MARVIN</td>
+<td style="text-align:left">私は動物の情報に関するオンとロージーを作成しています。SPARQLでクラスや動物のリストを表示し、情報をまとめて関係性を記述することができます。</td>
+<td style="text-align:left">RDFの主語と述語の関係性をすべて示すことができています。</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center"><strong>積水成淵</strong></td>
+<td style="text-align:left">加藤颯士、八幡真也</td>
+<td style="text-align:left">このチームは二人が発表しました。まず、加藤くんはポケモンに関するオントロジーからタイプ相性の関係性を作成しました。技のタイプに応じて攻撃力などの変化を調査することができ、タイプが２つあるポケモンについても計算を行い、その結果を出力するようにしています。次に、八幡さんは銃についての論理プログラミングに取り組んでいます。異なる銃の種類に関する情報をまとめ、さらに操作系統などの詳細情報を追加していく予定です。</td>
+<td style="text-align:left">加藤くんのポケモンに関してのSPARQLオンとロージーで、ポケモンのタイプ相性に基づく戦略的な情報を提供して、ゲームプレイの深化に寄与してできます。一方で八幡さんの銃の論理プログラミングは、銃の技術や操作方法に関する理解を深めるできます。</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center"><strong>日進月歩</strong></td>
+<td style="text-align:left">山口翔太</td>
+<td style="text-align:left">山口くんバーガーキングのトッピングについてのオントロージーSPARQL作っています。バーガーに含まれるバンズなどの関係性を推論するプログラムを開発しています。</td>
+<td style="text-align:left">山口翔太さんのオントロージーSPARQLは、食品業界におけるトッピングの関係性を理解するための興味深い取り組みです。一方で、自分の進むべき道についての内省が大切です。焦らずに自分の興味や目標を明確にすることが、迷いを解消する第一歩です。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="%E7%AC%AC-11-%E5%9B%9E%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E8%AA%B2%E9%A1%8C%E3%81%AE%E8%A6%81%E7%B4%84%E3%83%BB%E6%95%B4%E7%90%86">第 11 回グループ課題の要約・整理</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">回数</th>
+<th style="text-align:center">グループ名</th>
+<th style="text-align:left">発表者</th>
+<th style="text-align:left">発表内容</th>
+<th style="text-align:left">発表への質疑・コメント</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center"><strong>順風満帆</strong></td>
+<td style="text-align:left">倉石大暉</td>
+<td style="text-align:left">倉石大暉がSPARQLとオントロジーについて説明しています。オブジェクト言語が非言語であるものを表示させ、それをどの言語に変換できるかを検索する機能を提供しています。</td>
+<td style="text-align:left">倉石大暉の取り組みは、非言語のオブジェクト言語を理解し、それを他の言語に変換する可能性を探るという点で興味深いです。SPARQLとオントロジーを利用して、言語間の変換可能性を探求する姿勢は、情報の多様性と有用性を拡張する一助となると思います。</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center"><strong>臥薪嘗胆</strong></td>
+<td style="text-align:left">長橋弘幸、小林相太</td>
+<td style="text-align:left">長橋くんはSPARQLを利用して、アンデットアンラックに登場する「否定者」というキャラクターの情報を検索するシステムを開発中です。現在は一つの情報しか表示できない制約がありますが、これを改善してより多くの情報を提供できるように進めています。相太くんラーメンに関するオントロジーを構築し、各種ラーメンのトッピングや種類などの情報を検索できるシステムを開発しています。ただし、クラスとサブクラスの関係性がうまく繋がっておらず、ネットから取得したオントロジーの理解には課題があります。</td>
+<td style="text-align:left">長橋さんの取り組みは、特定のキャラクター情報を効率的に抽出することを目指しており、システムの改善に向けて進化しています。一方、相太くんのラーメンオントロジーはもっとちゃんとできたら、面白いし価値があるものなると思います。</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center"><strong>不撓不屈</strong></td>
+<td style="text-align:left">大竹啓之</td>
+<td style="text-align:left">大竹くんはSPARQLとオントロジーを利用して、星座に関する情報を管理しています。各星座の名称や星の名前、およびそれらをクラスとして詳細に記述しています。インスタンス内に星の名前などをすべて一括して記入してしまったため、それぞれを分類して検索できる仕組みを導入しました。具体的には、特定のクラスに属する星の名前を検索する機能を実装しています。</td>
+<td style="text-align:left">前回の発表の引き続きで、結構進化しました。また、発表は分かりやすかったです。</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center"><strong>雪中松柏</strong></td>
+<td style="text-align:left">ROGER MARVIN</td>
+<td style="text-align:left">私はSPARQLとオントロジーを用いて、コンビニに関する情報を管理しています。各商品の価格やカロリーなどのデータを詳細に記述し、価格やカロリーを一覧として表示する機能を実装しています。また、FF7のキャラクターごとに持っている技を詳細に記述したオントロジーを構築しています。各キャラクターがどんな技を持っているかを明確に表示できるようにしています。</td>
+<td style="text-align:left">SPARQLの使用できて、作ったオンとロージーをSPARQLのクエリでデータを表示できました。コンビニとFF7の両方のオンとロージーをSPARQLでちゃんと表示できました。</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center"><strong>積水成淵</strong></td>
+<td style="text-align:left">加藤颯士、竹田勇斗</td>
+<td style="text-align:left">加藤くんがSPARQLとオントロジーに関連して、ポケモンの進化前と進化後を一覧で表示し、図鑑No.に基づいてポケモンの一覧を表示する機能を開発しています。ただし、Classの表示方法について課題が残っています。竹田くんはアーマードコアに関するオントロジーを構築しています。キャラクターのセリフをコメントから検索し、どのキャラクターがどのようなセリフを言ったかを確認できる機能を提供しています。また、オブジェクトを変更することでキャラクター同士の関係性を検索することも可能です。</td>
+<td style="text-align:left">加藤くんの発表ははわかりやすいでポケモンに関しての理解度が結構上がりました。また、竹田くんのSPARQLに関しての発表は分かりますが、アーマードコアに詳しいくないので、ちょっと理解しづらいことろがあります。しかし、二人ともの発表はよかったです。</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center"><strong>日進月歩</strong></td>
+<td style="text-align:left">池田侑哉</td>
+<td style="text-align:left">池田くんはSPARQLを用いて、楽器に関する情報を管理しています。楽器をクラスとし、各メーカーを記述しています。さらに、ギターの種類などをサブクラスとして詳細に記述しています。クラスのエンドポイントを一覧として検索し、表示することができました。また、クラスの主語述語の関係をクエリで検索する機能も実装しています。</td>
+<td style="text-align:left">わかりやすい発表で、楽器に関して理解が深くなれます。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="%E7%AC%AC-12-%E5%9B%9E%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E8%AA%B2%E9%A1%8C%E3%81%AE%E8%A6%81%E7%B4%84%E3%83%BB%E6%95%B4%E7%90%86">第 12 回グループ課題の要約・整理</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">回数</th>
+<th style="text-align:center">グループ名</th>
+<th style="text-align:left">発表者</th>
+<th style="text-align:left">発表内容</th>
+<th style="text-align:left">発表への質疑・コメント</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center"><strong>順風満帆</strong></td>
+<td style="text-align:left">平栗颯萌、倉石大暉</td>
+<td style="text-align:left">平栗くんスプラトゥーンに関するオントロジーで、シューターのダメージが30以上かつメガトンレーザーが使用可能な武器を検索しています。これにより、戦略的なゲームプレイの支援を目指しています。一方、倉石くんはSPARQLのエンドポイントをエディターで表示し、ローカルホストでサーバーを立ち上げてリクエストに応答するシステムを構築しています。これにより、効率的なデータの管理と処理が可能となります。</td>
+<td style="text-align:left">前回の引き続きで結構分かりやすいで、しかし前回より難しいで、結構わかりにくいですね。もちろん、よく見たら分かりますが、やはり倉石くんのレベルは高いです。すごいです。</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center"><strong>臥薪嘗胆</strong></td>
+<td style="text-align:left">阿部一成、長橋弘幸</td>
+<td style="text-align:left">阿部くんはジャパンサーチを使用して検索を行いましたが、&quot;織田信長&quot;と入力すると作者ではなく関連する作品が表示されました。Pythonでも同様に関連した作品が表示されていることが確認されました。一方、長橋くんはアンデットアンラックのオントロジーで、前回表示できなかった&quot;否定者&quot;という能力を持ったキャラクターを検索できるように改善しました。しかし、組織との関係性の表示には課題があるそうです。</td>
+<td style="text-align:left">阿部一成さんは、検索結果が意図したものと異なっており、絞り込むクエリの改善が必要です。一方、長橋弘幸さんは、オントロジーの検索精度向上に取り組んでいますが、組織との関係性の表示についてはさらなる改善が求められています。</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center"><strong>不撓不屈</strong></td>
+<td style="text-align:left">大竹啓之</td>
+<td style="text-align:left">大竹くんは星座のオントロジーにおいて、星座の名前を検索すると「星の名前」と「明るさ」を同時に検索できるように改善しました。これにより、以前は星座の検索で星の名前しか表示されなかった問題を解決し、星の名前からでも星座を効率的に検索できるようになりました。</td>
+<td style="text-align:left">前回の引き続きで、結構レベルアップしました。しかし、今回の説明は結構分かりにくいです。</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center"><strong>雪中松柏</strong></td>
+<td style="text-align:left">臼田誠</td>
+<td style="text-align:left">誠くんが前回チームで作ったコンビニオンとロージーと作ったSPARQLクエリでサブクエリを発表しました。また、今回講義で紹介してもらったVirtuosoでSPARQLを起動して、発表で報告しました。</td>
+<td style="text-align:left">第10回の発表から引き続いて発表内容はわかりやすいし、オンとロージー自体は簡単なもので、見たらすぐにわかるものです。発表の説明も分かりやすいで、実際Virtuosoでクエリを実行できました。</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center"><strong>積水成淵</strong></td>
+<td style="text-align:left">加藤颯士、八幡真也</td>
+<td style="text-align:left">加藤くんは三段階進化するポケモンを検索するためのシステムを開発しています。進化前と進化後のオブジェクトを両方持つポケモンから、三段階進化を見つけ出すことが可能です。八幡さんは作者の別名義を表示させるためのクエリを構築しています。また、配偶者が死別した場合の俳優を特定するために、&quot;死別&quot;という言葉を含む情報を検索しています。</td>
+<td style="text-align:left">前回の引き続きで結構分かりやすいで、前回より面白かったです。</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center"><strong>日進月歩</strong></td>
+<td style="text-align:left">山崎秀晃</td>
+<td style="text-align:left">山崎くんは諸説とその著者を検索するクエリを開発しています。現在、このサービスはウィキペディアで運用されており、アニメ作品に関する情報の検索に課題があります。</td>
+<td style="text-align:left">使ったオンとロージーは普通ですが、オンとロージーとSPARQLのサブクエリの説明は結構分かりやういです。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="%E8%87%AA%E5%B7%B1%E6%88%90%E9%95%B7%E6%88%90%E6%9E%9C%E4%B8%8A%E4%BD%8D%E6%88%90%E7%B8%BE%E3%81%AB%E5%90%91%E3%81%91%E3%81%A6-%E5%80%8B%E4%BA%BA%E6%88%90%E6%9E%9C%E3%81%AE%E5%A0%B1%E5%91%8A">[自己成長、成果、上位成績に向けて]　個人成果の報告</h3>
+<p>第10回から第12回までの講義は今まで作ったオンとロージーをSPARQLクエリで実行したら、オンとロージーの情報やデータをゲットできると分かりました。自分のチームは今回一緒に取り組んで、復習なオンとロージーを作りました。自分が頑張ったものは二つあります。まず、結構前の時でFF7のXMLをオンとロージー化し変化して、SPARQLを実行しました。コートと結果は以下の通りです。</p>
+<h2 id="final-fantasy-7-%E3%82%AA%E3%83%B3%E3%81%A8%E3%83%AD%E3%83%BC%E3%82%B8%E3%83%BC">Final Fantasy 7 オンとロージー</h2>
+<pre class="hljs"><code><div>&lt;!DOCTYPE rdf:RDF [
+    &lt;!ENTITY xsd &quot;entity-value&quot;&gt;
+]&gt;
+&lt;rdf:RDF xmlns=&quot;http://www.example.org/ff7#&quot;
+    xml:base=&quot;http://www.example.org/ff7&quot;
+    xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;
+    xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot;
+    xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema#&quot;
+    xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;&gt;
+    &lt;owl:Ontology rdf:about=&quot;http://www.example.org/ff7&quot; /&gt;
+
+    &lt;!-- Classes --&gt;
+    &lt;owl:Class rdf:about=&quot;#Character&quot; /&gt;
+    &lt;owl:Class rdf:about=&quot;#LimitBreak&quot; /&gt;
+
+    &lt;!-- Properties --&gt;
+    &lt;owl:DatatypeProperty rdf:about=&quot;#hasName&quot;&gt;
+        &lt;rdfs:domain rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;rdfs:range /&gt;
+    &lt;/owl:DatatypeProperty&gt;
+    &lt;owl:DatatypeProperty rdf:about=&quot;#hasJob&quot;&gt;
+        &lt;rdfs:domain rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;rdfs:range /&gt;
+    &lt;/owl:DatatypeProperty&gt;
+    &lt;owl:DatatypeProperty rdf:about=&quot;#hasLevel&quot;&gt;
+        &lt;rdfs:domain rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;rdfs:range /&gt;
+    &lt;/owl:DatatypeProperty&gt;
+    &lt;owl:DatatypeProperty rdf:about=&quot;#hasHealth&quot;&gt;
+        &lt;rdfs:domain rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;rdfs:range /&gt;
+    &lt;/owl:DatatypeProperty&gt;
+    &lt;owl:DatatypeProperty rdf:about=&quot;#hasMana&quot;&gt;
+        &lt;rdfs:domain rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;rdfs:range /&gt;
+    &lt;/owl:DatatypeProperty&gt;
+    &lt;owl:DatatypeProperty rdf:about=&quot;#hasStrength&quot;&gt;
+        &lt;rdfs:domain rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;rdfs:range /&gt;
+    &lt;/owl:DatatypeProperty&gt;
+    &lt;owl:DatatypeProperty rdf:about=&quot;#hasDefense&quot;&gt;
+        &lt;rdfs:domain rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;rdfs:range /&gt;
+    &lt;/owl:DatatypeProperty&gt;
+    &lt;owl:DatatypeProperty rdf:about=&quot;#hasMagic&quot;&gt;
+        &lt;rdfs:domain rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;rdfs:range /&gt;
+    &lt;/owl:DatatypeProperty&gt;
+    &lt;owl:ObjectProperty rdf:about=&quot;#hasLimitBreak&quot;&gt;
+        &lt;rdfs:domain rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;rdfs:range /&gt;
+    &lt;/owl:ObjectProperty&gt;
+
+    &lt;!-- Individuals --&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Cloud_Strife&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;hasName&gt;Cloud Strife&lt;/hasName&gt;
+        &lt;hasJob&gt;SOLDIER&lt;/hasJob&gt;
+        &lt;hasLevel&gt;50&lt;/hasLevel&gt;
+        &lt;hasHealth&gt;9999&lt;/hasHealth&gt;
+        &lt;hasMana&gt;999&lt;/hasMana&gt;
+        &lt;hasStrength&gt;150&lt;/hasStrength&gt;
+        &lt;hasDefense&gt;120&lt;/hasDefense&gt;
+        &lt;hasMagic&gt;130&lt;/hasMagic&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Omni_Slash&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Climhazzard&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Brave&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Cross_Slash&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Blade_Beam&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Meteorain&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Finishing_Touch&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+
+    &lt;owl:NamedIndividual rdf:about=&quot;#Tifa_Lockhart&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;hasName&gt;Tifa Lockhart&lt;/hasName&gt;
+        &lt;hasJob&gt;Martial Artist&lt;/hasJob&gt;
+        &lt;hasLevel&gt;50&lt;/hasLevel&gt;
+        &lt;hasHealth&gt;9000&lt;/hasHealth&gt;
+        &lt;hasMana&gt;800&lt;/hasMana&gt;
+        &lt;hasStrength&gt;140&lt;/hasStrength&gt;
+        &lt;hasDefense&gt;110&lt;/hasDefense&gt;
+        &lt;hasMagic&gt;120&lt;/hasMagic&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Final_Heaven&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Beat_Rush&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Somersault&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Waterkick&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Meteodrive&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Dolphin_Blow&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Meteor_Strike&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+
+    &lt;owl:NamedIndividual rdf:about=&quot;#Red_XIII&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;hasName&gt;Red XIII&lt;/hasName&gt;
+        &lt;hasJob&gt;Beast&lt;/hasJob&gt;
+        &lt;hasLevel&gt;50&lt;/hasLevel&gt;
+        &lt;hasHealth&gt;9500&lt;/hasHealth&gt;
+        &lt;hasMana&gt;850&lt;/hasMana&gt;
+        &lt;hasStrength&gt;130&lt;/hasStrength&gt;
+        &lt;hasDefense&gt;115&lt;/hasDefense&gt;
+        &lt;hasMagic&gt;125&lt;/hasMagic&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Cosmo_Memory&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Sled_Fang&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Lunatic_High&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Blood_Fang&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Stardust_Ray&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Howling_Moon&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Earth_Rave&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+
+    &lt;owl:NamedIndividual rdf:about=&quot;#Aerith_Gainsborough&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;hasName&gt;Aerith Gainsborough&lt;/hasName&gt;
+        &lt;hasJob&gt;Flower Girl&lt;/hasJob&gt;
+        &lt;hasLevel&gt;50&lt;/hasLevel&gt;
+        &lt;hasHealth&gt;8000&lt;/hasHealth&gt;
+        &lt;hasMana&gt;1000&lt;/hasMana&gt;
+        &lt;hasStrength&gt;100&lt;/hasStrength&gt;
+        &lt;hasDefense&gt;100&lt;/hasDefense&gt;
+        &lt;hasMagic&gt;150&lt;/hasMagic&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Great_Gospel&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Healing_Wind&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Seal_Evil&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Breath_of_the_Earth&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Fury_Brand&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Planet_Protector&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Pulse_of_Life&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+
+    &lt;owl:NamedIndividual rdf:about=&quot;#Barret_Wallace&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;hasName&gt;Barret Wallace&lt;/hasName&gt;
+        &lt;hasJob&gt;Leader of AVALANCHE&lt;/hasJob&gt;
+        &lt;hasLevel&gt;50&lt;/hasLevel&gt;
+        &lt;hasHealth&gt;9800&lt;/hasHealth&gt;
+        &lt;hasMana&gt;700&lt;/hasMana&gt;
+        &lt;hasStrength&gt;160&lt;/hasStrength&gt;
+        &lt;hasDefense&gt;130&lt;/hasDefense&gt;
+        &lt;hasMagic&gt;110&lt;/hasMagic&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Catastrophe&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Big_Shot&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Mindblow&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Grenade_Bomb&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Hammerblow&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Satellite_Beam&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Ungarmax&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+
+    &lt;owl:NamedIndividual rdf:about=&quot;#Zack_Fair&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;hasName&gt;Zack Fair&lt;/hasName&gt;
+        &lt;hasJob&gt;SOLDIER&lt;/hasJob&gt;
+        &lt;hasLevel&gt;50&lt;/hasLevel&gt;
+        &lt;hasHealth&gt;9500&lt;/hasHealth&gt;
+        &lt;hasMana&gt;900&lt;/hasMana&gt;
+        &lt;hasStrength&gt;150&lt;/hasStrength&gt;
+        &lt;hasDefense&gt;120&lt;/hasDefense&gt;
+        &lt;hasMagic&gt;130&lt;/hasMagic&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Rush_Assault&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Chain_Slash&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Meteor_Shower&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Octaslash&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+
+    &lt;owl:NamedIndividual rdf:about=&quot;#Sephiroth&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;hasName&gt;Sephiroth&lt;/hasName&gt;
+        &lt;hasJob&gt;SOLDIER&lt;/hasJob&gt;
+        &lt;hasLevel&gt;99&lt;/hasLevel&gt;
+        &lt;hasHealth&gt;9999&lt;/hasHealth&gt;
+        &lt;hasMana&gt;999&lt;/hasMana&gt;
+        &lt;hasStrength&gt;200&lt;/hasStrength&gt;
+        &lt;hasDefense&gt;150&lt;/hasDefense&gt;
+        &lt;hasMagic&gt;180&lt;/hasMagic&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Supernova&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Hell's_Gate&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Shadow_Flare&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+
+    &lt;owl:NamedIndividual rdf:about=&quot;#Yuffie_Kisaragi&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;hasName&gt;Yuffie Kisaragi&lt;/hasName&gt;
+        &lt;hasJob&gt;Ninja&lt;/hasJob&gt;
+        &lt;hasLevel&gt;50&lt;/hasLevel&gt;
+        &lt;hasHealth&gt;8500&lt;/hasHealth&gt;
+        &lt;hasMana&gt;900&lt;/hasMana&gt;
+        &lt;hasStrength&gt;130&lt;/hasStrength&gt;
+        &lt;hasDefense&gt;110&lt;/hasDefense&gt;
+        &lt;hasMagic&gt;120&lt;/hasMagic&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#All_Creation&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Greased_Lightning&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Clear_Tranquil&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Landscaper&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Bloodfest&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Gauntlet&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Doom_of_the_Living&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+
+    &lt;owl:NamedIndividual rdf:about=&quot;#Cait_Sith&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;hasName&gt;Cait Sith&lt;/hasName&gt;
+        &lt;hasJob&gt;Toy&lt;/hasJob&gt;
+        &lt;hasLevel&gt;50&lt;/hasLevel&gt;
+        &lt;hasHealth&gt;8000&lt;/hasHealth&gt;
+        &lt;hasMana&gt;850&lt;/hasMana&gt;
+        &lt;hasMana&gt;1000&lt;/hasMana&gt;
+        &lt;hasStrength&gt;100&lt;/hasStrength&gt;
+        &lt;hasDefense&gt;100&lt;/hasDefense&gt;
+        &lt;hasMagic&gt;150&lt;/hasMagic&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Mog_Riot&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Dice&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Slots&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+
+    &lt;owl:NamedIndividual rdf:about=&quot;#Vincent_Valentine&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;hasName&gt;Vincent Valentine&lt;/hasName&gt;
+        &lt;hasJob&gt;Gunslinger&lt;/hasJob&gt;
+        &lt;hasLevel&gt;50&lt;/hasLevel&gt;
+        &lt;hasHealth&gt;9000&lt;/hasHealth&gt;
+        &lt;hasMana&gt;800&lt;/hasMana&gt;
+        &lt;hasStrength&gt;140&lt;/hasStrength&gt;
+        &lt;hasDefense&gt;110&lt;/hasDefense&gt;
+        &lt;hasMagic&gt;120&lt;/hasMagic&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Galian_Beast&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Death_Gigas&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Hellmasker&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Chaos&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+
+    &lt;owl:NamedIndividual rdf:about=&quot;#Cid_Highwind&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Character&quot; /&gt;
+        &lt;hasName&gt;Cid Highwind&lt;/hasName&gt;
+        &lt;hasJob&gt;Pilot&lt;/hasJob&gt;
+        &lt;hasLevel&gt;50&lt;/hasLevel&gt;
+        &lt;hasHealth&gt;8500&lt;/hasHealth&gt;
+        &lt;hasMana&gt;900&lt;/hasMana&gt;
+        &lt;hasStrength&gt;130&lt;/hasStrength&gt;
+        &lt;hasDefense&gt;110&lt;/hasDefense&gt;
+        &lt;hasMagic&gt;120&lt;/hasMagic&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Highwind&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Boost_Jump&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Dynamite&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Hyper_Jump&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Dragon&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Dragon_Dive&quot; /&gt;
+        &lt;hasLimitBreak rdf:resource=&quot;#Big_Brawl&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+
+    &lt;owl:NamedIndividual rdf:about=&quot;#Omni_Slash&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Climhazzard&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Brave&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Cross_Slash&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Blade_Beam&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Meteorain&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Finishing_Touch&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Final_Heaven&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Cosmo_Memory&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Great_Gospel&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Catastrophe&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Rush_Assault&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Supernova&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#All_Creation&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Mog_Riot&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Galian_Beast&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Highwind&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Beat_Rush&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Somersault&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Waterkick&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Meteodrive&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Dolphin_Blow&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Meteor_Strike&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Sled_Fang&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Lunatic_High&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Blood_Fang&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Stardust_Ray&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Howling_Moon&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Earth_Rave&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Healing_Wind&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Seal_Evil&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Breath_of_the_Earth&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Fury_Brand&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Planet_Protector&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Pulse_of_Life&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Big_Shot&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Mindblow&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Grenade_Bomb&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Hammerblow&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Satellite_Beam&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Ungarmax&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Chain_Slash&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Meteor_Shower&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Octaslash&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Hell's_Gate&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Shadow_Flare&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Greased_Lightning&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Clear_Tranquil&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Landscaper&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Bloodfest&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Gauntlet&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Doom_of_the_Living&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Dice&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Slots&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Death_Gigas&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Hellmasker&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Chaos&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Boost_Jump&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Dynamite&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Hyper_Jump&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Dragon&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Dragon_Dive&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Big_Brawl&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#LimitBreak&quot; /&gt;
+    &lt;/owl:NamedIndividual&gt;
+
+&lt;/rdf:RDF&gt;
+</div></code></pre>
+<h3 id="sparql-query">SPARQL QUERY</h3>
+<pre class="hljs"><code><div>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX ff7: &lt;http://www.example.org/ff7#&gt;
+
+SELECT ?character ?name ?limitBreak
+WHERE {
+  ?character rdf:type ff7:Character .
+  ?character ff7:hasName ?name .
+  ?character ff7:hasLimitBreak ?limitBreak .
+  FILTER(REGEX(STR(?name), &quot;Cloud&quot;, &quot;i&quot;))
+}
+ORDER BY ?name 
+
+</div></code></pre>
+<blockquote>
+<p>FILTER(REGEX(STR(?name), &quot;Cloud&quot;, &quot;i&quot;))は検索する時に使ったフィルターです。例えば「CLoud」や「cLoUd」をクエリに入力しても、「Cloud Strife」というキャラのデータがゲットできるフィルターです。</p>
+</blockquote>
+<p><img src="./ff7query.png" alt="SPARQL QUERY"></p>
+<h3 id="sub-query">SUB-QUERY</h3>
+<pre class="hljs"><code><div>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX ff7: &lt;http://www.example.org/ff7#&gt;
+SELECT ?character ?name ?limitBreak
+WHERE {
+  {
+    SELECT ?character ?name
+    WHERE {
+      ?character rdf:type ff7:Character .
+      ?character ff7:hasName ?name .
+      FILTER(REGEX(STR(?name), &quot;Cloud&quot;, &quot;i&quot;))
+    }
+  }
+  ?character ff7:hasLimitBreak ?limitBreak .
+}
+ORDER BY ?name 
+</div></code></pre>
+<p><img src="./ff7subquery1.png" alt="SUB-QUERY 1"></p>
+<pre class="hljs"><code><div>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX ff7: &lt;http://www.example.org/ff7#&gt;
+
+SELECT ?character ?name ?job ?level ?health ?mana ?strength ?defense ?magic
+WHERE {
+  {
+    SELECT ?character ?name ?job ?level ?health ?mana ?strength ?defense ?magic
+    WHERE {
+      ?character rdf:type ff7:Character .
+      ?character ff7:hasName ?name .
+      ?character ff7:hasJob ?job .
+      ?character ff7:hasLevel ?level .
+      ?character ff7:hasHealth ?health .
+      ?character ff7:hasMana ?mana .
+      ?character ff7:hasStrength ?strength .
+      ?character ff7:hasDefense ?defense .
+      ?character ff7:hasMagic ?magic .
+    }
+  }
+}
+ORDER BY ?name
+</div></code></pre>
+<p><img src="./ff7subquery2.png" alt="SUB-QUERY 2"></p>
+<h2 id="%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8B-%E3%82%AA%E3%83%B3%E3%81%A8%E3%83%AD%E3%83%BC%E3%82%B8%E3%83%BC">コンビニ オンとロージー</h2>
+<pre class="hljs"><code><div>&lt;!DOCTYPE rdf:RDF [
+    &lt;!ENTITY xsd &quot;http://www.w3.org/2001/XMLSchema#&quot;&gt;
+]&gt;&lt;!-- File: japan_convenience_store_food.owl --&gt;
+&lt;rdf:RDF xmlns=&quot;http://www.example.org/japan_convenience_store_food#&quot;
+    xml:base=&quot;http://www.example.org/japan_convenience_store_food&quot;
+    xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;
+    xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot;
+    xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot;
+    xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema#&quot;&gt;
+    &lt;owl:Ontology rdf:about=&quot;http://www.example.org/japan_convenience_store_food&quot; /&gt;
+
+    &lt;!-- Classes --&gt;
+    &lt;owl:Class rdf:about=&quot;#Food&quot; /&gt;
+    &lt;owl:Class rdf:about=&quot;#Bento&quot;&gt;
+        &lt;rdfs:subClassOf rdf:resource=&quot;#Food&quot; /&gt;
+    &lt;/owl:Class&gt;
+    &lt;owl:Class rdf:about=&quot;#Onigiri&quot;&gt;
+        &lt;rdfs:subClassOf rdf:resource=&quot;#Food&quot; /&gt;
+    &lt;/owl:Class&gt;
+    &lt;owl:Class rdf:about=&quot;#Sandwich&quot;&gt;
+        &lt;rdfs:subClassOf rdf:resource=&quot;#Food&quot; /&gt;
+    &lt;/owl:Class&gt;
+    &lt;owl:Class rdf:about=&quot;#Drink&quot;&gt;
+        &lt;rdfs:subClassOf rdf:resource=&quot;#Food&quot; /&gt;
+    &lt;/owl:Class&gt;
+    &lt;owl:Class rdf:about=&quot;#Snack&quot;&gt;
+        &lt;rdfs:subClassOf rdf:resource=&quot;#Food&quot; /&gt;
+    &lt;/owl:Class&gt;
+    &lt;owl:Class rdf:about=&quot;#Dessert&quot;&gt;
+        &lt;rdfs:subClassOf rdf:resource=&quot;#Food&quot; /&gt;
+    &lt;/owl:Class&gt;
+    &lt;owl:Class rdf:about=&quot;#InstantNoodle&quot;&gt;
+        &lt;rdfs:subClassOf rdf:resource=&quot;#Food&quot; /&gt;
+    &lt;/owl:Class&gt;
+    &lt;owl:Class rdf:about=&quot;#Salad&quot;&gt;
+        &lt;rdfs:subClassOf rdf:resource=&quot;#Food&quot; /&gt;
+    &lt;/owl:Class&gt;
+    &lt;owl:Class rdf:about=&quot;#Soup&quot;&gt;
+        &lt;rdfs:subClassOf rdf:resource=&quot;#Food&quot; /&gt;
+    &lt;/owl:Class&gt;
+    &lt;owl:Class rdf:about=&quot;#Fruit&quot;&gt;
+        &lt;rdfs:subClassOf rdf:resource=&quot;#Food&quot; /&gt;
+    &lt;/owl:Class&gt;
+    &lt;owl:Class rdf:about=&quot;#Bakery&quot;&gt;
+        &lt;rdfs:subClassOf rdf:resource=&quot;#Food&quot; /&gt;
+    &lt;/owl:Class&gt;
+    &lt;owl:Class rdf:about=&quot;#Dairy&quot;&gt;
+        &lt;rdfs:subClassOf rdf:resource=&quot;#Food&quot; /&gt;
+    &lt;/owl:Class&gt;
+
+    &lt;!-- Properties --&gt;
+    &lt;owl:DatatypeProperty rdf:about=&quot;#hasPrice&quot;&gt;
+        &lt;rdfs:domain rdf:resource=&quot;#Food&quot; /&gt;
+        &lt;rdfs:range rdf:resource=&quot;&amp;xsd;float&quot; /&gt;
+    &lt;/owl:DatatypeProperty&gt;
+    &lt;owl:DatatypeProperty rdf:about=&quot;#hasCalories&quot;&gt;
+        &lt;rdfs:domain rdf:resource=&quot;#Food&quot; /&gt;
+        &lt;rdfs:range rdf:resource=&quot;&amp;xsd;float&quot; /&gt;
+    &lt;/owl:DatatypeProperty&gt;
+
+    &lt;!-- Individuals --&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#ChickenBento&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Bento&quot; /&gt;
+        &lt;hasPrice&gt;¥500.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;700.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#TunaOnigiri&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Onigiri&quot; /&gt;
+        &lt;hasPrice&gt;¥150.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;200.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#EggSandwich&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Sandwich&quot; /&gt;
+        &lt;hasPrice&gt;¥250.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;300.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#GreenTea&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Drink&quot; /&gt;
+        &lt;hasPrice&gt;¥100.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;0.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#PotatoChips&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Snack&quot; /&gt;
+        &lt;hasPrice&gt;¥120.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;550.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#ChocolateBar&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Snack&quot; /&gt;
+        &lt;hasPrice&gt;¥100.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;250.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Mochi&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Dessert&quot; /&gt;
+        &lt;hasPrice&gt;¥200.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;300.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#CupNoodles&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#InstantNoodle&quot; /&gt;
+        &lt;hasPrice&gt;¥150.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;400.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#CaesarSalad&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Salad&quot; /&gt;
+        &lt;hasPrice&gt;¥350.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;150.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#FruitSalad&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Salad&quot; /&gt;
+        &lt;hasPrice&gt;¥300.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;120.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#SpicyChickenBento&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Bento&quot; /&gt;
+        &lt;hasPrice&gt;¥550.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;750.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#SalmonOnigiri&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Onigiri&quot; /&gt;
+        &lt;hasPrice&gt;¥180.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;220.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#HamSandwich&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Sandwich&quot; /&gt;
+        &lt;hasPrice&gt;¥270.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;320.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#OolongTea&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Drink&quot; /&gt;
+        &lt;hasPrice&gt;¥120.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;0.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Pretzels&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Snack&quot; /&gt;
+        &lt;hasPrice&gt;¥130.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;500.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Pudding&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Dessert&quot; /&gt;
+        &lt;hasPrice&gt;¥220.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;350.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#SpicyCupNoodles&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#InstantNoodle&quot; /&gt;
+        &lt;hasPrice&gt;¥170.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;450.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#MisoSoup&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Soup&quot; /&gt;
+        &lt;hasPrice&gt;¥200.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;50.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#TomatoSoup&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Soup&quot; /&gt;
+        &lt;hasPrice&gt;¥250.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;80.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Apple&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Fruit&quot; /&gt;
+        &lt;hasPrice&gt;¥100.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;52.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Banana&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Fruit&quot; /&gt;
+        &lt;hasPrice&gt;¥120.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;89.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Croissant&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Bakery&quot; /&gt;
+        &lt;hasPrice&gt;¥150.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;200.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Bagel&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Bakery&quot; /&gt;
+        &lt;hasPrice&gt;¥180.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;250.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Milk&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Dairy&quot; /&gt;
+        &lt;hasPrice&gt;¥120.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;42.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Yogurt&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Dairy&quot; /&gt;
+        &lt;hasPrice&gt;¥150.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;59.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+    &lt;owl:NamedIndividual rdf:about=&quot;#Cheese&quot;&gt;
+        &lt;rdf:type rdf:resource=&quot;#Dairy&quot; /&gt;
+        &lt;hasPrice&gt;¥200.0&lt;/hasPrice&gt;
+        &lt;hasCalories&gt;402.0cal&lt;/hasCalories&gt;
+    &lt;/owl:NamedIndividual&gt;
+&lt;/rdf:RDF&gt;
+</div></code></pre>
+<h3 id="sparql-query">SPARQL QUERY</h3>
+<pre class="hljs"><code><div>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ns: &lt;http://www.example.org/japan_convenience_store_food#&gt;
+
+SELECT ?individual ?price ?calories
+WHERE {
+    ?individual rdf:type ?type .
+    ?individual ns:hasPrice ?price .
+    ?individual ns:hasCalories ?calories .
+}
+GROUP BY ?individual ?price ?calories
+</div></code></pre>
+<p><img src="./konbiniquery.png" alt="KONBINI-QUERY"></p>
+<h3 id="sparql-sub-query">SPARQL SUB-QUERY</h3>
+<pre class="hljs"><code><div>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX ns: &lt;http://www.example.org/japan_convenience_store_food#&gt;
+
+SELECT ?individual ?price ?calories
+WHERE {
+  {
+    SELECT ?individual ?price
+    WHERE {
+      ?individual rdf:type ?type .
+      ?individual ns:hasPrice ?price .
+    }
+  }
+  ?individual ns:hasCalories ?calories .
+}
+GROUP BY ?individual ?price ?calories
+</div></code></pre>
+<p><img src="./konbinisubquery.png" alt="KONBINI SUB-QUERY"></p>
+<h2 id="virtuoso">VIRTUOSO</h2>
+<h3 id="virtuoso%E3%81%A7ff7%E3%81%AEsparql">VIRTUOSOでFF7のSPARQL</h3>
+<p><img src="./virtuosoff7.png" alt="VIRTUOSO FF7"></p>
+<h3 id="virtuoso%E3%81%A7konbini%E3%81%AEsparql">VIRTUOSOでKONBINIのSPARQL</h3>
+<p><img src="./virtuosokonbini.png" alt="VIRTUOSO KONBINI"></p>
+<h2 id="%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85">注意事項</h2>
+<ul>
+<li>直近 3 回分の個人演習と毎回のグループ課題の実施結果について、</li>
+<li>学生ごとの個人のレポートとする</li>
+<li>他の学生のレポートをコピー＆ペーストしたことが発覚した場合、<strong>不正行為とみなし 、規程に基づく懲罰適用の可能性があるので絶対にやってはいけない</strong></li>
+</ul>
+<h3 id="%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AEurl">参考文献、URL</h3>
+
+</body>
+</html>
