@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI-2024A-Final-Report.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="ai-%E5%AE%9F%E7%BF%92-2024-%E6%9C%80%E7%B5%82%E8%AA%B2%E9%A1%8C%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88">AI 実習 2024 　最終課題レポート</h1>
+<h2 id="%E5%90%84%E5%9B%9E%E3%81%AE%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E8%A8%8E%E8%AD%B0%E3%81%AE%E8%A6%81%E7%B4%84%E3%81%A8%E5%80%8B%E4%BA%BA%E3%83%AF%E3%83%BC%E3%82%AF">各回のグループ討議の要約と個人ワーク</h2>
+<h2 id="%E7%AC%AC-13-%E5%9B%9E%E7%AC%AC-15-%E5%9B%9E">[第 13 回～第 15 回]</h2>
+<h2 id="%E6%9C%80%E7%B5%82%E8%AA%B2%E9%A1%8C">最終課題</h2>
+<ul>
+<li>
+<p><strong>課題期間</strong>： 2024/7/18(木)</p>
+</li>
+<li>
+<p><strong>課題提出期限</strong>：　 2024/8/7(水) 18:00</p>
+</li>
+<li>
+<p>ファイル名は、AI-2024A-Final-Report.md 　（すべて半角英数記号）とすること</p>
+</li>
+<li>
+<p>稀に、ファイル名にマルチバイト日本語を入れて Github に File Upload が失敗するケースがあるため</p>
+</li>
+</ul>
+<hr>
+<!-- 要 記述 -->
+<table>
+<thead>
+<tr>
+<th style="text-align:center">クラス</th>
+<th style="text-align:center">学籍番号</th>
+<th style="text-align:center">氏 名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">20122077</td>
+<td style="text-align:center">Roger Marvin</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E3%81%AE%E4%BD%9C%E6%88%90%E6%89%8B%E9%A0%86-%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3%E8%A8%98%E6%B3%95">レポートの作成手順 (マークダウン記法)</h2>
+<ul>
+<li>マークダウン記法[^1][^2][^3][^4]でレポートを作成する</li>
+<li>テキストエディタ＋機能拡張をインストール：</li>
+<li>VSCode https://code.visualstudio.com/download#</li>
+<li>機能拡張(Markdown PDF, Markdown Preview Enhanced ) セットアップ</li>
+<li>ファイル名は、<code>AI実習2024A課題レポート(学籍番号)(学生氏名).md </code></li>
+<li>作成したら PDF ファイル、HTML ファイルを変換生成する</li>
+</ul>
+<h4 id="%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%80%E3%82%A6%E3%83%B3%E8%A8%98%E6%B3%95%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%82%8F%E3%81%8B%E3%82%8A%E3%82%84%E3%81%99%E3%81%84%E8%AA%AC%E6%98%8Eweb-%E6%83%85%E5%A0%B1">マークダウン記法についてわかりやすい説明、Web 情報</h4>
+<p><a href="https://www.bing.com/videos/riverview/relatedvideo?q=%e3%83%9e%e3%83%bc%e3%82%af%e3%83%80%e3%82%a6%e3%83%b3%e8%a8%98%e6%b3%95&amp;mid=4EE93F5EF42F9CAD0CCC4EE93F5EF42F9CAD0CCC&amp;FORM=VIRE">マークダウン記法とは？</a>
+<a href="https://qiita.com/miriwo/items/28d80f46c857de49f34b">Markdown 記法～基礎編～</a>
+<a href="https://qiita.com/miriwo/items/28d80f46c857de49f34b">マークダウン記法一覧</a>
+<a href="https://backlog.com/ja/blog/how-to-write-markdown/">マークダウンの書き方</a></p>
+<p>[^2]: (https://qiita.com/miriwo/items/28d80f46c857de49f34b) Markdown 記法～基礎編～
+[^3]: (https://www.sejuku.net/blog/77398)マークダウン記法一覧
+[^4]: (https://backlog.com/ja/blog/how-to-write-markdown/)マークダウンの書き方</p>
+<h3 id="%E5%A4%96%E9%83%A8%E3%83%84%E3%83%BC%E3%83%AB%E7%94%BB%E9%9D%A2%E3%81%AE%E5%9B%B3%E5%BC%8F%E5%BC%95%E7%94%A8">外部ツール画面の図式引用</h3>
+<ul>
+<li>本様式をひな型とする</li>
+<li>様式中に、マークダウンのコメントとして
+　　<code>&lt;!-- 要 記述　回答 --&gt;</code> と記されている箇所は忘れずに適切な記述を加筆する</li>
+<li>図やスクリーンショットを引用する場合、フォルダにまとめておく</li>
+<li>1 つのレポートにつき、1 つのフォルダを用意する</li>
+<li>そのフォルダに、md, pdf,html,および, 引用で使用した jpg,png 等ファイルをまとめて配置する</li>
+<li>$MR^3$で作成した RDF は、スクリーンショット画像として本文に取り込む</li>
+<li>$Protege$で作成したオントロジは、<code>OWL/XML Syntax</code> 形式で、<code>file名.owl</code>　として保存する</li>
+<li>$Protege$で作成した LOD は、<code>RDF/XML Syntax</code> 形式で、<code>file名.owl</code>　と保存する</li>
+<li>$Sparql$のソースコードは、マークダウン形式に、引用によって記述する</li>
+</ul>
+<pre class="hljs"><code><div>  　Sparqlのクエリコードを　```sql  と ```　で囲み、クエリの実行結果も　``` ``` で囲む
+</div></code></pre>
+<h3 id="%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E6%8F%90%E5%87%BA%E6%96%B9%E6%B3%95-github-%E3%81%AE%E3%83%97%E3%83%A9%E3%82%A4%E3%83%99%E3%83%BC%E3%83%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%83%AD%E3%83%BC%E3%83%89">レポート提出方法 Github のプライベートリポジトリにアップロード</h3>
+<ul>
+<li>
+<p>2 学年 4 学期の<strong>API 実習と同じ方法</strong></p>
+</li>
+<li>
+<p>Github のアカウントを作成し、<strong>Practice-AI-2024</strong> という名称でプライベートリポジトリを作成</p>
+</li>
+<li>
+<p>そのプライベートリポジトリに、指導員の Github アカウント= <strong>keythrive</strong>を招待する</p>
+</li>
+<li>
+<p>Github のプライベートリポジトリに次の名前で、6 つフォルダを用意する：</p>
+<ul>
+<li><strong>report1-3</strong></li>
+<li><strong>report4-6</strong></li>
+<li><strong>report7-9</strong></li>
+<li><strong>report10-12</strong></li>
+<li><strong>report13-15</strong>は、<strong>report-Final</strong>　に混ぜてよい</li>
+</ul>
+</li>
+<li></li>
+<li>
+<p>Github のアカウント名、プライベートリポジトリ作成、6 つのフォルダをつくったか？招待を完了したか？について、FORMS アンケートするので必ず回答すること。</p>
+</li>
+<li>
+<p>FORMS アンケートはこちら：</p>
+<ul>
+<li>https://forms.office.com/r/6iMLLYjw1t</li>
+</ul>
+</li>
+<li>
+<p>FORMS アンケートに未回答の場合、レポートを取得する方法が確立しないので、必ず回答のうえレポート提出可能な状態にすること</p>
+</li>
+<li>
+<p>それぞれの提出期限までに、必要なファイル一式を当該フォルダにアップロードしておく</p>
+</li>
+<li>
+<p>〆切時刻を過ぎた時点で自動的に, 全員の Github プライベートリポジトリから、<code>git clone</code>などでファイルを一括ダウンロードする</p>
+</li>
+<li>
+<p>提出が遅れるとダウンロードできず、未提出と判断される</p>
+</li>
+<li>
+<p>真に止むを得ない事由で、提出期限が遅れる場合、事前にメールにて連絡・相談すること:</p>
+</li>
+<li>
+<p>mailto: <strong>horikawa.keitaro@kaishi-pu.ac.jp</strong></p>
+</li>
+<li>
+<p>事前連絡なしに、期限を過ぎた場合、その課題レポートは未提出として採点しない</p>
+</li>
+<li>
+<p>Github のアカウント登録、プライベートリポジトリ、ファイルアップロードが不明な場合は、必ず事前に確認・相談するか、すでに出来ている友達から教えてもらうこと</p>
+</li>
+</ul>
+<hr>
+<h2 id="%E8%AA%B2%E9%A1%8C%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E3%81%AE%E3%81%BE%E3%81%A8%E3%82%81%E6%96%B9">課題レポートのまとめ方</h2>
+<ul>
+<li>直近のグループ実習 3 回分をまとめて 1 つのレポートを作成する</li>
+<li>毎回休まずに出席して、グループ討論に積極的に参画する</li>
+<li>グループを代表して発表し、質疑応答、議論、メモを確実にとる作業が大切</li>
+<li>自グループと他グループの発表をしっかり聴いて、議論模様を簡潔にまとめて報告する</li>
+<li>それぞれの回の全てのグループ発表、および、</li>
+<li>学生と教員からの質疑コメントを要約する</li>
+<li>ここまではグループメンバ間の協力作業で、差異化要素はほとんどないことが予想される</li>
+<li>自作の成果（RDF,オントロジ等）には極力 &quot;FOAF,SKOS,DC&quot;など共通語彙を適用する</li>
+<li><strong>個人の努力を差異化要素</strong>として、さらに踏み込んだ検討・実習の成果を 3 回分の<strong>個人演習</strong>について報告してよい</li>
+<li>3 回で取り組んだ内容、理解を深めたことを独自レポートとして加筆可能</li>
+<li>例えば、<strong>作成した RDF,オントロジ,使用した LOD, 作成した Sparql クエリ,その他の AI 手法やプログラムとの連携技、それらの分析・考察・所感</strong>　など</li>
+</ul>
+<h3 id="%E6%9C%AC%E5%AE%9F%E7%BF%92%E3%83%BB%E8%AA%B2%E9%A1%8C%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E3%81%AB%E5%8F%96%E3%82%8A%E7%B5%84%E3%82%80%E6%84%8F%E7%BE%A9">本実習・課題レポートに取り組む意義</h3>
+<ul>
+<li>半年後、本実習を「適当にやり過ごした学生群」と、「真剣に打ち込んで突き詰めた学生群」に明確に分かれることが予想される</li>
+<li>前者と後者とで、成長の差は著しく広がり、臨地実務実習 II の実習成果および企業担当者から評価が如実に変わる</li>
+<li>1 年後の今頃、就職活動の内々定数（場合によっては、転職ファストパスの数）が大きく変わることが見込まれる</li>
+</ul>
+<hr>
+<h2 id="%E6%9C%80%E7%B5%82%E8%AA%B2%E9%A1%8C">最終課題</h2>
+<ul>
+<li>
+<p>第 14 回ー第 15 回「情報家電」オントロジを参考に、最終自作オントロジの作成と活用評価を報告する</p>
+</li>
+<li>
+<p>必要な要件は下記のとおり：</p>
+</li>
+<li>
+<p>(1) 設計者（貴方）の立場：　新製品や新商品を購入検討中の顧客に対し、適切なアドバイスを提供するコンシェルジェ</p>
+</li>
+<li>
+<p>(2) 作成評価するオントロジとそのアプリの要件：　顧客からのどのような問合せ（クエリ）が考えられるか？　ユースケースを具体的に描いて、それに適切に答えられるための必要な知識・概念・語彙をオントロジとして設計する</p>
+</li>
+<li>
+<p>例えば、白物家電（冷蔵庫、エアコン、洗濯機、掃除機、液晶 TV）、スマートフォン、PC、タブレット、電気自動車、の買い替えを想定して、さまざまなニーズに応えるための知識を設計する</p>
+</li>
+<li>
+<p>多数の製品・商品群がある中、数多の選択肢から、顧客が十分に満足する製品をどういう条件で絞り込むか？</p>
+</li>
+<li>
+<p>(3) 購入要件を満たす製品の絞り込みを可能とする　$Sparqlクエリ$の仕様設計</p>
+</li>
+<li>
+<p>クエリに整合した、概念・用語・語彙と、その関係整理を製品・製品バリエーション・要求仕様として表現する</p>
+</li>
+<li>
+<p>(4) 実際の具体的製品名(LOD)、代表的な属性・共通語彙を使ってオントロジに反映する</p>
+</li>
+<li>
+<p>(5) 実際に Protege を用いたオントロジの作成、Sparql の動作を確認</p>
+</li>
+<li>
+<p>(6) オントロジの評価：　購入要件に複数のバリエーションを用意して、複数パターンのクエリと結果の実例を示すこと。そのうえで、製品購入へのアドバイスの網羅性・精度・頻度を評価考察する</p>
+</li>
+<li>
+<p>オントロジを用いた推論は、クラスの同一性、排他性などによるクラス体系整理のレベルであるが、利用価値の高い$Sparql$や$Prolog$による述語論理の検討・提案ができれば加点要素とする</p>
+</li>
+<li>
+<p>また、個人作業の高度化の一環で、$Sparql$や$Prolog$の論理演算を DSL として、他の言語から呼び出す形態で活用してもよい</p>
+</li>
+<li>
+<p>更なる加点要素：Virtuoso を用いた RDF ストア化および、Sparql エンドポイントのローカル動作確認</p>
+</li>
+</ul>
+<hr>
+<h2 id="%E6%9C%80%E7%B5%82%E8%AA%B2%E9%A1%8C%E3%81%AE%E8%A8%98%E8%BC%89%E4%BA%8B%E9%A0%85">最終課題の記載事項</h2>
+<h3 id="%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9F%E3%82%AA%E3%83%B3%E3%83%88%E3%83%AD%E3%82%B8%E5%90%8D%E5%AF%BE%E8%B1%A1%E3%81%A8%E3%81%97%E3%81%9F%E6%96%B0%E8%A3%BD%E5%93%81%E3%83%BB%E6%96%B0%E5%95%86%E5%93%81%E5%90%8D">作成したオントロジ名：対象とした新製品・新商品名</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">オントロジー名</th>
+<th style="text-align:left">あらゆる種類の機械オントロジー</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">対象とした新製品</td>
+<td style="text-align:left">3D プリンター、CNC マシン、レザーカッター、PCB プリンター、掘削機、グラインダー、テーブルソー</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E6%83%B3%E5%AE%9A%E3%81%97%E3%81%9F%E9%A1%A7%E5%AE%A2%E3%81%8B%E3%82%89%E3%81%AE%E5%85%B7%E4%BD%93%E7%9A%84%E8%B3%AA%E5%95%8F%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9%E4%BA%8B%E4%BE%8B">想定した顧客からの具体的質問、ユースケース事例</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">想定するユーザー</th>
+<th style="text-align:left">ユースケース事例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ある施設の管理者</td>
+<td style="text-align:left">働いている施設で機械を交換する際や上司に新しい機械の購入を依頼された際に、このオントロジーを使えば、検索が迅速にでき、機械の重要な情報を全て把握できます。そのため、簡単に上司に報告することができ、いちいち情報を探す手間が省けます。</td>
+</tr>
+<tr>
+<td style="text-align:left">ある施設の利用者</td>
+<td style="text-align:left">ある施設の機械を自分の家や部屋に設置したい時に、このオントロジーを使えば、自分の予算や希望する機械のスペックを迅速かつ確実に検索し、安心して購入することができます。</td>
+</tr>
+<tr>
+<td style="text-align:left">機械に関しての初心者</td>
+<td style="text-align:left">機械に興味はあるが、機械に関する知識が全くない場合でも、このオントロジーを使えば、機械の重要な情報を得ることができます。そのため、後悔することなく機械を購入することができます。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="protege-%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E3%82%AA%E3%83%B3%E3%83%88%E3%83%AD%E3%82%B8%E3%81%AE%E5%9B%B3%E5%BC%8F">Protege を用いたオントロジの図式</h3>
+<ul>
+<li><strong>protégé</strong>にて作成された、オントロジファイル (.owl) 形式の成果物</li>
+<li>画面スナップショット (.jpg, .png)</li>
+</ul>
+<h4 id="%E3%82%AA%E3%83%B3%E3%83%88%E3%83%AD%E3%82%B8%E3%83%BC-class">オントロジー Class</h4>
+<img src="./assets/Class.png" alt="オントロジクラス" width="20%" border="1">
+<h4 id="%E3%82%AA%E3%83%B3%E3%83%88%E3%83%AD%E3%82%B8%E3%83%BC-individual">オントロジー Individual</h4>
+<img src="./assets/individual.png" alt="オントロジ個体" width="50%" border="1">
+<h4 id="%E3%82%AA%E3%83%B3%E3%83%88%E3%83%AD%E3%82%B8%E3%83%BC-property">オントロジー Property</h4>
+<img src="./assets/dataProperty.png" alt="オントロジデータプロパティ" width="30%" border="1">
+<img src="./assets/objectProperty.png" alt="オントロジオブジェクトプロパティ" width="30%" border="1">
+<h4 id="%E3%82%AA%E3%83%B3%E3%83%88%E3%83%AD%E3%82%B8%E3%83%BC-ontograf">オントロジー OntoGraf</h4>
+<img src="./assets/OntoGraf.png" alt="オントロジファイル" width="50%" border="1">
+<h4 id="%E3%82%AA%E3%83%B3%E3%83%88%E3%83%AD%E3%82%B8%E3%83%BC-sparql-query-on-virtuoso%E3%82%AF%E3%82%A8%E3%83%AA-01-%E7%94%BB%E9%9D%A2">オントロジー Sparql Query on Virtuoso「クエリ 01 画面」</h4>
+<img src="./assets/virtuoso-sparql.png" alt="オントロジVirtuoso" width="50%" border="1">
+<hr>
+<h3 id="sparql-%E3%81%AE%E5%AE%9F%E6%96%BD%E4%BE%8B%E3%81%A8%E3%81%9D%E3%81%AE%E7%B5%90%E6%9E%9Cvirtuoso-%E7%92%B0%E5%A2%83">Sparql の実施例とその結果「Virtuoso 環境」</h3>
+<h4 id="%E3%82%AF%E3%82%A8%E3%83%AA-01">クエリ 01</h4>
+<blockquote>
+<p>3D プリンター（入力：「bambu」）の値段が 50,000 円以上 120,000 円以下のものを検索する</p>
+</blockquote>
+<pre class="hljs"><code><div>  PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+  PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+  PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+  PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+  PREFIX owl1: &lt;file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#&gt;
+
+  SELECT DISTINCT ?individual ?property ?value ?price ?numericPrice ?brandName
+  WHERE {
+      ?individual owl1:hasBrand ?brand .
+      ?individual ?property ?value .
+
+      BIND(STRAFTER(STR(?individual), &quot;#&quot;) AS ?individualName)
+      FILTER(REGEX(?individualName, &quot;bambu&quot;, &quot;i&quot;))
+      FILTER(?property != rdf:type)
+
+      ?individual owl1:hasPrice ?price .
+      BIND(xsd:integer(REPLACE(?price, &quot;[^0-9]&quot;, &quot;&quot;)) AS ?numericPrice)
+      FILTER(?numericPrice &gt;= 50000 &amp;&amp; ?numericPrice &lt;= 120000)
+
+      OPTIONAL {
+          ?brand rdfs:label ?brandName .
+      }
+  }
+  ORDER BY ?individual ?property
+
+</div></code></pre>
+<h4 id="%E7%B5%90%E6%9E%9C-01">結果 01</h4>
+<table>
+<thead>
+<tr>
+<th>individual</th>
+<th>property</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasBrand</td>
+<td>Bambu_Lab</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasBuildVolume</td>
+<td>&quot;256x256x256&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasImage</td>
+<td>&quot;https://jp.store.bambulab.com/cdn/shop/products/A1-2_800x.png?v=1703150110&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasLayerResolution</td>
+<td>&quot;0.1&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasLink</td>
+<td>&quot;https://jp.store.bambulab.com/en/products/a1&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasMaterialCompatibility</td>
+<td>&quot;PLA、PETG、TPU、PVA&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasModel</td>
+<td>&quot;A1&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasPrice</td>
+<td>&quot;58,800&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasTechnology</td>
+<td>&quot;SLA&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasVoltage</td>
+<td>&quot;220&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasWattage</td>
+<td>&quot;1000&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasWeight</td>
+<td>&quot;8.3&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasBrand</td>
+<td>Bambu_Lab</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasBuildVolume</td>
+<td>&quot;256x256x256&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasImage</td>
+<td>&quot;https://jp.store.bambulab.com/cdn/shop/products/1_25403143-622a-4773-b16a-db9a2573e733_800x.jpg?v=1689660650&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasLayerResolution</td>
+<td>&quot;0.1&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasLink</td>
+<td>&quot;https://jp.store.bambulab.com/en/products/p1s&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasMaterialCompatibility</td>
+<td>&quot;PLA, PETG, TPU, PVA, PET&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasModel</td>
+<td>&quot;P1S&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasPrice</td>
+<td>&quot;109,000&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasTechnology</td>
+<td>&quot;SLA&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasVoltage</td>
+<td>&quot;220&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasWattage</td>
+<td>&quot;1000&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasWeight</td>
+<td>&quot;9.65&quot;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="%E3%82%AF%E3%82%A8%E3%83%AA-02">クエリ 02</h4>
+<blockquote>
+<p>3D プリンター（入力：「3d」）の値段が 10,000 円以上 120,000 円以下のものを検索する</p>
+</blockquote>
+<pre class="hljs"><code><div>  PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+  PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+  PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+  PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+  PREFIX owl1: &lt;file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#&gt;
+
+  SELECT DISTINCT ?individual ?property ?value
+  WHERE {
+      ?individual rdf:type ?category .
+      ?category rdfs:label ?categoryLabel .
+      FILTER(CONTAINS(LCASE(STR(?categoryLabel)), LCASE(&quot;3d&quot;)))
+
+      ?individual owl1:hasBrand ?brand .
+      ?individual ?property ?value .
+      FILTER(?property != rdf:type)
+
+      ?individual owl1:hasPrice ?price .
+      BIND(xsd:integer(REPLACE(?price, &quot;[^0-9]&quot;, &quot;&quot;)) AS ?numericPrice)
+      FILTER(?numericPrice &gt;= 10000 &amp;&amp; ?numericPrice &lt;= 120000)
+
+      OPTIONAL {
+          ?brand rdfs:label ?brandName .
+      }
+  }
+  ORDER BY ?individual ?property
+</div></code></pre>
+<h4 id="%E7%B5%90%E6%9E%9C-02">結果 02</h4>
+<table>
+<thead>
+<tr>
+<th>individual</th>
+<th>property</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anycubic_Kobra_2_Plus</td>
+<td>hasBrand</td>
+<td>Anycubic</td>
+</tr>
+<tr>
+<td>Anycubic_Kobra_2_Plus</td>
+<td>hasBuildVolume</td>
+<td>&quot;320x320x400&quot;</td>
+</tr>
+<tr>
+<td>Anycubic_Kobra_2_Plus</td>
+<td>hasImage</td>
+<td>&quot;https://m.media-amazon.com/images/I/61ItfucfWiL.AC_UF894,1000_QL80.jpg&quot;</td>
+</tr>
+<tr>
+<td>Anycubic_Kobra_2_Plus</td>
+<td>hasLayerResolution</td>
+<td>&quot;0.1&quot;</td>
+</tr>
+<tr>
+<td>Anycubic_Kobra_2_Plus</td>
+<td>hasLink</td>
+<td>&quot;https://www.anycubic.com/products/kobra-2-plus-3d-printer&quot;</td>
+</tr>
+<tr>
+<td>Anycubic_Kobra_2_Plus</td>
+<td>hasMaterialCompatibility</td>
+<td>&quot;PLA、PETG、TPU、PVA&quot;</td>
+</tr>
+<tr>
+<td>Anycubic_Kobra_2_Plus</td>
+<td>hasModel</td>
+<td>&quot;Kobra 2 Plus&quot;</td>
+</tr>
+<tr>
+<td>Anycubic_Kobra_2_Plus</td>
+<td>hasPrice</td>
+<td>&quot;72,999&quot;</td>
+</tr>
+<tr>
+<td>Anycubic_Kobra_2_Plus</td>
+<td>hasTechnology</td>
+<td>&quot;FDM&quot;</td>
+</tr>
+<tr>
+<td>Anycubic_Kobra_2_Plus</td>
+<td>hasVoltage</td>
+<td>&quot;220&quot;</td>
+</tr>
+<tr>
+<td>Anycubic_Kobra_2_Plus</td>
+<td>hasWattage</td>
+<td>&quot;1000&quot;</td>
+</tr>
+<tr>
+<td>Anycubic_Kobra_2_Plus</td>
+<td>hasWeight</td>
+<td>&quot;13&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasBrand</td>
+<td>Bambu_Lab</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasBuildVolume</td>
+<td>&quot;256x256x256&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasImage</td>
+<td>&quot;https://jp.store.bambulab.com/cdn/shop/products/A1-2_800x.png?v=1703150110&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasLayerResolution</td>
+<td>&quot;0.1&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasLink</td>
+<td>&quot;https://jp.store.bambulab.com/en/products/a1&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasMaterialCompatibility</td>
+<td>&quot;PLA、PETG、TPU、PVA&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasModel</td>
+<td>&quot;A1&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasPrice</td>
+<td>&quot;58,800&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasTechnology</td>
+<td>&quot;SLA&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasVoltage</td>
+<td>&quot;220&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasWattage</td>
+<td>&quot;1000&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_A1</td>
+<td>hasWeight</td>
+<td>&quot;8.3&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasBrand</td>
+<td>Bambu_Lab</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasBuildVolume</td>
+<td>&quot;256x256x256&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasImage</td>
+<td>&quot;https://jp.store.bambulab.com/cdn/shop/products/1_25403143-622a-4773-b16a-db9a2573e733_800x.jpg?v=1689660650&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasLayerResolution</td>
+<td>&quot;0.1&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasLink</td>
+<td>&quot;https://jp.store.bambulab.com/en/products/p1s&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasMaterialCompatibility</td>
+<td>&quot;PLA, PETG, TPU, PVA, PET&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasModel</td>
+<td>&quot;P1S&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasPrice</td>
+<td>&quot;109,000&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasTechnology</td>
+<td>&quot;SLA&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasVoltage</td>
+<td>&quot;220&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasWattage</td>
+<td>&quot;1000&quot;</td>
+</tr>
+<tr>
+<td>Bambu_Lab_P1S</td>
+<td>hasWeight</td>
+<td>&quot;9.65&quot;</td>
+</tr>
+<tr>
+<td>ELEGOO_Neptune_4</td>
+<td>hasBrand</td>
+<td>ELEGOO</td>
+</tr>
+<tr>
+<td>ELEGOO_Neptune_4</td>
+<td>hasBuildVolume</td>
+<td>&quot;225x225x265&quot;</td>
+</tr>
+<tr>
+<td>ELEGOO_Neptune_4</td>
+<td>hasImage</td>
+<td>&quot;https://m.media-amazon.com/images/S/aplus-media-library-service-media/3572ef63-8c98-4053-b609-5e841619a5c6.CR0,0,300,225_PT0_SX300_V1_.jpg&quot;</td>
+</tr>
+<tr>
+<td>ELEGOO_Neptune_4</td>
+<td>hasLayerResolution</td>
+<td>&quot;0.1&quot;</td>
+</tr>
+<tr>
+<td>ELEGOO_Neptune_4</td>
+<td>hasLink</td>
+<td>&quot;https://www.amazon.co.jp/ELEGOO-Neptune-Pro-225x225x265mm%C2%B3-8-85x8-85x10-43/dp/B0CG1GGD2T&quot;</td>
+</tr>
+<tr>
+<td>ELEGOO_Neptune_4</td>
+<td>hasMaterialCompatibility</td>
+<td>&quot;PLA、PETG、ABS、TPU&quot;</td>
+</tr>
+<tr>
+<td>ELEGOO_Neptune_4</td>
+<td>hasModel</td>
+<td>&quot;Neptune 4&quot;</td>
+</tr>
+<tr>
+<td>ELEGOO_Neptune_4</td>
+<td>hasPrice</td>
+<td>&quot;31,199&quot;</td>
+</tr>
+<tr>
+<td>ELEGOO_Neptune_4</td>
+<td>hasPrice</td>
+<td>&quot;100,000&quot;</td>
+</tr>
+<tr>
+<td>ELEGOO_Neptune_4</td>
+<td>hasTechnology</td>
+<td>&quot;FDM&quot;</td>
+</tr>
+<tr>
+<td>ELEGOO_Neptune_4</td>
+<td>hasVoltage</td>
+<td>&quot;220&quot;</td>
+</tr>
+<tr>
+<td>ELEGOO_Neptune_4</td>
+<td>hasWattage</td>
+<td>&quot;1000&quot;</td>
+</tr>
+<tr>
+<td>ELEGOO_Neptune_4</td>
+<td>hasWeight</td>
+<td>&quot;8.3&quot;</td>
+</tr>
+<tr>
+<td>Ender-3_V3_SE</td>
+<td>hasBrand</td>
+<td>Ender-3</td>
+</tr>
+<tr>
+<td>Ender-3_V3_SE</td>
+<td>hasBuildVolume</td>
+<td>&quot;220x220x250&quot;</td>
+</tr>
+<tr>
+<td>Ender-3_V3_SE</td>
+<td>hasImage</td>
+<td>&quot;https://www.creality3dofficial.eu/files/goods/20230925/creality-ender-3v3-se-3d-printer-eu.jpg&quot;</td>
+</tr>
+<tr>
+<td>Ender-3_V3_SE</td>
+<td>hasLayerResolution</td>
+<td>&quot;0.1&quot;</td>
+</tr>
+<tr>
+<td>Ender-3_V3_SE</td>
+<td>hasLink</td>
+<td>&quot;https://www.amazon.co.jp/Creality-Ender-3-s%E3%81%BE%E3%81%A7%E3%82%B9%E3%83%94%E3%83%BC%E3%83%88%E3%81%A82500mm-%E3%83%8F%E3%83%B3%E3%82%BA%E3%83%95%E3%83%AA%E3%83%BC%E8%87%AA%E5%8B%95%E3%83%AC%E3%83%99%E3%83%AA%E3%83%B3%E3%82%B0-%E9%AB%98%E7%B2%BE%E5%BA%A6%E9%80%A0%E5%BD%A2%E3%82%B5%E3%82%A4%E3%82%BA220x220x250mm/dp/B0CDGL637K?th=1&quot;</td>
+</tr>
+<tr>
+<td>Ender-3_V3_SE</td>
+<td>hasMaterialCompatibility</td>
+<td>&quot;PLA、PETG、TPU&quot;</td>
+</tr>
+<tr>
+<td>Ender-3_V3_SE</td>
+<td>hasModel</td>
+<td>&quot;V3_SE&quot;</td>
+</tr>
+<tr>
+<td>Ender-3_V3_SE</td>
+<td>hasPrice</td>
+<td>&quot;27,427&quot;</td>
+</tr>
+<tr>
+<td>Ender-3_V3_SE</td>
+<td>hasTechnology</td>
+<td>&quot;SLA&quot;</td>
+</tr>
+<tr>
+<td>Ender-3_V3_SE</td>
+<td>hasVoltage</td>
+<td>&quot;220&quot;</td>
+</tr>
+<tr>
+<td>Ender-3_V3_SE</td>
+<td>hasWattage</td>
+<td>&quot;1000&quot;</td>
+</tr>
+<tr>
+<td>Ender-3_V3_SE</td>
+<td>hasWeight</td>
+<td>&quot;7.34&quot;</td>
+</tr>
+<tr>
+<td>Original_Prusa_MINI+</td>
+<td>hasBrand</td>
+<td>Original_Prusa</td>
+</tr>
+<tr>
+<td>Original_Prusa_MINI+</td>
+<td>hasBuildVolume</td>
+<td>&quot;380x330x380&quot;</td>
+</tr>
+<tr>
+<td>Original_Prusa_MINI+</td>
+<td>hasImage</td>
+<td>&quot;https://m.media-amazon.com/images/I/71vFaWXP9hL.jpg&quot;</td>
+</tr>
+<tr>
+<td>Original_Prusa_MINI+</td>
+<td>hasLayerResolution</td>
+<td>&quot;0.1&quot;</td>
+</tr>
+<tr>
+<td>Original_Prusa_MINI+</td>
+<td>hasLink</td>
+<td>&quot;https://www.amazon.co.jp/ORIGINAL-PRUSA-MINI-%E5%8D%8A%E7%B5%84%E7%AB%8B%E6%B8%88%E3%81%BF/dp/B0933LV2JW&quot;</td>
+</tr>
+<tr>
+<td>Original_Prusa_MINI+</td>
+<td>hasMaterialCompatibility</td>
+<td>&quot;PLA, PETG, ASA, ABS, PC (Polycarbonate), CPE, PVA/BVOH, PVB, HIPS, PP (Polypropylene), Flex, nGen, Nylon, Woodfill &quot;</td>
+</tr>
+<tr>
+<td>Original_Prusa_MINI+</td>
+<td>hasModel</td>
+<td>&quot;MINI+&quot;</td>
+</tr>
+<tr>
+<td>Original_Prusa_MINI+</td>
+<td>hasPrice</td>
+<td>&quot;27,427&quot;</td>
+</tr>
+<tr>
+<td>Original_Prusa_MINI+</td>
+<td>hasPrice</td>
+<td>&quot;100,000&quot;</td>
+</tr>
+<tr>
+<td>Original_Prusa_MINI+</td>
+<td>hasTechnology</td>
+<td>&quot;FDM&quot;</td>
+</tr>
+<tr>
+<td>Original_Prusa_MINI+</td>
+<td>hasVoltage</td>
+<td>&quot;220&quot;</td>
+</tr>
+<tr>
+<td>Original_Prusa_MINI+</td>
+<td>hasWattage</td>
+<td>&quot;1000&quot;</td>
+</tr>
+<tr>
+<td>Original_Prusa_MINI+</td>
+<td>hasWeight</td>
+<td>&quot;4.5&quot;</td>
+</tr>
+<tr>
+<td>Sovol SV06</td>
+<td>hasBrand</td>
+<td>Sovol</td>
+</tr>
+<tr>
+<td>Sovol SV06</td>
+<td>hasBuildVolume</td>
+<td>&quot;220x220x250&quot;</td>
+</tr>
+<tr>
+<td>Sovol SV06</td>
+<td>hasImage</td>
+<td>&quot;https://m.media-amazon.com/images/I/718XUIjydqL.jpg&quot;</td>
+</tr>
+<tr>
+<td>Sovol SV06</td>
+<td>hasLayerResolution</td>
+<td>&quot;0.1&quot;</td>
+</tr>
+<tr>
+<td>Sovol SV06</td>
+<td>hasLink</td>
+<td>&quot;https://www.amazon.com/Sovol-Planetary-Extruder-25-Point-8-66x8-66x9-84/dp/B0BJV3WB2J&quot;</td>
+</tr>
+<tr>
+<td>Sovol SV06</td>
+<td>hasMaterialCompatibility</td>
+<td>&quot;PLA、PETG、TPU、PVA&quot;</td>
+</tr>
+<tr>
+<td>Sovol SV06</td>
+<td>hasModel</td>
+<td>&quot;SV06&quot;</td>
+</tr>
+<tr>
+<td>Sovol SV06</td>
+<td>hasPrice</td>
+<td>&quot;30,492&quot;</td>
+</tr>
+<tr>
+<td>Sovol SV06</td>
+<td>hasPrice</td>
+<td>&quot;100,000&quot;</td>
+</tr>
+<tr>
+<td>Sovol SV06</td>
+<td>hasTechnology</td>
+<td>&quot;FDM&quot;</td>
+</tr>
+<tr>
+<td>Sovol SV06</td>
+<td>hasVoltage</td>
+<td>&quot;220&quot;</td>
+</tr>
+<tr>
+<td>Sovol SV06</td>
+<td>hasWattage</td>
+<td>&quot;1000&quot;</td>
+</tr>
+<tr>
+<td>Sovol SV06</td>
+<td>hasWeight</td>
+<td>&quot;10.5&quot;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9F%E3%82%AA%E3%83%B3%E3%83%88%E3%83%AD%E3%82%B8%E3%81%AE%E8%A6%8F%E6%A8%A1%E3%81%9D%E3%81%AE%E6%B4%BB%E7%94%A8%E8%A6%8F%E6%A8%A1%E3%82%92%E8%A1%A8%E3%81%99%E6%95%B0%E5%80%A4%E3%82%92%E5%88%97%E6%8C%99%E3%81%99%E3%82%8B">作成したオントロジの規模、その活用規模を表す数値を列挙する</h3>
+<ul>
+<li>設計したクラスの数</li>
+<li>設計したインスタンスの数</li>
+<li>設計したプロパティの数</li>
+<li>.owl ファイルの行数 (XML ファイルの行数を wc でカウント、テキストエディタで確認)</li>
+<li>Sparql のクエリ数　（クエリ実行のパターン数）</li>
+<li>トータルの Sparql 行数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>定量パラメタ</th>
+<th>数値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>クラス数</td>
+<td>11</td>
+</tr>
+<tr>
+<td>インスタンス数</td>
+<td>69</td>
+</tr>
+<tr>
+<td>プロパティ数</td>
+<td>20</td>
+</tr>
+<tr>
+<td>.owl 行数</td>
+<td>1454</td>
+</tr>
+<tr>
+<td>Sparql クエリ数</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Sparql 行数</td>
+<td>61</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E5%88%86%E6%9E%90%E3%83%BB%E8%A9%95%E4%BE%A1%E3%83%BB%E8%80%83%E5%AF%9F">分析・評価・考察</h3>
+<ul>
+<li>選定理由、なぜこのテーマを選定したか？</li>
+<li>深く専門的な知識の所在</li>
+<li>ユーザへの寄与・貢献、ユーザにどのように活用してほしいか</li>
+<li>差異化要素、強みと特徴点</li>
+<li>共通語彙、プロパティの使い方で自ら発見した知見</li>
+<li>クラスとインスタンスの違いで発見した知見</li>
+<li>オントロジ設計で貫いたポリシー</li>
+<li>創意工夫のポイント</li>
+<li>オントロジエディタの使い方で習得した技法</li>
+<li>作業を通じて得られた知見</li>
+</ul>
+<h3 id="%E8%A9%95%E4%BE%A1%E3%81%AE%E8%A6%B3%E7%82%B9">評価の観点</h3>
+<ul>
+<li>独創性と丁寧な設計</li>
+<li>差異化性（既存と異なる付加価値）</li>
+<li>深さ　（表面的でなく、知識に深みがある）</li>
+<li>設計思想　（どのような思いでデザインしたか）</li>
+<li>見通しの良さ、設計のわかりやすさ</li>
+<li>is-a, has-a, 主語・述語・目的語の簡明さ</li>
+<li>共通語彙の活用度</li>
+<li>Sparql の量・質・複雑さ・多様さ</li>
+</ul>
+<h3 id="ai-%E5%AE%9F%E7%BF%92%E5%85%A8%E4%BD%93%E3%82%92%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A%E8%80%83%E5%AF%9F%E3%83%BB%E5%88%86%E6%9E%90%E3%83%BB%E5%B1%95%E6%9C%9B">AI 実習全体を振り返り、考察・分析・展望</h3>
+<ul>
+<li>AI 実習（知識工学系）で得た知見を今後どのように活用するか</li>
+<li>具体的な知識データの活用方法</li>
+<li>機械学習、生成系 AI との効果的な連携方法</li>
+</ul>
+<!--  自由記述欄 -->
+<table>
+<thead>
+<tr>
+<th style="text-align:left">目次</th>
+<th style="text-align:left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">AI 実習（知識工学系）で得た知見を今後どのように活用するか</td>
+<td style="text-align:left">これから様々なハッカソンや開発に参加する予定です。その際に、この講義で学んだ内容を実際の開発に活かし、オントロジーを利用することで効果的に取り組みたいと思います。</td>
+</tr>
+<tr>
+<td style="text-align:left">具体的な知識データの活用方法</td>
+<td style="text-align:left">例えば、最終レポートでは、自分は実際にただオントロジーまでジャなくて、実際に目に見やすくフロントを開発しました。それは機械の検索するサービスです。他の案は、実際に自分の AI を作ることや多言語の辞書を作ることなどを想定しています。</td>
+</tr>
+<tr>
+<td style="text-align:left">機械学習、生成系 AI との効果的な連携方法</td>
+<td style="text-align:left">実際にオントロジーと連携した後、自分の感想は「すごい、早い」というものでした。普通の API とは異なり、オントロジーと連携すると検索速度が非常に速いです。方法としては、Virtuoso のようなサービスを利用して、自分のオントロジーの API を取得し、連携しました。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="%E7%AC%AC-13-%E5%9B%9E%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E8%AA%B2%E9%A1%8C%E3%81%AE%E8%A6%81%E7%B4%84%E3%83%BB%E6%95%B4%E7%90%86">第 13 回グループ課題の要約・整理</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">回数</th>
+<th style="text-align:center">グループ名</th>
+<th>発表者</th>
+<th>発表内容</th>
+<th>発表への質疑・コメント</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center"><strong>青雲の志</strong></td>
+<td>竹田 勇斗</td>
+<td>家電に関するオントロジを構築。扇風機等をクラスとして定義し、販売元 URL も含めた。時間の制約から高度なクエリ作成には至らなかったが、2 つのインスタンスのデータプロパティと概要を出力するクエリを実行。次回授業の準備も兼ねて取り組んだ。</td>
+<td>Q: グループ内での役割分担は？ A: クエリ設計、全体統括など、メンバー間で分担して作業を進めた。</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center"><strong>破竹の勢</strong></td>
+<td>倉石 大輝</td>
+<td>Wikidata のプログラミング言語データに対し、Python を用いてクエリを実行。ランダムに 10 個のサブジェクトを抽出し、選択したサブジェクトの述語を表示するプログラムを作成。例として「Java」の所有者を述語として表示した。</td>
+<td>Q: 「所有者」は権利保有者を指すのか？ A: サブジェクトがランダムに選ばれるため、結果の正確性は保証できない。事実確認は行っていない。</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center"><strong>飛龍在天</strong></td>
+<td>大竹 啓之</td>
+<td>Wikidata のポケモンデータを利用し、世代別クエリを実行。地域ごとのポケモンタイプ表示を目指したが、第 9 世代ポケモンの表示にとどまった。今後、ラベルでの検索機能実装を計画。</td>
+<td>Q: 述語での検索が課題だったか？ A: その通りです。</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center"><strong>鵬程万里</strong></td>
+<td>小柳 怜</td>
+<td>小柳: 地域別の山を標高順に表示。小出: Wikidata のポケモンデータで連結表示を実施。特定ポケモンの詳細表示を試みた。安達: DBpedia を用いて「研音」所属俳優の情報を生年別に表示。主要作品情報も Wikipedia から取得して表示。</td>
+<td>Q: 最高峰は？ A: 東北の燧ヶ岳。Q: ポケモンタイプの表示方法は？ A: タイプラベルと連結表示を使用。Q: 「テレビドラマ」表示は必要？ A: Wikipedia 由来の不要な情報。今後除外予定。</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center"><strong>金剛不壊</strong></td>
+<td>相場 陸</td>
+<td>プログラミング言語に関するクエリを実行。2000 年以降に誕生した静的型付け言語を抽出。個別言語の詳細クエリは未完成。</td>
+<td>Q: 抽出された言語で使用経験はあるか？ A: 「Go」言語の使用経験あり。Q: クエリの工夫点は？ A: 不要な ID の表示を除外するよう調整した。</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center"><strong>磐石之固</strong></td>
+<td>加藤 颯士</td>
+<td>ポケモンオントロジを拡張し、「特性」と「進化方法」を追加。「しんりょく」特性を持つポケモンや、「ほのおのいし」で進化するポケモンを抽出し、進化前後の関係を一覧表示するクエリを実装。</td>
+<td>Q: 道具進化とレベルアップ進化の両方がある場合の表示は？ A: 進化方法は一つのみなので、複数表示の必要はない。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="%E7%AC%AC-14-%E5%9B%9E%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E8%AA%B2%E9%A1%8C%E3%81%AE%E8%A6%81%E7%B4%84%E3%83%BB%E6%95%B4%E7%90%86">第 14 回グループ課題の要約・整理</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">回数</th>
+<th style="text-align:center">グループ名</th>
+<th>発表者</th>
+<th>発表内容</th>
+<th>発表への質疑・コメント</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center"><strong>青雲の志</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center"><strong>破竹の勢</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center"><strong>飛龍在天</strong></td>
+<td>大竹啓之</td>
+<td>この班の発表内容は主にスピーカーのオントロジー。メーカーや機械の情報をクラスとして設定していると報告しました。連携機能がついているかなどを今後追加していきたいと考えていますが、どの層に向けての商品なのかを分けて制作していきます。SPARQL の検索はスピーカーを買いに来たらイヤホンやマイクが欲しくなることを想定して情報を追加したいと思っている。</td>
+<td>お風呂で使えるスピーカーの選び方についての情報を検索できるようにしたいです。また、スマートスピーカーの消費電力についての情報も記載できると助かります。</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center"><strong>鵬程万里</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center"><strong>金剛不壊</strong></td>
+<td>Roger Marvin</td>
+<td>機器のオントロジーに関して、開志ラボにある機器を自動化された機械と手動の機械に分類し、HTML や JavaScript を使ってデータを検索できるようにします</td>
+<td>Q: マニュアルと自動的で分けたと合ったが、人の手で動かすものと自動的に動かす物という解釈で合ってるか。A: 実際に手を動かして行うものなので、作業自体の方法によって区別しています。Q: どういうスパークルを考えたか。A: クラスを抽出して、それに属するインスタンスや、インスタンスから関連するクラスを調査するためのスパークルクエリを考えています。</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center"><strong>磐石之固</strong></td>
+<td>五十嵐 寛人, 池田 侑哉, 駒木根道元</td>
+<td>五十嵐: イヤホンのオントロジー。クラス: 種類、特徴、機能。スパークルでの検索は Apple の製品を検索すると価格などの情報を入れている。サイズや色などの情報も追加したい。池田: カメラのプロに向けてのオントロジー。クラス: カメラの名前、カメラの情報（メーカー、値段、ボディ色、画素数、レンズマウントなど）を含む。駒木根: 冷蔵庫について。お金持ちで奥さんが料理好きな素人を想定。クラス: メーカー、機能、色、価格。スパークルの検索は価格を無視して行うことを想定している。</td>
+<td>五十嵐: Q: プロだったらどのようにスパークル検索をするのか。A: 動物を撮る場合だったらプレ防止などが重要なので、その段階ごとに検索をすることを想定している。駒木根: Q: 価格以外に選ぶ要素はあるのか。A: 冷蔵庫の機能で選べるようにする。Is-a、has-a 関係をしっかり記述する。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="%E7%AC%AC-15-%E5%9B%9E%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97%E8%AA%B2%E9%A1%8C%E3%81%AE%E8%A6%81%E7%B4%84%E3%83%BB%E6%95%B4%E7%90%86">第 15 回グループ課題の要約・整理</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">回数</th>
+<th style="text-align:center">グループ名</th>
+<th>発表者</th>
+<th>発表内容</th>
+<th>発表への質疑・コメント</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">青雲の志</td>
+<td>竹田 勇斗</td>
+<td>モニターと周辺機器のオントロジを作成。現時点ではモニター関連のみ実装。データプロパティを充実させた点が特徴。</td>
+<td>Q: 複合検索は可能か？ A: はい、複数条件での検索を実装済み。プロパティの充実は良いアプローチだと評価された。</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">破竹の勢</td>
+<td>倉石 大暉</td>
+<td>キーボードに関するオントロジを構築。配列、スイッチタイプ、規格の違いなど、多様なクラスを設定。キータイプ検索機能を実装。</td>
+<td>Q: キーキャップの位置による重さの違いは記述されているか？ A: 未実装だが、今後データプロパティを追加して対応予定。Q: 足用キーボードは考慮しているか？ A: 現時点では想定外。</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">飛龍在天</td>
+<td>大竹 啓之, 阿部 一成, 川崎 宝</td>
+<td>スピーカー・イヤホン、スマートフォンに関する複数のオントロジを発表。ブランドごとのインスタンス設定や、スマホ初心者向けの情報構築を目指す。</td>
+<td>Q: スマホオントロジの重複をどう扱うか？ A: 検索対象ユーザーを分けて作成する方針。内蔵メモリや CPU 情報の追加、ターゲットとオントロジの整合性向上が課題として指摘された。</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">鵬程万里</td>
+<td>安達 萌衣</td>
+<td>コスメ、特にアイシャドウに特化したオントロジを作成。肌の色に合わせた製品検索を目指す。形状ごとのクラス分けを実施。</td>
+<td>Q: 肌の種類は 4 種類で十分か？ A: 暖色系・寒色系それぞれ 2 種類を想定。型番でのグルーピングによる情報の簡潔化が提案された。</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">金剛不壊</td>
+<td>ロジャー</td>
+<td>開志ラボ用の検索エンジン「Nier」を開発。施設管理者向けに、機器の購入・利用情報を提供。自作オントロジと API を活用。</td>
+<td>Q: ハンダゴテの使用可否情報は？ A: 現在は管理者向け購入情報が中心。Q: 新規購入希望商品の扱いは？ A: 購入・カテゴリボタンの追加を検討中。詳細な条件設定の難しさが課題として挙げられた。</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">磐石之固</td>
+<td>加藤 颯士, 五十嵐 寛人</td>
+<td>たこ焼き機とイヤホンのオントロジをそれぞれ発表。商品名、メーカー、特徴などを詳細に記述。検索機能の実装も進めている。</td>
+<td>たこ焼き機：Q: 想定ユーザーと検索方法は？ A: 長所、サイズ、価格などで検索可能。ユーザーニーズの明確化が課題。イヤホン：価格でのフィルタリングが評価された。より複雑なクエリの実装が期待される。</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="%E8%87%AA%E5%B7%B1%E6%88%90%E9%95%B7%E6%88%90%E6%9E%9C%E4%B8%8A%E4%BD%8D%E6%88%90%E7%B8%BE%E3%81%AB%E5%90%91%E3%81%91%E3%81%A6-%E5%80%8B%E4%BA%BA%E6%88%90%E6%9E%9C%E3%81%AE%E5%A0%B1%E5%91%8A">[自己成長、成果、上位成績に向けて]　個人成果の報告</h3>
+<blockquote>
+<p>最終レポートに向けて、自分が機械の検索オントロジーを作りました。自分がただオンとロジーを作るだけではなくて、実際にそのオントロジーと自分が開発するものをれけいしたいと思うから、チャレンジしました。実際にできるかどうか全く知らなくて、とりあえず挑戦して、その結果、うまくできました。
+以下ではそのサービスの説明です。</p>
+</blockquote>
+<h3 id="%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E8%A9%B3%E7%B4%B0">サービスの詳細</h3>
+<h4 id="%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E6%A6%82%E8%A6%81">サービス概要</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">目次</th>
+<th style="text-align:left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">テーマ</td>
+<td style="text-align:left">開志ラボ機械検索サービス</td>
+</tr>
+<tr>
+<td style="text-align:left">選んだ理由</td>
+<td style="text-align:left">開志ラボである機械を自分が書いたい時や開志ラボのような施設の管理者や利用者が機械の情報を調べるときに、一個一個探さなくても、このサービスを利用して、加速で機械の重要な情報を調べられるようにしたいと思ったから。</td>
+</tr>
+<tr>
+<td style="text-align:left">想定するユーザー</td>
+<td style="text-align:left">機械が好きな人、開志のような施設の利用者または管理者、機械に関して詳しくない人でも使います。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E8%AA%AC%E6%98%8E">サービス説明</h4>
+<img src="./assets/system-architecture.png" alt="システム構成図" width="50%">
+<h4 id="%E5%95%86%E5%93%81%E5%90%8D%E3%81%A7%E6%A4%9C%E7%B4%A2%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B">商品名で検索してみる</h4>
+<img src="./assets/data1.png"  width="30%">
+<img src="./assets/data3.png"  width="30%">
+<h4 id="%E5%95%86%E5%93%81%E3%81%AE%E3%82%AB%E3%83%86%E3%82%B4%E3%83%AA%E3%81%A7%E6%A4%9C%E7%B4%A2%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B">商品のカテゴリで検索してみる</h4>
+<img src="./assets/data2.png"  width="30%">
+<img src="./assets/data4.png"  width="30%">
+<h4 id="%E3%82%BD%E3%83%BC%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%89">ソースコード</h4>
+<h5 id="html%EF%BC%86css%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AA-html">HTML＆CSS「シンプルな HTML」</h5>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>開志ラボ機械ガイド<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"styles.css"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"script.js"</span> <span class="hljs-attr">defer</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"assets/logo.png"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"開志ラボ"</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>検索<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filter-container"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-by"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Search By:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"searchType"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"productName"</span>&gt;</span>Product Name<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"category"</span>&gt;</span>Category<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"price-range"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"minPrice"</span>&gt;</span>Min Price:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+          <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>
+          <span class="hljs-attr">id</span>=<span class="hljs-string">"minPrice"</span>
+          <span class="hljs-attr">min</span>=<span class="hljs-string">"0"</span>
+          <span class="hljs-attr">max</span>=<span class="hljs-string">"1000000"</span>
+          <span class="hljs-attr">step</span>=<span class="hljs-string">"1000"</span>
+          <span class="hljs-attr">value</span>=<span class="hljs-string">"0"</span>
+        /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"maxPrice"</span>&gt;</span>Max Price:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+          <span class="hljs-attr">type</span>=<span class="hljs-string">"number"</span>
+          <span class="hljs-attr">id</span>=<span class="hljs-string">"maxPrice"</span>
+          <span class="hljs-attr">min</span>=<span class="hljs-string">"0"</span>
+          <span class="hljs-attr">max</span>=<span class="hljs-string">"1000000"</span>
+          <span class="hljs-attr">step</span>=<span class="hljs-string">"1000"</span>
+          <span class="hljs-attr">value</span>=<span class="hljs-string">"1000000"</span>
+        /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>円<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+      <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span>
+      <span class="hljs-attr">id</span>=<span class="hljs-string">"individualInput"</span>
+      <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Enter product name or category"</span>
+    /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"results"</span>&gt;</span>Nothing here...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<h5 id="javascript%E3%82%AA%E3%83%B3%E3%83%88%E3%83%AD%E3%82%B8%E3%83%BC%E3%81%AE-api-%E3%81%A8%E9%80%A3%E6%90%BA%E3%81%97%E3%81%A6sparql-%E3%82%AF%E3%82%A8%E3%83%AA%E3%81%A7%E3%82%84%E3%82%8A%E5%8F%96%E3%82%8A%E3%81%99%E3%82%8B">JavaScript「オントロジーの API と連携して、SPARQL クエリでやり取りする」</h5>
+<pre class="hljs"><code><div><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">querySPARQL</span>(<span class="hljs-params">searchInput, searchType, minPrice, maxPrice</span>) </span>{
+  <span class="hljs-keyword">let</span> query;
+  <span class="hljs-keyword">if</span> (searchType === <span class="hljs-string">"productName"</span>) {
+    query = <span class="hljs-string">`
+            PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+            PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+            PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+            PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+            PREFIX owl1: &lt;file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#&gt;
+
+            SELECT DISTINCT ?individual ?property ?value
+            WHERE {
+                ?individual owl1:hasBrand ?brand .
+                ?individual ?property ?value .
+                
+                BIND(STRAFTER(STR(?individual), "#") AS ?individualName)
+                FILTER(REGEX(?individualName, "<span class="hljs-subst">${searchInput}</span>", "i"))
+                FILTER(?property != rdf:type)
+                
+                ?individual owl1:hasPrice ?price .
+                BIND(xsd:integer(REPLACE(?price, "[^0-9]", "")) AS ?numericPrice)
+                FILTER(?numericPrice &gt;= <span class="hljs-subst">${minPrice}</span> &amp;&amp; ?numericPrice &lt;= <span class="hljs-subst">${maxPrice}</span>)
+
+                OPTIONAL {
+                    ?brand rdfs:label ?brandName .
+                }
+            }
+            ORDER BY ?individual ?property
+        `</span>;
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (searchType === <span class="hljs-string">"category"</span>) {
+    query = <span class="hljs-string">`
+        PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+        PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+        PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+        PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+        PREFIX owl1: &lt;file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#&gt;
+
+        SELECT DISTINCT ?individual ?property ?value
+        WHERE {
+            ?individual rdf:type ?category .
+            ?category rdfs:label ?categoryLabel .
+            FILTER(CONTAINS(LCASE(STR(?categoryLabel)), LCASE("<span class="hljs-subst">${searchInput}</span>")))
+
+            ?individual owl1:hasBrand ?brand .
+            ?individual ?property ?value .
+            FILTER(?property != rdf:type)
+
+            ?individual owl1:hasPrice ?price .
+            BIND(xsd:integer(REPLACE(?price, "[^0-9]", "")) AS ?numericPrice)
+            FILTER(?numericPrice &gt;= <span class="hljs-subst">${minPrice}</span> &amp;&amp; ?numericPrice &lt;= <span class="hljs-subst">${maxPrice}</span>)
+
+            OPTIONAL {
+                ?brand rdfs:label ?brandName .
+            }
+        }
+        ORDER BY ?individual ?property
+        `</span>;
+  }
+
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"SPARQL Query:"</span>, query);
+
+  <span class="hljs-keyword">const</span> encodedQuery = <span class="hljs-built_in">encodeURIComponent</span>(query);
+  <span class="hljs-keyword">const</span> targetUrl = <span class="hljs-string">`http://localhost:8890/sparql?query=<span class="hljs-subst">${encodedQuery}</span>&amp;format=json`</span>;
+
+  <span class="hljs-keyword">try</span> {
+    <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> fetch(targetUrl, {
+      <span class="hljs-attr">headers</span>: {
+        <span class="hljs-attr">Accept</span>: <span class="hljs-string">"application/sparql-results+json"</span>,
+      },
+    });
+
+    <span class="hljs-keyword">if</span> (!response.ok) {
+      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">`HTTP error! status: <span class="hljs-subst">${response.status}</span>`</span>);
+    }
+
+    <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> response.json();
+    displayResults(data);
+  } <span class="hljs-keyword">catch</span> (error) {
+    <span class="hljs-built_in">console</span>.error(<span class="hljs-string">"Error querying SPARQL endpoint:"</span>, error);
+    <span class="hljs-keyword">const</span> resultsDiv = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"results"</span>);
+    resultsDiv.innerHTML = <span class="hljs-string">`Error: <span class="hljs-subst">${error.message}</span>`</span>;
+  }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">displayResults</span>(<span class="hljs-params">data</span>) </span>{
+  <span class="hljs-keyword">const</span> resultsDiv = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"results"</span>);
+  resultsDiv.innerHTML = <span class="hljs-string">""</span>;
+
+  <span class="hljs-keyword">const</span> propertyLabels = {
+    <span class="hljs-attr">hasBrand</span>: <span class="hljs-string">"Brand"</span>,
+    <span class="hljs-attr">hasBuildVolume</span>: <span class="hljs-string">"Build Volume"</span>,
+    <span class="hljs-attr">hasLayerResolution</span>: <span class="hljs-string">"Layer Resolution"</span>,
+    <span class="hljs-attr">hasMaterialCompatibility</span>: <span class="hljs-string">"Material Compatibility"</span>,
+    <span class="hljs-attr">hasModel</span>: <span class="hljs-string">"Model"</span>,
+    <span class="hljs-attr">hasPrice</span>: <span class="hljs-string">"Price"</span>,
+    <span class="hljs-attr">hasTechnology</span>: <span class="hljs-string">"Technology"</span>,
+    <span class="hljs-attr">hasWeight</span>: <span class="hljs-string">"Weight"</span>,
+    <span class="hljs-attr">hasCuttingArea</span>: <span class="hljs-string">"Cutting Area"</span>,
+    <span class="hljs-attr">hasLaserPower</span>: <span class="hljs-string">"Laser Power"</span>,
+    <span class="hljs-attr">hasPrintArea</span>: <span class="hljs-string">"Print Area"</span>,
+    <span class="hljs-attr">hasPrintResolution</span>: <span class="hljs-string">"Print Resolution"</span>,
+    <span class="hljs-attr">hasSpindlePower</span>: <span class="hljs-string">"Spindle Power"</span>,
+    <span class="hljs-attr">hasWorkArea</span>: <span class="hljs-string">"Work Area"</span>,
+    <span class="hljs-attr">hasPower</span>: <span class="hljs-string">"Power"</span>,
+    <span class="hljs-attr">hasSpeed</span>: <span class="hljs-string">"Speed"</span>,
+    <span class="hljs-attr">hasImage</span>: <span class="hljs-string">"Image"</span>,
+    <span class="hljs-attr">hasLink</span>: <span class="hljs-string">"Link"</span>,
+    <span class="hljs-attr">hasVoltage</span>: <span class="hljs-string">"Voltage"</span>,
+    <span class="hljs-attr">hasWattage</span>: <span class="hljs-string">"Wattage"</span>,
+  };
+
+  <span class="hljs-keyword">const</span> propertyClasses = {
+    <span class="hljs-attr">hasBrand</span>: <span class="hljs-string">"label-bg-brand"</span>,
+    <span class="hljs-attr">hasPrice</span>: <span class="hljs-string">"label-bg-price"</span>,
+    <span class="hljs-attr">hasWeight</span>: <span class="hljs-string">"label-bg-weight"</span>,
+    <span class="hljs-attr">hasBuildVolume</span>: <span class="hljs-string">"label-bg-build-volume"</span>,
+    <span class="hljs-attr">hasLayerResolution</span>: <span class="hljs-string">"label-bg-layer-resolution"</span>,
+    <span class="hljs-attr">hasMaterialCompatibility</span>: <span class="hljs-string">"label-bg-material-compatibility"</span>,
+    <span class="hljs-attr">hasModel</span>: <span class="hljs-string">"label-bg-model"</span>,
+    <span class="hljs-attr">hasTechnology</span>: <span class="hljs-string">"label-bg-technology"</span>,
+    <span class="hljs-attr">hasCuttingArea</span>: <span class="hljs-string">"label-bg-cutting-area"</span>,
+    <span class="hljs-attr">hasLaserPower</span>: <span class="hljs-string">"label-bg-laser-power"</span>,
+    <span class="hljs-attr">hasPrintArea</span>: <span class="hljs-string">"label-bg-print-area"</span>,
+    <span class="hljs-attr">hasPrintResolution</span>: <span class="hljs-string">"label-bg-print-resolution"</span>,
+    <span class="hljs-attr">hasSpindlePower</span>: <span class="hljs-string">"label-bg-spindle-power"</span>,
+    <span class="hljs-attr">hasWorkArea</span>: <span class="hljs-string">"label-bg-work-area"</span>,
+    <span class="hljs-attr">hasPower</span>: <span class="hljs-string">"label-bg-power"</span>,
+    <span class="hljs-attr">hasSpeed</span>: <span class="hljs-string">"label-bg-speed"</span>,
+    <span class="hljs-attr">hasVoltage</span>: <span class="hljs-string">"label-bg-voltage"</span>,
+    <span class="hljs-attr">hasWattage</span>: <span class="hljs-string">"label-bg-wattage"</span>,
+  };
+
+  <span class="hljs-keyword">const</span> individuals = {};
+
+  data.results.bindings.forEach(<span class="hljs-function">(<span class="hljs-params">row</span>) =&gt;</span> {
+    <span class="hljs-keyword">const</span> individualFullUri = row.individual.value;
+    <span class="hljs-keyword">const</span> individual = individualFullUri.split(<span class="hljs-string">"#"</span>).pop(); <span class="hljs-comment">// Extract the name after the #</span>
+    <span class="hljs-keyword">const</span> property = row.property.value.split(<span class="hljs-string">"#"</span>).pop();
+    <span class="hljs-keyword">let</span> value = row.value.value;
+    <span class="hljs-keyword">const</span> label = propertyLabels[property] || property;
+
+    <span class="hljs-keyword">if</span> (!individuals[individual]) {
+      individuals[individual] = {};
+    }
+
+    <span class="hljs-keyword">if</span> (!individuals[individual][property]) {
+      <span class="hljs-keyword">if</span> (property === <span class="hljs-string">"hasImage"</span> || property === <span class="hljs-string">"hasLink"</span>) {
+        <span class="hljs-keyword">try</span> {
+          <span class="hljs-keyword">new</span> URL(value);
+          individuals[individual][property] = { property, label, value };
+        } <span class="hljs-keyword">catch</span> (e) {}
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// Format specific properties</span>
+        <span class="hljs-keyword">if</span> (property === <span class="hljs-string">"hasPrice"</span>) {
+          value = <span class="hljs-string">`<span class="hljs-subst">${value}</span> 円`</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (property === <span class="hljs-string">"hasWeight"</span>) {
+          value = <span class="hljs-string">`<span class="hljs-subst">${value}</span> kg`</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (property === <span class="hljs-string">"hasBuildVolume"</span>) {
+          value = <span class="hljs-string">`<span class="hljs-subst">${value}</span> mm³`</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (property === <span class="hljs-string">"hasPower"</span>) {
+          value = <span class="hljs-string">`<span class="hljs-subst">${value}</span> amp`</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (property === <span class="hljs-string">"hasLayerResolution"</span>) {
+          value = <span class="hljs-string">`<span class="hljs-subst">${value}</span> µm`</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (property === <span class="hljs-string">"hasWorkArea"</span>) {
+          value = <span class="hljs-string">`<span class="hljs-subst">${value}</span> mm²`</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (property === <span class="hljs-string">"hasSpindlePower"</span>) {
+          value = <span class="hljs-string">`<span class="hljs-subst">${value}</span> W`</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (property === <span class="hljs-string">"hasLaserPower"</span>) {
+          value = <span class="hljs-string">`<span class="hljs-subst">${value}</span> W`</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (property === <span class="hljs-string">"hasCuttingArea"</span>) {
+          value = <span class="hljs-string">`<span class="hljs-subst">${value}</span> mm²`</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (property === <span class="hljs-string">"hasVoltage"</span>) {
+          value = <span class="hljs-string">`<span class="hljs-subst">${value}</span> V`</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (property === <span class="hljs-string">"hasWattage"</span>) {
+          value = <span class="hljs-string">`<span class="hljs-subst">${value}</span> W`</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (property === <span class="hljs-string">"hasPrintResolution"</span>) {
+          value = <span class="hljs-string">`<span class="hljs-subst">${value}</span> µm`</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (property === <span class="hljs-string">"hasSpeed"</span>) {
+          value = <span class="hljs-string">`<span class="hljs-subst">${value}</span> rpm`</span>;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (property === <span class="hljs-string">"hasBrand"</span>) {
+          value = row.brandName ? row.brandName.value : value.split(<span class="hljs-string">"#"</span>).pop();
+        }
+        individuals[individual][property] = { property, label, value };
+      }
+    }
+  });
+
+  <span class="hljs-built_in">Object</span>.keys(individuals).forEach(<span class="hljs-function">(<span class="hljs-params">individualFullUri</span>) =&gt;</span> {
+    <span class="hljs-keyword">const</span> individual = individualFullUri.split(<span class="hljs-string">"#"</span>).pop(); <span class="hljs-comment">// Extract the name after the #</span>
+    <span class="hljs-keyword">const</span> individualDiv = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"div"</span>);
+    individualDiv.className = <span class="hljs-string">"individual"</span>;
+
+    <span class="hljs-comment">// Add a title with the individual name</span>
+    <span class="hljs-keyword">const</span> titleDiv = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"h2"</span>);
+    titleDiv.textContent = individual.replace(<span class="hljs-regexp">/_/g</span>, <span class="hljs-string">" "</span>); <span class="hljs-comment">// Replace underscores with spaces</span>
+    individualDiv.appendChild(titleDiv);
+
+    <span class="hljs-keyword">const</span> descriptionDiv = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"div"</span>);
+    <span class="hljs-keyword">const</span> imageDiv = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"div"</span>);
+    <span class="hljs-keyword">const</span> linkDiv = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"div"</span>);
+
+    <span class="hljs-built_in">Object</span>.values(individuals[individualFullUri]).forEach(
+      <span class="hljs-function">(<span class="hljs-params">{ property, label, value }</span>) =&gt;</span> {
+        <span class="hljs-keyword">const</span> resultItem = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"div"</span>);
+
+        <span class="hljs-keyword">if</span> (property === <span class="hljs-string">"hasImage"</span>) {
+          <span class="hljs-keyword">const</span> img = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"img"</span>);
+          img.src = value;
+          img.alt = label;
+          img.className = <span class="hljs-string">"result-image"</span>;
+          imageDiv.appendChild(img);
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (property === <span class="hljs-string">"hasLink"</span>) {
+          <span class="hljs-keyword">const</span> link = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"a"</span>);
+          link.href = value;
+          link.textContent = <span class="hljs-string">"More Info"</span>;
+          link.className = <span class="hljs-string">"result-link"</span>;
+          link.target = <span class="hljs-string">"_blank"</span>;
+          linkDiv.appendChild(link);
+        } <span class="hljs-keyword">else</span> {
+          <span class="hljs-keyword">const</span> labelSpan = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"span"</span>);
+          labelSpan.className = propertyClasses[property] || <span class="hljs-string">"label-bg"</span>;
+          labelSpan.textContent = <span class="hljs-string">`<span class="hljs-subst">${label}</span> :`</span>;
+
+          resultItem.appendChild(labelSpan);
+          resultItem.append(<span class="hljs-string">` <span class="hljs-subst">${value}</span>`</span>);
+          descriptionDiv.appendChild(resultItem);
+        }
+      }
+    );
+
+    individualDiv.appendChild(descriptionDiv);
+    individualDiv.appendChild(imageDiv);
+    individualDiv.appendChild(linkDiv);
+    resultsDiv.appendChild(individualDiv);
+  });
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleInput</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> searchInput = <span class="hljs-built_in">document</span>
+    .getElementById(<span class="hljs-string">"individualInput"</span>)
+    .value.replace(<span class="hljs-regexp">/ /g</span>, <span class="hljs-string">"_"</span>);
+  <span class="hljs-keyword">const</span> searchType = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"searchType"</span>).value;
+  <span class="hljs-keyword">const</span> minPrice = <span class="hljs-built_in">parseInt</span>(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"minPrice"</span>).value);
+  <span class="hljs-keyword">const</span> maxPrice = <span class="hljs-built_in">parseInt</span>(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"maxPrice"</span>).value);
+  querySPARQL(searchInput, searchType, minPrice, maxPrice);
+}
+
+<span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">"DOMContentLoaded"</span>, () =&gt; {
+  <span class="hljs-built_in">document</span>
+    .getElementById(<span class="hljs-string">"individualInput"</span>)
+    .addEventListener(<span class="hljs-string">"input"</span>, handleInput);
+  <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"searchType"</span>).addEventListener(<span class="hljs-string">"change"</span>, handleInput);
+  <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"minPrice"</span>).addEventListener(<span class="hljs-string">"input"</span>, handleInput);
+  <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"maxPrice"</span>).addEventListener(<span class="hljs-string">"input"</span>, handleInput);
+
+  <span class="hljs-comment">// Initial search</span>
+  handleInput();
+});
+</div></code></pre>
+<h5 id="pythoncors-%E3%81%AE%E5%95%8F%E9%A1%8C%E3%81%AE%E5%AF%BE%E7%AD%96">PYTHON「CORS の問題の対策」</h5>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver
+<span class="hljs-keyword">from</span> selenium.webdriver.chrome.service <span class="hljs-keyword">import</span> Service
+
+PATH = <span class="hljs-string">"./cd/chromedriver"</span>
+service = Service(PATH)
+
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument(<span class="hljs-string">"--disable-web-security"</span>)
+chrome_options.add_argument(<span class="hljs-string">"--disable-site-isolation-trials"</span>)
+chrome_options.add_argument(<span class="hljs-string">"--start-fullscreen"</span>)
+
+driver = webdriver.Chrome(service=service, options=chrome_options)
+driver.get(<span class="hljs-string">"file:///Users/rogermarvin/Desktop/Coding/AI/AI%E6%9C%80%E7%B5%82%E8%AA%B2%E9%A1%8C/index.html"</span>)
+
+input(<span class="hljs-string">"Press Enter to close the browser..."</span>)
+driver.quit()
+</div></code></pre>
+<h2 id="%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85">注意事項</h2>
+<ul>
+<li>直近 3 回分の個人演習と毎回のグループ課題の実施結果について、</li>
+<li>学生ごとの個人のレポートとする</li>
+<li>他の学生のレポートをコピー＆ペーストしたことが発覚した場合、<strong>不正行為とみなし 、規程に基づく懲罰適用の可能性があるので絶対にやってはいけない</strong></li>
+</ul>
+
+</body>
+</html>
