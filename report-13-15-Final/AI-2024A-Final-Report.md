@@ -177,7 +177,7 @@
 
 ### Sparql の実施例とその結果「Virtuoso 環境」
 
-#### クエリ 01
+#### クエリ 01 「商品名（インスタンス）でインスタンスのプロパティを検索するクエリ」
 
 > 3D プリンター（入力：「bambu」）の値段が 50,000 円以上 120,000 円以下のものを検索する
 
@@ -188,7 +188,7 @@
   PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
   PREFIX owl1: <file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#>
 
-  SELECT DISTINCT ?individual ?property ?value ?price ?numericPrice ?brandName
+  SELECT DISTINCT ?individual ?property ?value
   WHERE {
       ?individual owl1:hasBrand ?brand .
       ?individual ?property ?value .
@@ -209,36 +209,83 @@
 
 ```
 
+#### 説明 01
+
+```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl1: <file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#>
+```
+
+これらの部分は、よく使用される名前空間のプレフィックスを定義します。
+
+```sparql
+SELECT DISTINCT ?individual ?property ?value
+```
+
+この行は、クエリによって返される変数 (?individual、?property、および ?value) を指定します。
+DISTINCT は重複する結果が削除されることを保証します。
+
+```sparql
+BIND(STRAFTER(STR(?individual), "#") AS ?individualName)
+FILTER(REGEX(?individualName, "bambu", "i"))
+FILTER(?property != rdf:type)
+```
+
+- 「BIND(STRAFTER(STR(?individual), "#") AS ?individualName)」 は、個体のローカル名 (# の後の部分) を抽出します。
+- 「FILTER(REGEX(?individualName, "bambu", "i"))」 は、名前に "bambu" が含まれる個人をフィルタリングします (大文字と小文字は区別されません)。
+- 「FILTER(?property != rdf:type)」 は、結果から rdf:type プロパティを除外します。
+
+```sparql
+?individual owl1:hasPrice ?price .
+BIND(xsd:integer(REPLACE(?price, "[^0-9]", "")) AS ?numericPrice)
+FILTER(?numericPrice >= 50000 && ?numericPrice <= 120000)
+```
+
+- 「?individual owl1:hasPrice ?price .」 は、hasPrice プロパティを持つ個体と一致します。
+- 「BIND(xsd:integer(REPLACE(?price, "[^0-9]", "")) AS ?numericPrice)」 は、価格文字列から数値を抽出します。
+- 「FILTER(?numericPrice >= 50000 && ?numericPrice <= 120000)」 は、価格が 50,000 から 120,000 の間にある個体をフィルタリングします。
+
+```sparql
+OPTIONAL {
+        ?brand rdfs:label ?brandName .
+    }
+```
+
+- 「OPTIONAL{ ?brand rdfs:label ?brandName . }」 は、ブランドのラベルが存在する場合に一致を試みます。
+
 #### 結果 01
 
-| individual    | property                 | value                                                                                                          |
-| ------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------- |
-| Bambu_Lab_A1  | hasBrand                 | Bambu_Lab                                                                                                      |
-| Bambu_Lab_A1  | hasBuildVolume           | "256x256x256"                                                                                                  |
-| Bambu_Lab_A1  | hasImage                 | "https://jp.store.bambulab.com/cdn/shop/products/A1-2_800x.png?v=1703150110"                                   |
-| Bambu_Lab_A1  | hasLayerResolution       | "0.1"                                                                                                          |
-| Bambu_Lab_A1  | hasLink                  | "https://jp.store.bambulab.com/en/products/a1"                                                                 |
-| Bambu_Lab_A1  | hasMaterialCompatibility | "PLA、PETG、TPU、PVA"                                                                                          |
-| Bambu_Lab_A1  | hasModel                 | "A1"                                                                                                           |
-| Bambu_Lab_A1  | hasPrice                 | "58,800"                                                                                                       |
-| Bambu_Lab_A1  | hasTechnology            | "SLA"                                                                                                          |
-| Bambu_Lab_A1  | hasVoltage               | "220"                                                                                                          |
-| Bambu_Lab_A1  | hasWattage               | "1000"                                                                                                         |
-| Bambu_Lab_A1  | hasWeight                | "8.3"                                                                                                          |
-| Bambu_Lab_P1S | hasBrand                 | Bambu_Lab                                                                                                      |
-| Bambu_Lab_P1S | hasBuildVolume           | "256x256x256"                                                                                                  |
-| Bambu_Lab_P1S | hasImage                 | "https://jp.store.bambulab.com/cdn/shop/products/1_25403143-622a-4773-b16a-db9a2573e733_800x.jpg?v=1689660650" |
-| Bambu_Lab_P1S | hasLayerResolution       | "0.1"                                                                                                          |
-| Bambu_Lab_P1S | hasLink                  | "https://jp.store.bambulab.com/en/products/p1s"                                                                |
-| Bambu_Lab_P1S | hasMaterialCompatibility | "PLA, PETG, TPU, PVA, PET"                                                                                     |
-| Bambu_Lab_P1S | hasModel                 | "P1S"                                                                                                          |
-| Bambu_Lab_P1S | hasPrice                 | "109,000"                                                                                                      |
-| Bambu_Lab_P1S | hasTechnology            | "SLA"                                                                                                          |
-| Bambu_Lab_P1S | hasVoltage               | "220"                                                                                                          |
-| Bambu_Lab_P1S | hasWattage               | "1000"                                                                                                         |
-| Bambu_Lab_P1S | hasWeight                | "9.65"                                                                                                         |
+| individual                                                        | property                                                                     | value                                                                                                        |
+| ----------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasBrand                 | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab                                                |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasBuildVolume           | "256x256x256"                                                                                                |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasImage                 | "https://jp.store.bambulab.com/cdn/shop/products/A1-2_800x.png?v=1703150110"                                 |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasLayerResolution       | "0.1"                                                                                                        |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasLink                  | "https://jp.store.bambulab.com/en/products/a1"                                                               |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasMaterialCompatibility | "PLA、PETG、TPU、PVA"                                                                                        |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasModel                 | "A1"                                                                                                         |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasPrice                 | "58,800"                                                                                                     |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasTechnology            | "SLA"                                                                                                        |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasVoltage               | "220"                                                                                                        |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasWattage               | "1000"                                                                                                       |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasWeight                | "8.3"                                                                                                        |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasBrand                 | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab                                                |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasBuildVolume           | "256x256x256"                                                                                                |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasImage                 | https://jp.store.bambulab.com/cdn/shop/products/1_25403143-622a-4773-b16a-db9a2573e733_800x.jpg?v=1689660650 |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasLayerResolution       | "0.1"                                                                                                        |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasLink                  | "https://jp.store.bambulab.com/en/products/p1s"                                                              |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasMaterialCompatibility | "PLA, PETG, TPU, PVA, PET"                                                                                   |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasModel                 | "P1S"                                                                                                        |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasPrice                 | "109,000"                                                                                                    |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasTechnology            | "SLA"                                                                                                        |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasVoltage               | "220"                                                                                                        |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasWattage               | "1000"                                                                                                       |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasWeight                | "9.65"                                                                                                       |
 
-#### クエリ 02
+#### クエリ 02「商品カテゴリ（クラス）で商品（インスタンス）のプロパティを検索するクエリ」
 
 > 3D プリンター（入力：「3d」）の値段が 10,000 円以上 120,000 円以下のものを検索する
 
@@ -270,99 +317,254 @@
   ORDER BY ?individual ?property
 ```
 
+#### 説明 02
+
+```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl1: <file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#>
+```
+
+これらの部分は、よく使用される名前空間のプレフィックスを定義します。
+
+```sparql
+SELECT DISTINCT ?individual ?property ?value
+```
+
+この行は、クエリによって返される変数 (?individual、?property、および ?value) を指定します。
+DISTINCT は重複する結果が削除されることを保証します。
+
+```sparql
+?individual rdf:type ?category .
+?category rdfs:label ?categoryLabel .
+FILTER(CONTAINS(LCASE(STR(?categoryLabel)), LCASE("3d")))
+```
+
+- 「?individual rdf:type ?category .」 は、個体が特定のカテゴリに属することを示します。
+- 「?category rdfs:label ?categoryLabel .」 は、カテゴリのラベルを取得します。
+- 「FILTER(CONTAINS(LCASE(STR(?categoryLabel)), LCASE("3d")))」 は、カテゴリラベルに "3d" が含まれる個体をフィルタリングします (大文字と小文字は区別されません)。
+
+```sparql
+?individual owl1:hasBrand ?brand .
+?individual ?property ?value .
+FILTER(?property != rdf:type)
+```
+
+- 「?individual owl1:hasBrand ?brand .」 は、個体が特定のブランドを持つことを示します。
+- 「?individual ?property ?value .」 は、個体のプロパティとその値を取得します。
+- 「FILTER(?property != rdf:type)」 は、結果から rdf:type プロパティを除外します。
+
+```sparql
+?individual owl1:hasPrice ?price .
+BIND(xsd:integer(REPLACE(?price, "[^0-9]", "")) AS ?numericPrice)
+FILTER(?numericPrice >= 10000 && ?numericPrice <= 120000)
+```
+
+- 「?individual owl1:hasPrice ?price .」 は、hasPrice プロパティを持つ個体と一致します。
+- 「BIND(xsd:integer(REPLACE(?price, "[^0-9]", "")) AS ?numericPrice)」 は、価格文字列から数値を抽出します。
+- 「FILTER(?numericPrice >= 10000 && ?numericPrice <= 120000)」 は、価格が 10,000 から 120,000 の間にある個体をフィルタリングします。
+
+```sparql
+OPTIONAL {
+    ?brand rdfs:label ?brandName .
+}
+```
+
+- 「OPTIONAL{ ?brand rdfs:label ?brandName . }」 は、ブランドのラベルが存在する場合に一致を試みます。
+
 #### 結果 02
 
-| individual            | property                 | value                                                                                                                                                                                                                                                                                                                                             |
-| --------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Anycubic_Kobra_2_Plus | hasBrand                 | Anycubic                                                                                                                                                                                                                                                                                                                                          |
-| Anycubic_Kobra_2_Plus | hasBuildVolume           | "320x320x400"                                                                                                                                                                                                                                                                                                                                     |
-| Anycubic_Kobra_2_Plus | hasImage                 | "https://m.media-amazon.com/images/I/61ItfucfWiL.AC_UF894,1000_QL80.jpg"                                                                                                                                                                                                                                                                          |
-| Anycubic_Kobra_2_Plus | hasLayerResolution       | "0.1"                                                                                                                                                                                                                                                                                                                                             |
-| Anycubic_Kobra_2_Plus | hasLink                  | "https://www.anycubic.com/products/kobra-2-plus-3d-printer"                                                                                                                                                                                                                                                                                       |
-| Anycubic_Kobra_2_Plus | hasMaterialCompatibility | "PLA、PETG、TPU、PVA"                                                                                                                                                                                                                                                                                                                             |
-| Anycubic_Kobra_2_Plus | hasModel                 | "Kobra 2 Plus"                                                                                                                                                                                                                                                                                                                                    |
-| Anycubic_Kobra_2_Plus | hasPrice                 | "72,999"                                                                                                                                                                                                                                                                                                                                          |
-| Anycubic_Kobra_2_Plus | hasTechnology            | "FDM"                                                                                                                                                                                                                                                                                                                                             |
-| Anycubic_Kobra_2_Plus | hasVoltage               | "220"                                                                                                                                                                                                                                                                                                                                             |
-| Anycubic_Kobra_2_Plus | hasWattage               | "1000"                                                                                                                                                                                                                                                                                                                                            |
-| Anycubic_Kobra_2_Plus | hasWeight                | "13"                                                                                                                                                                                                                                                                                                                                              |
-| Bambu_Lab_A1          | hasBrand                 | Bambu_Lab                                                                                                                                                                                                                                                                                                                                         |
-| Bambu_Lab_A1          | hasBuildVolume           | "256x256x256"                                                                                                                                                                                                                                                                                                                                     |
-| Bambu_Lab_A1          | hasImage                 | "https://jp.store.bambulab.com/cdn/shop/products/A1-2_800x.png?v=1703150110"                                                                                                                                                                                                                                                                      |
-| Bambu_Lab_A1          | hasLayerResolution       | "0.1"                                                                                                                                                                                                                                                                                                                                             |
-| Bambu_Lab_A1          | hasLink                  | "https://jp.store.bambulab.com/en/products/a1"                                                                                                                                                                                                                                                                                                    |
-| Bambu_Lab_A1          | hasMaterialCompatibility | "PLA、PETG、TPU、PVA"                                                                                                                                                                                                                                                                                                                             |
-| Bambu_Lab_A1          | hasModel                 | "A1"                                                                                                                                                                                                                                                                                                                                              |
-| Bambu_Lab_A1          | hasPrice                 | "58,800"                                                                                                                                                                                                                                                                                                                                          |
-| Bambu_Lab_A1          | hasTechnology            | "SLA"                                                                                                                                                                                                                                                                                                                                             |
-| Bambu_Lab_A1          | hasVoltage               | "220"                                                                                                                                                                                                                                                                                                                                             |
-| Bambu_Lab_A1          | hasWattage               | "1000"                                                                                                                                                                                                                                                                                                                                            |
-| Bambu_Lab_A1          | hasWeight                | "8.3"                                                                                                                                                                                                                                                                                                                                             |
-| Bambu_Lab_P1S         | hasBrand                 | Bambu_Lab                                                                                                                                                                                                                                                                                                                                         |
-| Bambu_Lab_P1S         | hasBuildVolume           | "256x256x256"                                                                                                                                                                                                                                                                                                                                     |
-| Bambu_Lab_P1S         | hasImage                 | "https://jp.store.bambulab.com/cdn/shop/products/1_25403143-622a-4773-b16a-db9a2573e733_800x.jpg?v=1689660650"                                                                                                                                                                                                                                    |
-| Bambu_Lab_P1S         | hasLayerResolution       | "0.1"                                                                                                                                                                                                                                                                                                                                             |
-| Bambu_Lab_P1S         | hasLink                  | "https://jp.store.bambulab.com/en/products/p1s"                                                                                                                                                                                                                                                                                                   |
-| Bambu_Lab_P1S         | hasMaterialCompatibility | "PLA, PETG, TPU, PVA, PET"                                                                                                                                                                                                                                                                                                                        |
-| Bambu_Lab_P1S         | hasModel                 | "P1S"                                                                                                                                                                                                                                                                                                                                             |
-| Bambu_Lab_P1S         | hasPrice                 | "109,000"                                                                                                                                                                                                                                                                                                                                         |
-| Bambu_Lab_P1S         | hasTechnology            | "SLA"                                                                                                                                                                                                                                                                                                                                             |
-| Bambu_Lab_P1S         | hasVoltage               | "220"                                                                                                                                                                                                                                                                                                                                             |
-| Bambu_Lab_P1S         | hasWattage               | "1000"                                                                                                                                                                                                                                                                                                                                            |
-| Bambu_Lab_P1S         | hasWeight                | "9.65"                                                                                                                                                                                                                                                                                                                                            |
-| ELEGOO_Neptune_4      | hasBrand                 | ELEGOO                                                                                                                                                                                                                                                                                                                                            |
-| ELEGOO_Neptune_4      | hasBuildVolume           | "225x225x265"                                                                                                                                                                                                                                                                                                                                     |
-| ELEGOO_Neptune_4      | hasImage                 | "https://m.media-amazon.com/images/S/aplus-media-library-service-media/3572ef63-8c98-4053-b609-5e841619a5c6.CR0,0,300,225_PT0_SX300_V1_.jpg"                                                                                                                                                                                                      |
-| ELEGOO_Neptune_4      | hasLayerResolution       | "0.1"                                                                                                                                                                                                                                                                                                                                             |
-| ELEGOO_Neptune_4      | hasLink                  | "https://www.amazon.co.jp/ELEGOO-Neptune-Pro-225x225x265mm%C2%B3-8-85x8-85x10-43/dp/B0CG1GGD2T"                                                                                                                                                                                                                                                   |
-| ELEGOO_Neptune_4      | hasMaterialCompatibility | "PLA、PETG、ABS、TPU"                                                                                                                                                                                                                                                                                                                             |
-| ELEGOO_Neptune_4      | hasModel                 | "Neptune 4"                                                                                                                                                                                                                                                                                                                                       |
-| ELEGOO_Neptune_4      | hasPrice                 | "31,199"                                                                                                                                                                                                                                                                                                                                          |
-| ELEGOO_Neptune_4      | hasPrice                 | "100,000"                                                                                                                                                                                                                                                                                                                                         |
-| ELEGOO_Neptune_4      | hasTechnology            | "FDM"                                                                                                                                                                                                                                                                                                                                             |
-| ELEGOO_Neptune_4      | hasVoltage               | "220"                                                                                                                                                                                                                                                                                                                                             |
-| ELEGOO_Neptune_4      | hasWattage               | "1000"                                                                                                                                                                                                                                                                                                                                            |
-| ELEGOO_Neptune_4      | hasWeight                | "8.3"                                                                                                                                                                                                                                                                                                                                             |
-| Ender-3_V3_SE         | hasBrand                 | Ender-3                                                                                                                                                                                                                                                                                                                                           |
-| Ender-3_V3_SE         | hasBuildVolume           | "220x220x250"                                                                                                                                                                                                                                                                                                                                     |
-| Ender-3_V3_SE         | hasImage                 | "https://www.creality3dofficial.eu/files/goods/20230925/creality-ender-3v3-se-3d-printer-eu.jpg"                                                                                                                                                                                                                                                  |
-| Ender-3_V3_SE         | hasLayerResolution       | "0.1"                                                                                                                                                                                                                                                                                                                                             |
-| Ender-3_V3_SE         | hasLink                  | "https://www.amazon.co.jp/Creality-Ender-3-s%E3%81%BE%E3%81%A7%E3%82%B9%E3%83%94%E3%83%BC%E3%83%88%E3%81%A82500mm-%E3%83%8F%E3%83%B3%E3%82%BA%E3%83%95%E3%83%AA%E3%83%BC%E8%87%AA%E5%8B%95%E3%83%AC%E3%83%99%E3%83%AA%E3%83%B3%E3%82%B0-%E9%AB%98%E7%B2%BE%E5%BA%A6%E9%80%A0%E5%BD%A2%E3%82%B5%E3%82%A4%E3%82%BA220x220x250mm/dp/B0CDGL637K?th=1" |
-| Ender-3_V3_SE         | hasMaterialCompatibility | "PLA、PETG、TPU"                                                                                                                                                                                                                                                                                                                                  |
-| Ender-3_V3_SE         | hasModel                 | "V3_SE"                                                                                                                                                                                                                                                                                                                                           |
-| Ender-3_V3_SE         | hasPrice                 | "27,427"                                                                                                                                                                                                                                                                                                                                          |
-| Ender-3_V3_SE         | hasTechnology            | "SLA"                                                                                                                                                                                                                                                                                                                                             |
-| Ender-3_V3_SE         | hasVoltage               | "220"                                                                                                                                                                                                                                                                                                                                             |
-| Ender-3_V3_SE         | hasWattage               | "1000"                                                                                                                                                                                                                                                                                                                                            |
-| Ender-3_V3_SE         | hasWeight                | "7.34"                                                                                                                                                                                                                                                                                                                                            |
-| Original_Prusa_MINI+  | hasBrand                 | Original_Prusa                                                                                                                                                                                                                                                                                                                                    |
-| Original_Prusa_MINI+  | hasBuildVolume           | "380x330x380"                                                                                                                                                                                                                                                                                                                                     |
-| Original_Prusa_MINI+  | hasImage                 | "https://m.media-amazon.com/images/I/71vFaWXP9hL.jpg"                                                                                                                                                                                                                                                                                             |
-| Original_Prusa_MINI+  | hasLayerResolution       | "0.1"                                                                                                                                                                                                                                                                                                                                             |
-| Original_Prusa_MINI+  | hasLink                  | "https://www.amazon.co.jp/ORIGINAL-PRUSA-MINI-%E5%8D%8A%E7%B5%84%E7%AB%8B%E6%B8%88%E3%81%BF/dp/B0933LV2JW"                                                                                                                                                                                                                                        |
-| Original_Prusa_MINI+  | hasMaterialCompatibility | "PLA, PETG, ASA, ABS, PC (Polycarbonate), CPE, PVA/BVOH, PVB, HIPS, PP (Polypropylene), Flex, nGen, Nylon, Woodfill "                                                                                                                                                                                                                             |
-| Original_Prusa_MINI+  | hasModel                 | "MINI+"                                                                                                                                                                                                                                                                                                                                           |
-| Original_Prusa_MINI+  | hasPrice                 | "27,427"                                                                                                                                                                                                                                                                                                                                          |
-| Original_Prusa_MINI+  | hasPrice                 | "100,000"                                                                                                                                                                                                                                                                                                                                         |
-| Original_Prusa_MINI+  | hasTechnology            | "FDM"                                                                                                                                                                                                                                                                                                                                             |
-| Original_Prusa_MINI+  | hasVoltage               | "220"                                                                                                                                                                                                                                                                                                                                             |
-| Original_Prusa_MINI+  | hasWattage               | "1000"                                                                                                                                                                                                                                                                                                                                            |
-| Original_Prusa_MINI+  | hasWeight                | "4.5"                                                                                                                                                                                                                                                                                                                                             |
-| Sovol SV06            | hasBrand                 | Sovol                                                                                                                                                                                                                                                                                                                                             |
-| Sovol SV06            | hasBuildVolume           | "220x220x250"                                                                                                                                                                                                                                                                                                                                     |
-| Sovol SV06            | hasImage                 | "https://m.media-amazon.com/images/I/718XUIjydqL.jpg"                                                                                                                                                                                                                                                                                             |
-| Sovol SV06            | hasLayerResolution       | "0.1"                                                                                                                                                                                                                                                                                                                                             |
-| Sovol SV06            | hasLink                  | "https://www.amazon.com/Sovol-Planetary-Extruder-25-Point-8-66x8-66x9-84/dp/B0BJV3WB2J"                                                                                                                                                                                                                                                           |
-| Sovol SV06            | hasMaterialCompatibility | "PLA、PETG、TPU、PVA"                                                                                                                                                                                                                                                                                                                             |
-| Sovol SV06            | hasModel                 | "SV06"                                                                                                                                                                                                                                                                                                                                            |
-| Sovol SV06            | hasPrice                 | "30,492"                                                                                                                                                                                                                                                                                                                                          |
-| Sovol SV06            | hasPrice                 | "100,000"                                                                                                                                                                                                                                                                                                                                         |
-| Sovol SV06            | hasTechnology            | "FDM"                                                                                                                                                                                                                                                                                                                                             |
-| Sovol SV06            | hasVoltage               | "220"                                                                                                                                                                                                                                                                                                                                             |
-| Sovol SV06            | hasWattage               | "1000"                                                                                                                                                                                                                                                                                                                                            |
-| Sovol SV06            | hasWeight                | "10.5"                                                                                                                                                                                                                                                                                                                                            |
+| individual                                                                | property                                                                     | value                                                                                                                                                                                                                                                                                                                                             |
+| ------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Anycubic_Kobra_2_Plus | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasBrand                 | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Anycubic                                                                                                                                                                                                                                                                                      |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Anycubic_Kobra_2_Plus | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasBuildVolume           | "320x320x400"                                                                                                                                                                                                                                                                                                                                     |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Anycubic_Kobra_2_Plus | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasImage                 | "https://m.media-amazon.com/images/I/61ItfucfWiL._AC_UF894,1000_QL80_.jpg"                                                                                                                                                                                                                                                                        |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Anycubic_Kobra_2_Plus | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasLayerResolution       | "0.1"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Anycubic_Kobra_2_Plus | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasLink                  | "https://www.anycubic.com/products/kobra-2-plus-3d-printer"                                                                                                                                                                                                                                                                                       |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Anycubic_Kobra_2_Plus | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasMaterialCompatibility | "PLA、PETG、TPU、PVA"                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Anycubic_Kobra_2_Plus | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasModel                 | "Kobra 2 Plus"                                                                                                                                                                                                                                                                                                                                    |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Anycubic_Kobra_2_Plus | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasPrice                 | "72,999"                                                                                                                                                                                                                                                                                                                                          |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Anycubic_Kobra_2_Plus | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasTechnology            | "FDM"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Anycubic_Kobra_2_Plus | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasVoltage               | "220"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Anycubic_Kobra_2_Plus | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasWattage               | "1000"                                                                                                                                                                                                                                                                                                                                            |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Anycubic_Kobra_2_Plus | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasWeight                | "13"                                                                                                                                                                                                                                                                                                                                              |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasBrand                 | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab                                                                                                                                                                                                                                                                                     |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasBuildVolume           | "256x256x256"                                                                                                                                                                                                                                                                                                                                     |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasImage                 | "https://jp.store.bambulab.com/cdn/shop/products/A1-2_800x.png?v=1703150110"                                                                                                                                                                                                                                                                      |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasLayerResolution       | "0.1"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasLink                  | "https://jp.store.bambulab.com/en/products/a1"                                                                                                                                                                                                                                                                                                    |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasMaterialCompatibility | "PLA、PETG、TPU、PVA"                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasModel                 | "A1"                                                                                                                                                                                                                                                                                                                                              |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasPrice                 | "58,800"                                                                                                                                                                                                                                                                                                                                          |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasTechnology            | "SLA"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasVoltage               | "220"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasWattage               | "1000"                                                                                                                                                                                                                                                                                                                                            |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_A1          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasWeight                | "8.3"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasBrand                 | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab                                                                                                                                                                                                                                                                                     |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasBuildVolume           | "256x256x256"                                                                                                                                                                                                                                                                                                                                     |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasImage                 | "https://jp.store.bambulab.com/cdn/shop/products/1_25403143-622a-4773-b16a-db9a2573e733_800x.jpg?v=1689660650"                                                                                                                                                                                                                                    |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasLayerResolution       | "0.1"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasLink                  | "https://jp.store.bambulab.com/en/products/p1s"                                                                                                                                                                                                                                                                                                   |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasMaterialCompatibility | "PLA, PETG, TPU, PVA, PET"                                                                                                                                                                                                                                                                                                                        |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasModel                 | "P1S"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasPrice                 | "109,000"                                                                                                                                                                                                                                                                                                                                         |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasTechnology            | "SLA"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasVoltage               | "220"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasWattage               | "1000"                                                                                                                                                                                                                                                                                                                                            |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Bambu_Lab_P1S         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasWeight                | "9.65"                                                                                                                                                                                                                                                                                                                                            |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#ELEGOO_Neptune_4      | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasBrand                 | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#ELEGOO                                                                                                                                                                                                                                                                                        |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#ELEGOO_Neptune_4      | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasBuildVolume           | "225x225x265"                                                                                                                                                                                                                                                                                                                                     |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#ELEGOO_Neptune_4      | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasImage                 | "https://m.media-amazon.com/images/S/aplus-media-library-service-media/3572ef63-8c98-4053-b609-5e841619a5c6.__CR0,0,300,225_PT0_SX300_V1___.jpg"                                                                                                                                                                                                  |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#ELEGOO_Neptune_4      | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasLayerResolution       | "0.1"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#ELEGOO_Neptune_4      | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasLink                  | "https://www.amazon.co.jp/ELEGOO-Neptune-Pro-225x225x265mm%C2%B3-8-85x8-85x10-43/dp/B0CG1GGD2T"                                                                                                                                                                                                                                                   |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#ELEGOO_Neptune_4      | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasMaterialCompatibility | "PLA、PETG、ABS、TPU"                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#ELEGOO_Neptune_4      | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasModel                 | "Neptune 4"                                                                                                                                                                                                                                                                                                                                       |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#ELEGOO_Neptune_4      | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasPrice                 | "31,199"                                                                                                                                                                                                                                                                                                                                          |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#ELEGOO_Neptune_4      | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasPrice                 | "100,000"                                                                                                                                                                                                                                                                                                                                         |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#ELEGOO_Neptune_4      | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasTechnology            | "FDM"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#ELEGOO_Neptune_4      | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasVoltage               | "220"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#ELEGOO_Neptune_4      | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasWattage               | "1000"                                                                                                                                                                                                                                                                                                                                            |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#ELEGOO_Neptune_4      | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasWeight                | "8.3"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Ender-3_V3_SE         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasBrand                 | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Ender-3                                                                                                                                                                                                                                                                                       |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Ender-3_V3_SE         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasBuildVolume           | "220x220x250"                                                                                                                                                                                                                                                                                                                                     |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Ender-3_V3_SE         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasImage                 | "https://www.creality3dofficial.eu/files/goods/20230925/creality-ender-3v3-se-3d-printer-eu.jpg"                                                                                                                                                                                                                                                  |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Ender-3_V3_SE         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasLayerResolution       | "0.1"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Ender-3_V3_SE         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasLink                  | "https://www.amazon.co.jp/Creality-Ender-3-s%E3%81%BE%E3%81%A7%E3%82%B9%E3%83%94%E3%83%BC%E3%83%88%E3%81%A82500mm-%E3%83%8F%E3%83%B3%E3%82%BA%E3%83%95%E3%83%AA%E3%83%BC%E8%87%AA%E5%8B%95%E3%83%AC%E3%83%99%E3%83%AA%E3%83%B3%E3%82%B0-%E9%AB%98%E7%B2%BE%E5%BA%A6%E9%80%A0%E5%BD%A2%E3%82%B5%E3%82%A4%E3%82%BA220x220x250mm/dp/B0CDGL637K?th=1" |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Ender-3_V3_SE         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasMaterialCompatibility | "PLA、PETG、TPU"                                                                                                                                                                                                                                                                                                                                  |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Ender-3_V3_SE         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasModel                 | "V3_SE"                                                                                                                                                                                                                                                                                                                                           |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Ender-3_V3_SE         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasPrice                 | "27,427"                                                                                                                                                                                                                                                                                                                                          |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Ender-3_V3_SE         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasTechnology            | "SLA"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Ender-3_V3_SE         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasVoltage               | "220"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Ender-3_V3_SE         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasWattage               | "1000"                                                                                                                                                                                                                                                                                                                                            |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Ender-3_V3_SE         | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasWeight                | "7.34"                                                                                                                                                                                                                                                                                                                                            |
+| rogermarvin/Desktop/Coding/AI/14-15.owl#Original_Prusa_MINI+              | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasBrand                 | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Prusa                                                                                                                                                                                                                                                                                         |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Original_Prusa_MINI+  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasBuildVolume           | "180x180x180"                                                                                                                                                                                                                                                                                                                                     |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Original_Prusa_MINI+  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasImage                 | "https://m.media-amazon.com/images/I/71vFaWXP9hL.jpg"                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Original_Prusa_MINI+  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasLayerResolution       | "0.1"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Original_Prusa_MINI+  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasLink                  | "https://www.amazon.co.jp/ORIGINAL-PRUSA-MINI-%E5%8D%8A%E7%B5%84%E7%AB%8B%E6%B8%88%E3%81%BF/dp/B0933LV2JW"                                                                                                                                                                                                                                        |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Original_Prusa_MINI+  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasMaterialCompatibility | "PLA, PETG, ASA, ABS, PC (Polycarbonate), CPE, PVA/BVOH, PVB, HIPS, PP (Polypropylene), Flex, nGen, Nylon, Woodfill"                                                                                                                                                                                                                              |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Original_Prusa_MINI+  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasModel                 | "MINI+"                                                                                                                                                                                                                                                                                                                                           |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Original_Prusa_MINI+  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasPrice                 | "27,427"                                                                                                                                                                                                                                                                                                                                          |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Original_Prusa_MINI+  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasPrice                 | "100,000"                                                                                                                                                                                                                                                                                                                                         |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Original_Prusa_MINI+  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasTechnology            | "FDM"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Original_Prusa_MINI+  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasVoltage               | "220"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Original_Prusa_MINI+  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasWattage               | "1000"                                                                                                                                                                                                                                                                                                                                            |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Original_Prusa_MINI+  | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasWeight                | "4.5"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Sovol%20SV06          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasBrand                 | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Sovol                                                                                                                                                                                                                                                                                         |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Sovol%20SV06          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasBuildVolume           | "220x220x250"                                                                                                                                                                                                                                                                                                                                     |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Sovol%20SV06          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasImage                 | "https://m.media-amazon.com/images/I/718XUIjydqL.jpg"                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Sovol%20SV06          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasLayerResolution       | "0.1"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Sovol%20SV06          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasLink                  | "https://www.amazon.com/Sovol-Planetary-Extruder-25-Point-8-66x8-66x9-84/dp/B0BJV3WB2J"                                                                                                                                                                                                                                                           |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Sovol%20SV06          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasMaterialCompatibility | "PLA、PETG、TPU、PVA"                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Sovol%20SV06          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasModel                 | "SV06"                                                                                                                                                                                                                                                                                                                                            |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Sovol%20SV06          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasPrice                 | "30,492"                                                                                                                                                                                                                                                                                                                                          |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Sovol%20SV06          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasPrice                 | "100,000"                                                                                                                                                                                                                                                                                                                                         |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Sovol%20SV06          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasTechnology            | "FDM"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Sovol%20SV06          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasVoltage               | "220"                                                                                                                                                                                                                                                                                                                                             |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Sovol%20SV06          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasWattage               | "1000"                                                                                                                                                                                                                                                                                                                                            |
+| file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Sovol%20SV06          | file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#hasWeight                | "10.5"                                                                                                                                                                                                                                                                                                                                            |
 
 ---
+
+#### その他クエリ（クエリ実行のその他のパターン）
+
+##### 1. すべてのクラスを一覧表示する
+
+```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?class
+WHERE {
+  ?class rdf:type owl:Class .
+}
+```
+
+##### 2. すべてのオブジェクトプロパティを一覧表示する
+
+```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?property
+WHERE {
+  ?property rdf:type owl:ObjectProperty .
+}
+```
+
+##### 3. すべてのデータプロパティを一覧表示する
+
+```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?property
+WHERE {
+  ?property rdf:type owl:DatatypeProperty .
+}
+```
+
+##### 4. すべてのAnnotationプロパティを一覧表示する
+
+```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?property
+WHERE {
+  ?property rdf:type owl:AnnotationProperty .
+}
+```
+
+##### 5. すべてのインスタンスをリストする
+
+```
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?individual
+WHERE {
+  ?individual rdf:type owl:NamedIndividual .
+}
+```
+
+
+#####  6. 特定の個体のすべてのプロパティを一覧表示する「Anycubic Kobra 2 Plusの場合」
+```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?property ?value
+WHERE {
+  <file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#Anycubic_Kobra_2_Plus> ?property ?value .
+}
+```
+
+#####  7. 特定のクラスのすべての個体をリストします「3DPrinterの場合」
+```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?individual
+WHERE {
+  ?individual rdf:type <file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#3DPrinter> .
+}
+```
+
+#####  ８. すべてのクラスとそのサブクラスを一覧表示します
+```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?class ?subclass
+WHERE {
+  ?subclass rdfs:subClassOf ?class .
+}
+```
+
+
 
 ### 作成したオントロジの規模、その活用規模を表す数値を列挙する
 
@@ -377,10 +579,10 @@
 | --------------- | ---- |
 | クラス数        | 11   |
 | インスタンス数  | 69   |
-| プロパティ数    | 20   |
+| プロパティ数    | 21   |
 | .owl 行数       | 1454 |
-| Sparql クエリ数 | 2    |
-| Sparql 行数     | 61   |
+| Sparql クエリ数 | 10    |
+| Sparql 行数     | 89   |
 
 ### 分析・評価・考察
 
