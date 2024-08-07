@@ -484,6 +484,8 @@ OPTIONAL {
 
 ##### 1. すべてのクラスを一覧表示する
 
+- ユースケース：ユーザーが商品のカテゴリーや種類を調べたいときに使います。また、商品のメーカーリストを調べたい時に使います。
+
 ```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -497,6 +499,8 @@ WHERE {
 <img src="./assets/sparql-class.png" alt="オントロジVirtuoso" width="20%" border="1">
 
 ##### 2. すべてのオブジェクトプロパティを一覧表示する
+
+- ユースケース：ユーザーが商品のスペックリスト（プロパティ）を検索するときに使います。特に商品とメーカーの関係性を調べたい時に使います。
 
 ```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -512,6 +516,8 @@ WHERE {
 
 ##### 3. すべてのデータプロパティを一覧表示する
 
+- ユースケース：ユーザーが商品のスペックリスト（データプロパティ）を検索するときに使います。商品ではどいうスペックの情報があるのかを知るためです。
+
 ```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -525,6 +531,8 @@ WHERE {
 <img src="./assets/sparql-datapro.png" alt="オントロジVirtuoso" width="40%" border="1">
 
 ##### 4. すべての Annotation プロパティを一覧表示する
+
+- ユースケース：ユーザーが商品のスペックリスト（データプロパティ）を検索するときに使います。商品ではどいう情報があるのかを知るためです。
 
 ```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -540,6 +548,8 @@ WHERE {
 
 ##### 5. すべてのインスタンスをリストする
 
+- ユースケース：ユーザーが商品のリストを検索するために使用しています。
+
 ```
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -553,6 +563,8 @@ WHERE {
 <img src="./assets/sparql-ind.png" alt="オントロジVirtuoso" width="30%" border="1">
 
 ##### 6. 特定の個体のすべてのプロパティを一覧表示する「Anycubic Kobra 2 Plus の場合」
+
+- ユースケース：「Anycubic Kobra 2 Plus」を調べて、商品のスペック（データやオブジェクトプロパティ）を調べるために使用しています。
 
 ```sparql
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -568,6 +580,8 @@ WHERE {
 
 ##### 7. 特定のクラスのすべての個体をリストします「3DPrinter の場合」
 
+- ユースケース：「3DPrinter」というカテゴリー（クラス）から調べて、商品のリストを調べるために使用しています。
+
 ```sparql
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -580,7 +594,9 @@ WHERE {
 
 <img src="./assets/sparql-byclass.png" alt="オントロジVirtuoso" width="30%" border="1">
 
-##### ８. すべてのクラスとそのサブクラスを一覧表示します
+##### 8. すべてのクラスとそのサブクラスを一覧表示します
+
+- ユースケース：商品のカテゴリーのカテゴリーとサブカテゴリーを調べるために使用しています。
 
 ```sparql
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -593,6 +609,47 @@ WHERE {
 ```
 
 <img src="./assets/sparql-subclass.png" alt="オントロジVirtuoso" width="30%" border="1">
+
+##### 9. ブランドが「bambu」の機械を検索する
+
+- ユースケース：ユーザーが機械のブランドを調べるために使用しています。
+
+```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl1: <file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?individual ?brand
+WHERE {
+  ?individual rdf:type owl:NamedIndividual .
+  ?individual owl1:hasBrand ?brand .
+
+  FILTER regex(str(?brand), "bambu", "i")
+}
+```
+
+<img src="./assets/sparql-brandfilter.png" alt="オントロジVirtuoso" width="50%" border="1">
+
+##### 10. 重量の範囲により機械を検索する
+
+- ユースケース：ユーザーが機械の重量の範囲を調べるために使用しています。
+
+```sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl1: <file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?individual ?weight
+WHERE {
+  ?individual rdf:type owl:NamedIndividual .
+  ?individual owl1:hasWeight ?weight .
+
+  # Ensure weight is interpreted as a number and filter by weight range
+  FILTER (xsd:decimal(?weight) >= 5 && xsd:decimal(?weight) <= 15)
+}
+```
+
+<img src="./assets/sparql-weightfilter.png" alt="オントロジVirtuoso" width="30%" border="1">
 
 ### 作成したオントロジの規模、その活用規模を表す数値を列挙する
 
@@ -609,8 +666,8 @@ WHERE {
 | インスタンス数  | 69   |
 | プロパティ数    | 21   |
 | .owl 行数       | 1454 |
-| Sparql クエリ数 | 10   |
-| Sparql 行数     | 89   |
+| Sparql クエリ数 | 12   |
+| Sparql 行数     | 108  |
 
 ### 分析・評価・考察
 
@@ -624,9 +681,8 @@ WHERE {
 - 深く専門的な知識の所在
 
 ```
-機械工学や情報工学の専門知識を活用して、機械の技術仕様や性能を詳細に記述しました。
-また、オントロジー設計においては、知識工学の理論と実践を組み合わせて、データの一貫性と再利用性を確保しました。
-さらに、SPARQLクエリを用いた検索機能の実装により、複雑な条件でも高速に検索結果を得ることができるようにしました。
+開志ラボの施設の機械を利用しながら、機械の知識をがもらいました。もちろん、開志ラボの施設の管理者と協力して、情報をえります。
+また、今回のオントロジーでは２年生の知識表現の講義で学んだもので作って、API実習やSQLの講義で学んだものを活用して、今回のSPARQLクエリを作って、実際にアプリケーションしました。
 ```
 
 - ユーザへの寄与・貢献、ユーザにどのように活用してほしいか
@@ -640,7 +696,7 @@ WHERE {
 - 差異化要素、強みと特徴点
 
 ```
-このオントロジーの強みは、詳細な機械情報を網羅している点と、検索の高速性です。
+このオントロジーの強みは、詳細な機械情報を網羅している点と、検索のが早いです。
 特に、機械のブランド、モデル、技術仕様、価格などの情報を一元管理しているため、ユーザーは必要な情報を迅速に取得できます。
 また、SPARQLクエリを用いた検索機能により、複雑な条件でもすぐに検索結果を得ることができます。
 ```
@@ -649,14 +705,17 @@ WHERE {
 
 ```
 共通語彙を使用することで、異なるデータソース間での情報統合が容易になることを発見しました。
-特に、機械のブランド・メーカーや技術仕様などのプロパティを統一することで、データの一貫性が保たれ、検索精度が向上しました。
+また、データプロパティとオブジェクトプロパティの違いを理解でき、どっちはどっちに使うのかを理解できました。
+データは単体のインスタンスの情報をつけるためです。
+一方、オブジェクトは一つのインスタンスと別のインスタンスの関係性を表すためのものです。
 ```
 
 - クラスとインスタンスの違いで発見した知見
 
 ```
-クラスは機械のカテゴリやタイプを表し、インスタンスは具体的な機械を表すことを理解しました。
-これにより、クラスを使って機械の一般的な特性を定義し、インスタンスを使って具体的な機械の詳細情報を管理することができました。
+２年生の時に、クラスを勘違いして、インスタンスをクラスにする時があります。
+それを３年生でたくさんオントロジーを作ったおかげで、自分がどっちはクラスなのか、どっちはインスタンスなのかを理解できました。
+もちろん、今回で作ったオントロジーでもうまく書きました。
 ```
 
 - オントロジ設計で貫いたポリシー
@@ -671,7 +730,7 @@ WHERE {
 
 ```
 機械の詳細情報を網羅するために、各プロパティの定義を細かく行いました。
-また、ユーザーが直感的に情報を検索できるように、検索インターフェースのデザインにも工夫を凝らしました。
+また、ユーザーが直感的に情報を検索できるように、検索するアプリケーションを開発でき、実際にSPARQLのAPIを利用でき、連携できました。
 さらに、SPARQLクエリを用いた検索機能を実装することで、複雑な条件でもすぐにに検索結果を得られるようにしました。
 ```
 
@@ -680,6 +739,7 @@ WHERE {
 ```
 オントロジエディタを使用して、クラスやプロパティの定義、インスタンスの作成を効率的に行う技法を習得しました。
 また、SPARQLクエリの作成と実行を通じて、データの検索と取得の方法を学びました。
+さらに、Protegeだけではなくて、VirtuosoやWEB Protegeなどを利用でき、事情により利用できました。
 これにより、オントロジの設計と実装のスキルを向上させることができました。
 ```
 

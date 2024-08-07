@@ -1347,6 +1347,9 @@ FILTER(?numericPrice &gt;= 10000 &amp;&amp; ?numericPrice &lt;= 120000)
 <hr>
 <h4 id="%E3%81%9D%E3%81%AE%E4%BB%96%E3%82%AF%E3%82%A8%E3%83%AA%E3%82%AF%E3%82%A8%E3%83%AA%E5%AE%9F%E8%A1%8C%E3%81%AE%E3%81%9D%E3%81%AE%E4%BB%96%E3%81%AE%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3">その他クエリ（クエリ実行のその他のパターン）</h4>
 <h5 id="1-%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%B9%E3%82%92%E4%B8%80%E8%A6%A7%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B">1. すべてのクラスを一覧表示する</h5>
+<ul>
+<li>ユースケース：ユーザーが商品のカテゴリーや種類を調べたいときに使います。また、商品のメーカーリストを調べたい時に使います。</li>
+</ul>
 <pre class="hljs"><code><div>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
 
@@ -1357,6 +1360,9 @@ WHERE {
 </div></code></pre>
 <img src="./assets/sparql-class.png" alt="オントロジVirtuoso" width="20%" border="1">
 <h5 id="2-%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%82%92%E4%B8%80%E8%A6%A7%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B">2. すべてのオブジェクトプロパティを一覧表示する</h5>
+<ul>
+<li>ユースケース：ユーザーが商品のスペックリスト（プロパティ）を検索するときに使います。特に商品とメーカーの関係性を調べたい時に使います。</li>
+</ul>
 <pre class="hljs"><code><div>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
 
@@ -1367,6 +1373,9 @@ WHERE {
 </div></code></pre>
 <img src="./assets/sparql-objpro.png" alt="オントロジVirtuoso" width="30%" border="1">
 <h5 id="3-%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%82%92%E4%B8%80%E8%A6%A7%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B">3. すべてのデータプロパティを一覧表示する</h5>
+<ul>
+<li>ユースケース：ユーザーが商品のスペックリスト（データプロパティ）を検索するときに使います。商品ではどいうスペックの情報があるのかを知るためです。</li>
+</ul>
 <pre class="hljs"><code><div>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
 
@@ -1377,6 +1386,9 @@ WHERE {
 </div></code></pre>
 <img src="./assets/sparql-datapro.png" alt="オントロジVirtuoso" width="40%" border="1">
 <h5 id="4-%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE-annotation-%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%82%92%E4%B8%80%E8%A6%A7%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B">4. すべての Annotation プロパティを一覧表示する</h5>
+<ul>
+<li>ユースケース：ユーザーが商品のスペックリスト（データプロパティ）を検索するときに使います。商品ではどいう情報があるのかを知るためです。</li>
+</ul>
 <pre class="hljs"><code><div>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
 
@@ -1387,6 +1399,9 @@ WHERE {
 </div></code></pre>
 <img src="./assets/sparql-annopro.png" alt="オントロジVirtuoso" width="30%" border="1">
 <h5 id="5-%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%82%92%E3%83%AA%E3%82%B9%E3%83%88%E3%81%99%E3%82%8B">5. すべてのインスタンスをリストする</h5>
+<ul>
+<li>ユースケース：ユーザーが商品のリストを検索するために使用しています。</li>
+</ul>
 <pre class="hljs"><code><div>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
 
@@ -1397,6 +1412,9 @@ WHERE {
 </div></code></pre>
 <img src="./assets/sparql-ind.png" alt="オントロジVirtuoso" width="30%" border="1">
 <h5 id="6-%E7%89%B9%E5%AE%9A%E3%81%AE%E5%80%8B%E4%BD%93%E3%81%AE%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3%E3%82%92%E4%B8%80%E8%A6%A7%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8Banycubic-kobra-2-plus-%E3%81%AE%E5%A0%B4%E5%90%88">6. 特定の個体のすべてのプロパティを一覧表示する「Anycubic Kobra 2 Plus の場合」</h5>
+<ul>
+<li>ユースケース：「Anycubic Kobra 2 Plus」を調べて、商品のスペック（データやオブジェクトプロパティ）を調べるために使用しています。</li>
+</ul>
 <pre class="hljs"><code><div>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
 
@@ -1407,6 +1425,9 @@ WHERE {
 </div></code></pre>
 <img src="./assets/sparql-byind.png" alt="オントロジVirtuoso" width="30%" border="1">
 <h5 id="7-%E7%89%B9%E5%AE%9A%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%AE%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E5%80%8B%E4%BD%93%E3%82%92%E3%83%AA%E3%82%B9%E3%83%88%E3%81%97%E3%81%BE%E3%81%993dprinter-%E3%81%AE%E5%A0%B4%E5%90%88">7. 特定のクラスのすべての個体をリストします「3DPrinter の場合」</h5>
+<ul>
+<li>ユースケース：「3DPrinter」というカテゴリー（クラス）から調べて、商品のリストを調べるために使用しています。</li>
+</ul>
 <pre class="hljs"><code><div>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
 
@@ -1416,7 +1437,10 @@ WHERE {
 }
 </div></code></pre>
 <img src="./assets/sparql-byclass.png" alt="オントロジVirtuoso" width="30%" border="1">
-<h5 id="%EF%BC%98-%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%A8%E3%81%9D%E3%81%AE%E3%82%B5%E3%83%96%E3%82%AF%E3%83%A9%E3%82%B9%E3%82%92%E4%B8%80%E8%A6%A7%E8%A1%A8%E7%A4%BA%E3%81%97%E3%81%BE%E3%81%99">８. すべてのクラスとそのサブクラスを一覧表示します</h5>
+<h5 id="8-%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%A8%E3%81%9D%E3%81%AE%E3%82%B5%E3%83%96%E3%82%AF%E3%83%A9%E3%82%B9%E3%82%92%E4%B8%80%E8%A6%A7%E8%A1%A8%E7%A4%BA%E3%81%97%E3%81%BE%E3%81%99">8. すべてのクラスとそのサブクラスを一覧表示します</h5>
+<ul>
+<li>ユースケース：商品のカテゴリーのカテゴリーとサブカテゴリーを調べるために使用しています。</li>
+</ul>
 <pre class="hljs"><code><div>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 
@@ -1426,6 +1450,41 @@ WHERE {
 }
 </div></code></pre>
 <img src="./assets/sparql-subclass.png" alt="オントロジVirtuoso" width="30%" border="1">
+<h5 id="9-%E3%83%96%E3%83%A9%E3%83%B3%E3%83%89%E3%81%8Cbambu%E3%81%AE%E6%A9%9F%E6%A2%B0%E3%82%92%E6%A4%9C%E7%B4%A2%E3%81%99%E3%82%8B">9. ブランドが「bambu」の機械を検索する</h5>
+<ul>
+<li>ユースケース：ユーザーが機械のブランドを調べるために使用しています。</li>
+</ul>
+<pre class="hljs"><code><div>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX owl1: &lt;file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT ?individual ?brand
+WHERE {
+  ?individual rdf:type owl:NamedIndividual .
+  ?individual owl1:hasBrand ?brand .
+
+  FILTER regex(str(?brand), &quot;bambu&quot;, &quot;i&quot;)
+}
+</div></code></pre>
+<img src="./assets/sparql-brandfilter.png" alt="オントロジVirtuoso" width="50%" border="1">
+<h5 id="10-%E9%87%8D%E9%87%8F%E3%81%AE%E7%AF%84%E5%9B%B2%E3%81%AB%E3%82%88%E3%82%8A%E6%A9%9F%E6%A2%B0%E3%82%92%E6%A4%9C%E7%B4%A2%E3%81%99%E3%82%8B">10. 重量の範囲により機械を検索する</h5>
+<ul>
+<li>ユースケース：ユーザーが機械の重量の範囲を調べるために使用しています。</li>
+</ul>
+<pre class="hljs"><code><div>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX owl1: &lt;file:/Users/rogermarvin/Desktop/Coding/AI/14-15.owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT ?individual ?weight
+WHERE {
+  ?individual rdf:type owl:NamedIndividual .
+  ?individual owl1:hasWeight ?weight .
+
+  # Ensure weight is interpreted as a number and filter by weight range
+  FILTER (xsd:decimal(?weight) &gt;= 5 &amp;&amp; xsd:decimal(?weight) &lt;= 15)
+}
+</div></code></pre>
+<img src="./assets/sparql-weightfilter.png" alt="オントロジVirtuoso" width="30%" border="1">
 <h3 id="%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9F%E3%82%AA%E3%83%B3%E3%83%88%E3%83%AD%E3%82%B8%E3%81%AE%E8%A6%8F%E6%A8%A1%E3%81%9D%E3%81%AE%E6%B4%BB%E7%94%A8%E8%A6%8F%E6%A8%A1%E3%82%92%E8%A1%A8%E3%81%99%E6%95%B0%E5%80%A4%E3%82%92%E5%88%97%E6%8C%99%E3%81%99%E3%82%8B">作成したオントロジの規模、その活用規模を表す数値を列挙する</h3>
 <ul>
 <li>設計したクラスの数</li>
@@ -1461,11 +1520,11 @@ WHERE {
 </tr>
 <tr>
 <td>Sparql クエリ数</td>
-<td>10</td>
+<td>12</td>
 </tr>
 <tr>
 <td>Sparql 行数</td>
-<td>89</td>
+<td>108</td>
 </tr>
 </tbody>
 </table>
@@ -1479,9 +1538,8 @@ WHERE {
 <ul>
 <li>深く専門的な知識の所在</li>
 </ul>
-<pre class="hljs"><code><div>機械工学や情報工学の専門知識を活用して、機械の技術仕様や性能を詳細に記述しました。
-また、オントロジー設計においては、知識工学の理論と実践を組み合わせて、データの一貫性と再利用性を確保しました。
-さらに、SPARQLクエリを用いた検索機能の実装により、複雑な条件でも高速に検索結果を得ることができるようにしました。
+<pre class="hljs"><code><div>開志ラボの施設の機械を利用しながら、機械の知識をがもらいました。もちろん、開志ラボの施設の管理者と協力して、情報をえります。
+また、今回のオントロジーでは２年生の知識表現の講義で学んだもので作って、API実習やSQLの講義で学んだものを活用して、今回のSPARQLクエリを作って、実際にアプリケーションしました。
 </div></code></pre>
 <ul>
 <li>ユーザへの寄与・貢献、ユーザにどのように活用してほしいか</li>
@@ -1493,7 +1551,7 @@ WHERE {
 <ul>
 <li>差異化要素、強みと特徴点</li>
 </ul>
-<pre class="hljs"><code><div>このオントロジーの強みは、詳細な機械情報を網羅している点と、検索の高速性です。
+<pre class="hljs"><code><div>このオントロジーの強みは、詳細な機械情報を網羅している点と、検索のが早いです。
 特に、機械のブランド、モデル、技術仕様、価格などの情報を一元管理しているため、ユーザーは必要な情報を迅速に取得できます。
 また、SPARQLクエリを用いた検索機能により、複雑な条件でもすぐに検索結果を得ることができます。
 </div></code></pre>
@@ -1501,13 +1559,16 @@ WHERE {
 <li>共通語彙、プロパティの使い方で自ら発見した知見</li>
 </ul>
 <pre class="hljs"><code><div>共通語彙を使用することで、異なるデータソース間での情報統合が容易になることを発見しました。
-特に、機械のブランド・メーカーや技術仕様などのプロパティを統一することで、データの一貫性が保たれ、検索精度が向上しました。
+また、データプロパティとオブジェクトプロパティの違いを理解でき、どっちはどっちに使うのかを理解できました。
+データは単体のインスタンスの情報をつけるためです。
+一方、オブジェクトは一つのインスタンスと別のインスタンスの関係性を表すためのものです。
 </div></code></pre>
 <ul>
 <li>クラスとインスタンスの違いで発見した知見</li>
 </ul>
-<pre class="hljs"><code><div>クラスは機械のカテゴリやタイプを表し、インスタンスは具体的な機械を表すことを理解しました。
-これにより、クラスを使って機械の一般的な特性を定義し、インスタンスを使って具体的な機械の詳細情報を管理することができました。
+<pre class="hljs"><code><div>２年生の時に、クラスを勘違いして、インスタンスをクラスにする時があります。
+それを３年生でたくさんオントロジーを作ったおかげで、自分がどっちはクラスなのか、どっちはインスタンスなのかを理解できました。
+もちろん、今回で作ったオントロジーでもうまく書きました。
 </div></code></pre>
 <ul>
 <li>オントロジ設計で貫いたポリシー</li>
@@ -1520,7 +1581,7 @@ WHERE {
 <li>創意工夫のポイント</li>
 </ul>
 <pre class="hljs"><code><div>機械の詳細情報を網羅するために、各プロパティの定義を細かく行いました。
-また、ユーザーが直感的に情報を検索できるように、検索インターフェースのデザインにも工夫を凝らしました。
+また、ユーザーが直感的に情報を検索できるように、検索するアプリケーションを開発でき、実際にSPARQLのAPIを利用でき、連携できました。
 さらに、SPARQLクエリを用いた検索機能を実装することで、複雑な条件でもすぐにに検索結果を得られるようにしました。
 </div></code></pre>
 <ul>
@@ -1528,6 +1589,7 @@ WHERE {
 </ul>
 <pre class="hljs"><code><div>オントロジエディタを使用して、クラスやプロパティの定義、インスタンスの作成を効率的に行う技法を習得しました。
 また、SPARQLクエリの作成と実行を通じて、データの検索と取得の方法を学びました。
+さらに、Protegeだけではなくて、VirtuosoやWEB Protegeなどを利用でき、事情により利用できました。
 これにより、オントロジの設計と実装のスキルを向上させることができました。
 </div></code></pre>
 <ul>
