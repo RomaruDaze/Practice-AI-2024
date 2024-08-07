@@ -564,12 +564,12 @@ code {
 <thead>
 <tr>
 <th style="text-align:left">オントロジー名</th>
-<th style="text-align:left">あらゆる種類の機械オントロジー</th>
+<th style="text-align:left">対象とした新製品</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">対象とした新製品</td>
+<td style="text-align:left">あらゆる種類の機械オントロジー</td>
 <td style="text-align:left">3D プリンター、CNC マシン、レザーカッター、PCB プリンター、掘削機、グラインダー、テーブルソー</td>
 </tr>
 </tbody>
@@ -1480,7 +1480,6 @@ WHERE {
   ?individual rdf:type owl:NamedIndividual .
   ?individual owl1:hasWeight ?weight .
 
-  # Ensure weight is interpreted as a number and filter by weight range
   FILTER (xsd:decimal(?weight) &gt;= 5 &amp;&amp; xsd:decimal(?weight) &lt;= 15)
 }
 </div></code></pre>
